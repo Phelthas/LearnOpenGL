@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+
+#use_frameworks!
+
+target "Demo_Camera" do
+
+pod "AFNetworking"
+
+pod 'GPUImage'
+
+end
