@@ -64,6 +64,9 @@
     dataOutput.videoSettings = nil;
     dataOutput.alwaysDiscardsLateVideoFrames = YES;
     [dataOutput setSampleBufferDelegate:self queue:_dataOutputQueue];
+    if ([_captureSession canAddOutput:dataOutput]) {
+        [_captureSession addOutput:dataOutput];
+    }
     
     _videoConnection = [dataOutput connectionWithMediaType:AVMediaTypeVideo];
     
@@ -116,7 +119,7 @@
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    
+    NSLog(@"sampleBuffer is %@", sampleBuffer);
 }
 
 
