@@ -51,7 +51,7 @@
 
 
 + (BOOL)linkProgram:(GLuint)program {
-    GLint status;
+    GLint status = -1;
     glLinkProgram(program);
     glGetProgramiv(program, GL_LINK_STATUS, &status);
     if (status == GL_FALSE) {

@@ -242,6 +242,8 @@ enum {
 #pragma mark -
 
 - (BOOL)loadShaders {
+    [EAGLContext setCurrentContext:_context];
+    
     GLuint vertexShader, fragmentShader;
     self.program = glCreateProgram();
     
