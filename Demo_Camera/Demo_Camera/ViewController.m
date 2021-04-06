@@ -40,7 +40,7 @@
 //    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 //    [self.view.layer addSublayer:_previewLayer];
     
-    _glView = [[DemoGLView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height / 2)];
+    _glView = [[DemoGLView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [_glView loadShaders];
     [_glView initializeBuffer];
     [self.view addSubview:_glView];
