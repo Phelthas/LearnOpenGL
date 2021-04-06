@@ -61,7 +61,7 @@
      
         On iOS, the only supported key is kCVPixelBufferPixelFormatTypeKey. Supported pixel formats are kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange and kCVPixelFormatType_32BGRA.
      */
-    dataOutput.videoSettings = nil;
+    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
     dataOutput.alwaysDiscardsLateVideoFrames = YES;
     [dataOutput setSampleBufferDelegate:self queue:_dataOutputQueue];
     if ([_captureSession canAddOutput:dataOutput]) {
@@ -119,7 +119,10 @@
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    NSLog(@"sampleBuffer is %@", sampleBuffer);
+//    NSLog(@"sampleBuffer is %@", sampleBuffer);
+    if ([self.delegate respondsToSelector:@selector(capturePipline:didOutputSampleBuffer:)]) {
+        [self.delegate capturePipline:self didOutputSampleBuffer:sampleBuffer];
+    }
 }
 
 
