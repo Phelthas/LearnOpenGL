@@ -1,15 +1,15 @@
 //
-//  ViewController.m
+//  OneViewController.m
 //  Demo_OpenGLES_1
 //
 //  Created by kook on 2019/3/2.
 //  Copyright © 2019 lxm. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "OneViewController.h"
 #import <GLKit/GLKit.h>
 
-@interface ViewController ()<GLKViewDelegate>
+@interface OneViewController ()<GLKViewDelegate>
 
 @property (nonatomic, strong) GLKView *glkView;
 @property (nonatomic, strong) EAGLContext *context;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation ViewController
+@implementation OneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
