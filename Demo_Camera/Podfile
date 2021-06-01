@@ -8,4 +8,8 @@ pod "AFNetworking"
 
 pod 'GPUImage'
 
+#pod 'LXMKit',  :git => "https://github.com/Phelthas/LXMKit.git"
+pod 'LXMKit',  :path => "~/Documents/LXMGitHub/LXMKit"
+
+
 end

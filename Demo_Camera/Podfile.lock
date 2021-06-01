@@ -1,34 +1,41 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - GPUImage (0.1.7)
+  - LXMKit (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - GPUImage
+  - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - GPUImage
 
-SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+EXTERNAL SOURCES:
+  LXMKit:
+    :path: "~/Documents/LXMGitHub/LXMKit"
 
-PODFILE CHECKSUM: 99382ab602d441362c9db98753d66910d2ab7bfe
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  LXMKit: 60757216c49a4e0117cc894c0d84fdbc47ebecdd
+
+PODFILE CHECKSUM: af111c3888706a10ef87a2f61595ed467fd1ea88
 
 COCOAPODS: 1.9.1

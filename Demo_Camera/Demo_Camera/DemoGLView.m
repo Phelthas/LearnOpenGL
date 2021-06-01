@@ -11,6 +11,7 @@
 #import <OpenGLES/ES2/glext.h>
 #import "DemoGLUtility.h"
 
+#import <LXMKit/LXMAspectUtil.h>
 
 #if !defined(_STRINGIFY)
 #define __STRINGIFY( _x )   # _x
@@ -113,6 +114,7 @@ enum {
     
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
     
+    //这里拿到的宽高是实际的分辨率，（1125*2436）单位像素，，而不是逻辑
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_width);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_height);
     
@@ -209,6 +211,22 @@ enum {
         textureSamplingSize.height = self.bounds.size.height / ( frameHeight * cropScaleAmount.width );
     }
     
+    {
+        CGSize aspectFillSize = [LXMAspectUtil aspectFillSizeForSourceSize:CGSizeMake(frameWidth, frameHeight) destinationSize:self.bounds.size];
+        CGSize myTextureSamplingSize;
+        if (aspectFillSize.width > self.bounds.size.width) {
+            // 这种情况是缩放完的宽度要比屏幕宽度大，所以宽度应该被裁剪，高度保持不变
+            // 裁剪的比例是：self.bounds.size.width / aspectFillSize.width;即展示画面的宽度，占整个纹理宽度的比例
+            myTextureSamplingSize.width = self.bounds.size.width / aspectFillSize.width;
+            myTextureSamplingSize.height = 1.0;
+        } else {
+            // 这种情况是缩放完的高度要比屏幕高度大，所以高度应该被裁剪，宽度保持不变
+            // 裁剪的比例是：self.bounds.size.height / aspectFillSize.height;即展示画面的高度，占整个纹理高度的比例
+            myTextureSamplingSize.width = 1.0;
+            myTextureSamplingSize.height = self.bounds.size.height / aspectFillSize.height;
+        }
+    }
+    
     // Perform a vertical flip by swapping the top left and the bottom left coordinate.
     // CVPixelBuffers have a top left origin and OpenGL has a bottom left origin.
     GLfloat passThroughTextureVertices[] = {
@@ -229,12 +247,7 @@ enum {
     glBindTexture(CVOpenGLESTextureGetTarget(texture), 0);
     glBindTexture(GL_TEXTURE_2D, 0);
     CFRelease(texture);
-    
-    if (oldContext != _context) {
-        [EAGLContext setCurrentContext:_context];
-    }
-    
-    
+     
 }
 
 
