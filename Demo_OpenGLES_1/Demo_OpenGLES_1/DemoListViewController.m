@@ -8,7 +8,6 @@
 
 #import "DemoListViewController.h"
 #import "LXMDemoEntranceModel.h"
-#import "OneViewController.h"
 
 @interface DemoListViewController ()
 
@@ -21,7 +20,8 @@
     // Do any additional setup after loading the view.
     
     self.dataArray = @[
-        [LXMDemoEntranceModel entranceModelWithName:@"OneViewController"],
+        [LXMDemoEntranceModel entranceModelWithName:@"OneViewController" desc:@"a simplest triangle"],
+        [LXMDemoEntranceModel entranceModelWithName:@"TwoViewController" desc:@"a rectangle"],
     ];
     
 }

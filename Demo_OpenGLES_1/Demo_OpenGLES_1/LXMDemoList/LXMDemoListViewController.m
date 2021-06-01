@@ -41,9 +41,10 @@
     static NSString * const cellIdentifier = @"cellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         LXMDemoEntranceModel *model = self.dataArray[indexPath.row];
         cell.textLabel.text = model.entranceName;
+        cell.detailTextLabel.text = model.desc;
     }
     return cell;
 }

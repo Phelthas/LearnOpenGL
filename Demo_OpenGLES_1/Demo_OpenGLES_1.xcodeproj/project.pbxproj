@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		433794502665023B00197E1F /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4337944F2665023B00197E1F /* TwoViewController.m */; };
 		43BA14F62664CE9400734E7E /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 43BA14F52664CE9400734E7E /* saber.jpeg */; };
 		43BA14FA2664E41600734E7E /* LXMDemoEntranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */; };
 		43BA14FD2664E4D600734E7E /* LXMDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14FC2664E4D600734E7E /* LXMDemoListViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4337944E2665023B00197E1F /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		4337944F2665023B00197E1F /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		43BA14F52664CE9400734E7E /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
 		43BA14F82664E41600734E7E /* LXMDemoEntranceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMDemoEntranceModel.h; sourceTree = "<group>"; };
 		43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMDemoEntranceModel.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				43BA14FF2664E5C300734E7E /* DemoListViewController.m */,
 				F688E23D222AACE3009AC954 /* OneViewController.h */,
 				F688E23E222AACE3009AC954 /* OneViewController.m */,
+				4337944E2665023B00197E1F /* TwoViewController.h */,
+				4337944F2665023B00197E1F /* TwoViewController.m */,
 				43BA14F52664CE9400734E7E /* saber.jpeg */,
 				F688E240222AACE3009AC954 /* Main.storyboard */,
 				F688E243222AACE6009AC954 /* Assets.xcassets */,
@@ -168,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				433794502665023B00197E1F /* TwoViewController.m in Sources */,
 				F688E23F222AACE3009AC954 /* OneViewController.m in Sources */,
 				F688E24A222AACE6009AC954 /* main.m in Sources */,
 				43BA14FD2664E4D600734E7E /* LXMDemoListViewController.m in Sources */,
