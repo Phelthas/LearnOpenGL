@@ -11,9 +11,8 @@
 		435C77F226671C0F00048D52 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C77F126671C0F00048D52 /* ThreeViewController.m */; };
 		435C78CD2667AC1B00048D52 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 435C78CC2667AC1B00048D52 /* xianhua.png */; };
 		43BA14F62664CE9400734E7E /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 43BA14F52664CE9400734E7E /* saber.jpeg */; };
-		43BA14FA2664E41600734E7E /* LXMDemoEntranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */; };
-		43BA14FD2664E4D600734E7E /* LXMDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14FC2664E4D600734E7E /* LXMDemoListViewController.m */; };
 		43BA15002664E5C300734E7E /* DemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14FF2664E5C300734E7E /* DemoListViewController.m */; };
+		A3C717B001DE7440EC5996DB /* libPods-Demo_OpenGLES_1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F75B7AC51460BC015E9DE4C0 /* libPods-Demo_OpenGLES_1.a */; };
 		F688E23C222AACE3009AC954 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F688E23B222AACE3009AC954 /* AppDelegate.m */; };
 		F688E23F222AACE3009AC954 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F688E23E222AACE3009AC954 /* OneViewController.m */; };
 		F688E242222AACE3009AC954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F688E240222AACE3009AC954 /* Main.storyboard */; };
@@ -23,18 +22,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		126416FDFDD2F7B8CF56179B /* Pods-Demo_OpenGLES_1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_1.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_1/Pods-Demo_OpenGLES_1.debug.xcconfig"; sourceTree = "<group>"; };
 		4337944E2665023B00197E1F /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		4337944F2665023B00197E1F /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		435C77F026671C0F00048D52 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
 		435C77F126671C0F00048D52 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
 		435C78CC2667AC1B00048D52 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
 		43BA14F52664CE9400734E7E /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
-		43BA14F82664E41600734E7E /* LXMDemoEntranceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMDemoEntranceModel.h; sourceTree = "<group>"; };
-		43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMDemoEntranceModel.m; sourceTree = "<group>"; };
-		43BA14FB2664E4D600734E7E /* LXMDemoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMDemoListViewController.h; sourceTree = "<group>"; };
-		43BA14FC2664E4D600734E7E /* LXMDemoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMDemoListViewController.m; sourceTree = "<group>"; };
 		43BA14FE2664E5C300734E7E /* DemoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoListViewController.h; sourceTree = "<group>"; };
 		43BA14FF2664E5C300734E7E /* DemoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoListViewController.m; sourceTree = "<group>"; };
+		D50E3DD26A2056C1228437AB /* Pods-Demo_OpenGLES_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_1.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_1/Pods-Demo_OpenGLES_1.release.xcconfig"; sourceTree = "<group>"; };
 		F688E237222AACE3009AC954 /* Demo_OpenGLES_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F688E23A222AACE3009AC954 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F688E23B222AACE3009AC954 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -45,6 +42,7 @@
 		F688E246222AACE6009AC954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F688E248222AACE6009AC954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F688E249222AACE6009AC954 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F75B7AC51460BC015E9DE4C0 /* libPods-Demo_OpenGLES_1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,21 +50,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C717B001DE7440EC5996DB /* libPods-Demo_OpenGLES_1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43BA14F72664E3F500734E7E /* LXMDemoList */ = {
+		DA1E461ED7E7C40B41B1A635 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43BA14F82664E41600734E7E /* LXMDemoEntranceModel.h */,
-				43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */,
-				43BA14FB2664E4D600734E7E /* LXMDemoListViewController.h */,
-				43BA14FC2664E4D600734E7E /* LXMDemoListViewController.m */,
+				F75B7AC51460BC015E9DE4C0 /* libPods-Demo_OpenGLES_1.a */,
 			);
-			path = LXMDemoList;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F688E22E222AACE3009AC954 = {
@@ -74,6 +70,8 @@
 			children = (
 				F688E239222AACE3009AC954 /* Demo_OpenGLES_1 */,
 				F688E238222AACE3009AC954 /* Products */,
+				FB5CDC0EE6FAC50BC00C84D5 /* Pods */,
+				DA1E461ED7E7C40B41B1A635 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +86,6 @@
 		F688E239222AACE3009AC954 /* Demo_OpenGLES_1 */ = {
 			isa = PBXGroup;
 			children = (
-				43BA14F72664E3F500734E7E /* LXMDemoList */,
 				F688E23A222AACE3009AC954 /* AppDelegate.h */,
 				F688E23B222AACE3009AC954 /* AppDelegate.m */,
 				43BA14FE2664E5C300734E7E /* DemoListViewController.h */,
@@ -110,6 +107,15 @@
 			path = Demo_OpenGLES_1;
 			sourceTree = "<group>";
 		};
+		FB5CDC0EE6FAC50BC00C84D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				126416FDFDD2F7B8CF56179B /* Pods-Demo_OpenGLES_1.debug.xcconfig */,
+				D50E3DD26A2056C1228437AB /* Pods-Demo_OpenGLES_1.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,6 +123,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F688E24D222AACE6009AC954 /* Build configuration list for PBXNativeTarget "Demo_OpenGLES_1" */;
 			buildPhases = (
+				49D75EADE91A7F13F9696329 /* [CP] Check Pods Manifest.lock */,
 				F688E233222AACE3009AC954 /* Sources */,
 				F688E234222AACE3009AC954 /* Frameworks */,
 				F688E235222AACE3009AC954 /* Resources */,
@@ -177,6 +184,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49D75EADE91A7F13F9696329 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo_OpenGLES_1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F688E233222AACE3009AC954 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -185,9 +217,7 @@
 				433794502665023B00197E1F /* TwoViewController.m in Sources */,
 				F688E23F222AACE3009AC954 /* OneViewController.m in Sources */,
 				F688E24A222AACE6009AC954 /* main.m in Sources */,
-				43BA14FD2664E4D600734E7E /* LXMDemoListViewController.m in Sources */,
 				F688E23C222AACE3009AC954 /* AppDelegate.m in Sources */,
-				43BA14FA2664E41600734E7E /* LXMDemoEntranceModel.m in Sources */,
 				43BA15002664E5C300734E7E /* DemoListViewController.m in Sources */,
 				435C77F226671C0F00048D52 /* ThreeViewController.m in Sources */,
 			);
@@ -329,6 +359,7 @@
 		};
 		F688E24E222AACE6009AC954 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 126416FDFDD2F7B8CF56179B /* Pods-Demo_OpenGLES_1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -346,6 +377,7 @@
 		};
 		F688E24F222AACE6009AC954 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D50E3DD26A2056C1228437AB /* Pods-Demo_OpenGLES_1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
