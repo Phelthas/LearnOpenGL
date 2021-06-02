@@ -40,13 +40,20 @@
 //        -0.5, -0.5, 0,
 //        -0.5, 0.5, 0,
 //    };
-    const GLKVector3 vertexArray[] = {
-        {0.5, 0.5, 0},
-        {0.5, -0.5, 0},
-        {-0.5, -0.5, 0},
-        {-0.5, 0.5, 0},
-    };
     
+//    const GLKVector3 vertexArray[] = {
+//        {0.5, 0.5, 0},
+//        {0.5, -0.5, 0},
+//        {-0.5, -0.5, 0},
+//        {-0.5, 0.5, 0},
+//    };
+    
+    const GLKVector3 vertexArray[] = {
+        GLKVector3Make(0.5, 0.5, 0),
+        GLKVector3Make(0.5, -0.5, 0),
+        GLKVector3Make(-0.5, -0.5, 0),
+        GLKVector3Make(-0.5, 0.5, 0),
+    };
     
     
     GLuint vbo;

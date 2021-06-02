@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		433794502665023B00197E1F /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4337944F2665023B00197E1F /* TwoViewController.m */; };
+		435C77F226671C0F00048D52 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C77F126671C0F00048D52 /* ThreeViewController.m */; };
+		435C78CD2667AC1B00048D52 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 435C78CC2667AC1B00048D52 /* xianhua.png */; };
 		43BA14F62664CE9400734E7E /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 43BA14F52664CE9400734E7E /* saber.jpeg */; };
 		43BA14FA2664E41600734E7E /* LXMDemoEntranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */; };
 		43BA14FD2664E4D600734E7E /* LXMDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BA14FC2664E4D600734E7E /* LXMDemoListViewController.m */; };
@@ -23,6 +25,9 @@
 /* Begin PBXFileReference section */
 		4337944E2665023B00197E1F /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		4337944F2665023B00197E1F /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		435C77F026671C0F00048D52 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
+		435C77F126671C0F00048D52 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
+		435C78CC2667AC1B00048D52 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
 		43BA14F52664CE9400734E7E /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
 		43BA14F82664E41600734E7E /* LXMDemoEntranceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMDemoEntranceModel.h; sourceTree = "<group>"; };
 		43BA14F92664E41600734E7E /* LXMDemoEntranceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMDemoEntranceModel.m; sourceTree = "<group>"; };
@@ -92,7 +97,10 @@
 				F688E23E222AACE3009AC954 /* OneViewController.m */,
 				4337944E2665023B00197E1F /* TwoViewController.h */,
 				4337944F2665023B00197E1F /* TwoViewController.m */,
+				435C77F026671C0F00048D52 /* ThreeViewController.h */,
+				435C77F126671C0F00048D52 /* ThreeViewController.m */,
 				43BA14F52664CE9400734E7E /* saber.jpeg */,
+				435C78CC2667AC1B00048D52 /* xianhua.png */,
 				F688E240222AACE3009AC954 /* Main.storyboard */,
 				F688E243222AACE6009AC954 /* Assets.xcassets */,
 				F688E245222AACE6009AC954 /* LaunchScreen.storyboard */,
@@ -162,6 +170,7 @@
 				F688E247222AACE6009AC954 /* LaunchScreen.storyboard in Resources */,
 				F688E244222AACE6009AC954 /* Assets.xcassets in Resources */,
 				F688E242222AACE3009AC954 /* Main.storyboard in Resources */,
+				435C78CD2667AC1B00048D52 /* xianhua.png in Resources */,
 				43BA14F62664CE9400734E7E /* saber.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +189,7 @@
 				F688E23C222AACE3009AC954 /* AppDelegate.m in Sources */,
 				43BA14FA2664E41600734E7E /* LXMDemoEntranceModel.m in Sources */,
 				43BA15002664E5C300734E7E /* DemoListViewController.m in Sources */,
+				435C77F226671C0F00048D52 /* ThreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
