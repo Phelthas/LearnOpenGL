@@ -1,14 +1,14 @@
 //
-//  ThreeViewController.m
+//  FourViewController.m
 //  Demo_OpenGLES_1
 //
-//  Created by billthaslu on 2021/6/2.
+//  Created by billthaslu on 2021/6/3.
 //  Copyright © 2021 lxm. All rights reserved.
 //
 
-#import "ThreeViewController.h"
+#import "FourViewController.h"
 #import <GLKit/GLKit.h>
-
+#import "LXMAspectUtil.h"
 
 
 typedef struct {
@@ -16,7 +16,7 @@ typedef struct {
     GLKVector2 coordinate;
 } VertexAndCoordinate;
 
-@interface ThreeViewController ()<GLKViewDelegate>
+@interface FourViewController ()<GLKViewDelegate>
 
 @property (nonatomic, strong) GLKView *glkView;
 @property (nonatomic, strong) EAGLContext *context;
@@ -24,7 +24,7 @@ typedef struct {
 
 @end
 
-@implementation ThreeViewController
+@implementation FourViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +36,34 @@ typedef struct {
     _glkView.delegate = self;
     [self.view addSubview:_glkView];
     
+    // 加载图片纹理
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+
+    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+//    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:nil error:nil];
+    
+    CGSize imageSize = image.size;
+    CGSize displaySize = CGSizeMake(self.view.frame.size.width * 0.5, self.view.frame.size.height * 0.5);
+    CGSize aspectFillSize = [LXMAspectUtil aspectFillSizeForSourceSize:imageSize destinationSize:displaySize];
+    //按照aspectFill的方式计算出来的aspectFillSize一定是>=displaySize的
+    CGSize samplingSize = CGSizeMake(displaySize.width / aspectFillSize.width, displaySize.height / aspectFillSize.height);
+    
+    // 注意：AspectFit的方式，不能用这种方式来实现！！！
+    
+    CGFloat leftX = (1 - samplingSize.width) / 2;
+    CGFloat rightX = (1 + samplingSize.width) / 2;
+    CGFloat topY = (1 + samplingSize.height) / 2;
+    CGFloat bottomY = (1 - samplingSize.height) / 2;
+    
+    
     const VertexAndCoordinate vertexArray[] = {
-        {{0.5, 0.5, 0}, {1.0, 1.0}},
-        {{0.5, -0.5, 0}, {1.0, 0.0}},
-        {{-0.5, -0.5, 0}, {0.0, 0.0}},
-        {{-0.5, 0.5, 0}, {0.0, 1.0}},
+        {{0.5, 0.5, 0}, {rightX, topY}},
+        {{0.5, -0.5, 0}, {rightX, bottomY}},
+        {{-0.5, -0.5, 0}, {leftX, bottomY}},
+        {{-0.5, 0.5, 0}, {leftX, topY}},
     };
     
     GLuint vbo;
@@ -63,15 +86,7 @@ typedef struct {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indexArray), indexArray, GL_STATIC_DRAW);
     
-    // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
 
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
-    
-//    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:nil error:nil];
     
     self.baseEffect = [[GLKBaseEffect alloc] init];
     self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 0.5);
@@ -82,7 +97,6 @@ typedef struct {
     glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
     glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, sizeof(VertexAndCoordinate), NULL + offsetof(VertexAndCoordinate, coordinate));
     
-    // 可以看到图片是被拉伸的，如果要要解决拉伸的问题，一般需要对纹理进行裁剪，对代码来说就是需要按缩放重新计算纹理的坐标
 }
 
 
@@ -97,5 +111,4 @@ typedef struct {
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 }
-
 @end

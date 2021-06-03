@@ -25,6 +25,8 @@
         [LXMDemoEntranceModel entranceModelWithName:@"OneViewController" desc:@"a simplest triangle"],
         [LXMDemoEntranceModel entranceModelWithName:@"TwoViewController" desc:@"a rectangle"],
         [LXMDemoEntranceModel entranceModelWithName:@"ThreeViewController" desc:@"draw a picture with GLKTextureLoader"],
+        [LXMDemoEntranceModel entranceModelWithName:@"FourViewController" desc:@"draw a aspectScale picture with GLKTextureLoader"],
+        
     ];
     
 }
