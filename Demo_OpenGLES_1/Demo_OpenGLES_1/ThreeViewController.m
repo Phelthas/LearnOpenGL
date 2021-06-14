@@ -36,12 +36,29 @@ typedef struct {
     _glkView.delegate = self;
     [self.view addSubview:_glkView];
     
-    const VertexAndCoordinate vertexArray[] = {
-        {{0.5, 0.5, 0}, {1.0, 1.0}},
-        {{0.5, -0.5, 0}, {1.0, 0.0}},
-        {{-0.5, -0.5, 0}, {0.0, 0.0}},
-        {{-0.5, 0.5, 0}, {0.0, 1.0}},
-    };
+//    const VertexAndCoordinate vertexArray[] = {
+//        {{0.5, 0.5, 0}, {1.0, 1.0}},
+//        {{0.5, -0.5, 0}, {1.0, 0.0}},
+//        {{-0.5, -0.5, 0}, {0.0, 0.0}},
+//        {{-0.5, 0.5, 0}, {0.0, 1.0}},
+//    };
+    
+//    const VertexAndCoordinate vertexArray[] = {
+//        {GLKVector3Make(0.5, 0.5, 0), GLKVector2Make(1.0, 1.0)},
+//        {GLKVector3Make(0.5, -0.5, 0), GLKVector2Make(1.0, 0.0)},
+//        {GLKVector3Make(-0.5, -0.5, 0), GLKVector2Make(0.0, 0.0)},
+//        {GLKVector3Make(-0.5, 0.5, 0), GLKVector2Make(0.0, 1.0)},
+//    };
+    
+     ///**
+     //使用纹理坐标的旋转实现纹理的旋转
+     const VertexAndCoordinate vertexArray[] = {
+         {GLKVector3Make(0.5, 0.5, 0), GLKVector2Make(1.0, 0.0)},
+         {GLKVector3Make(0.5, -0.5, 0), GLKVector2Make(0.0, 0.0)},
+         {GLKVector3Make(-0.5, -0.5, 0), GLKVector2Make(0.0, 1.0)},
+         {GLKVector3Make(-0.5, 0.5, 0), GLKVector2Make(1.0, 1.0)},
+     };
+     //*/
     
     GLuint vbo;
     glGenBuffers(1, &vbo);

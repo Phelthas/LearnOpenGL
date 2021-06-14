@@ -26,6 +26,7 @@
         [LXMDemoEntranceModel entranceModelWithName:@"TwoViewController" desc:@"a rectangle"],
         [LXMDemoEntranceModel entranceModelWithName:@"ThreeViewController" desc:@"draw a picture with GLKTextureLoader"],
         [LXMDemoEntranceModel entranceModelWithName:@"FourViewController" desc:@"draw a aspectScale picture with GLKTextureLoader"],
+        [LXMDemoEntranceModel entranceModelWithName:@"FiveViewController" desc:@"create texture with CoreGraphics"],
         
     ];
     
