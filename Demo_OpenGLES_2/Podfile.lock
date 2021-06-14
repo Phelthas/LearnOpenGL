@@ -1,0 +1,16 @@
+PODS:
+  - LXMKit (0.1.0)
+
+DEPENDENCIES:
+  - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
+
+EXTERNAL SOURCES:
+  LXMKit:
+    :path: "~/Documents/LXMGitHub/LXMKit"
+
+SPEC CHECKSUMS:
+  LXMKit: f8bbf99720b361f90a16180c32bf1072ff059549
+
+PODFILE CHECKSUM: 3524cb0a8db1443c4c4c2f7b83eba3ed550b3bd5
+
+COCOAPODS: 1.9.3

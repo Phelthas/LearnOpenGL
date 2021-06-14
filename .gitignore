@@ -36,6 +36,7 @@ xcuserdata/
 #
 
 Demo_OpenGLES_1/Pods/
+**/Pods/
 
 # Carthage
 #
