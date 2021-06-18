@@ -6,8 +6,11 @@
 //
 
 #import "OneViewController.h"
+#import "DemoGLView.h"
 
 @interface OneViewController ()
+
+@property (nonatomic, strong) DemoGLView *glView;
 
 @end
 
@@ -15,7 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.whiteColor;
+    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_glView];
+    
+    [_glView loadShaders];
+    [_glView initializeBuffer];
+    [_glView displayContent];
+    
 }
 
 @end
