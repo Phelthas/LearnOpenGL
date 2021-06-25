@@ -10,6 +10,12 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+
+#if !defined(_STRINGIFY)
+#define __STRINGIFY( _x )   # _x
+#define _STRINGIFY( _x )   __STRINGIFY( _x )
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLUtility : NSObject

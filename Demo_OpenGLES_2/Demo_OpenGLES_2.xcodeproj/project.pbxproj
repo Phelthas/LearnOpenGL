@@ -15,6 +15,7 @@
 		4361BDCE267776EC00AE84A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDCD267776EC00AE84A6 /* main.m */; };
 		4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDD52677786400AE84A6 /* DemoList2ViewController.m */; };
 		4361BDD9267778E700AE84A6 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDD8267778E700AE84A6 /* OneViewController.m */; };
+		4376C0C82683849D00F71DF5 /* DemoGLView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4376C0C72683849D00F71DF5 /* DemoGLView2.m */; };
 		A3A96128F79EE444852DFE28 /* libPods-Demo_OpenGLES_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		4361BDD52677786400AE84A6 /* DemoList2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoList2ViewController.m; sourceTree = "<group>"; };
 		4361BDD7267778E700AE84A6 /* OneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
 		4361BDD8267778E700AE84A6 /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
+		4376C0C62683849D00F71DF5 /* DemoGLView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLView2.h; sourceTree = "<group>"; };
+		4376C0C72683849D00F71DF5 /* DemoGLView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLView2.m; sourceTree = "<group>"; };
 		83252D0CCEFB1FE1EC17E773 /* Pods-Demo_OpenGLES_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.debug.xcconfig"; sourceTree = "<group>"; };
 		B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FC46FF214699F2616C71B3 /* Pods-Demo_OpenGLES_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				432CEC0526798F1C00693516 /* DemoGLView.m */,
 				4361BDD7267778E700AE84A6 /* OneViewController.h */,
 				4361BDD8267778E700AE84A6 /* OneViewController.m */,
+				4376C0C62683849D00F71DF5 /* DemoGLView2.h */,
+				4376C0C72683849D00F71DF5 /* DemoGLView2.m */,
 				4361BDC4267776EA00AE84A6 /* Main.storyboard */,
 				4361BDC7267776EC00AE84A6 /* Assets.xcassets */,
 				4361BDC9267776EC00AE84A6 /* LaunchScreen.storyboard */,
@@ -203,6 +208,7 @@
 				4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */,
 				4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */,
 				432CEC0626798F1C00693516 /* DemoGLView.m in Sources */,
+				4376C0C82683849D00F71DF5 /* DemoGLView2.m in Sources */,
 				4361BDCE267776EC00AE84A6 /* main.m in Sources */,
 				4361BDD9267778E700AE84A6 /* OneViewController.m in Sources */,
 			);

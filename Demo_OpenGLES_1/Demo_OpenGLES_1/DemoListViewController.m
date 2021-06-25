@@ -7,7 +7,6 @@
 //
 
 #import "DemoListViewController.h"
-#import "LXMDemoEntranceModel.h"
 
 @interface DemoListViewController ()
 

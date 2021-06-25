@@ -8,11 +8,6 @@
 #import "DemoGLView.h"
 #import "DemoGLUtility.h"
 
-#if !defined(_STRINGIFY)
-#define __STRINGIFY( _x )   # _x
-#define _STRINGIFY( _x )   __STRINGIFY( _x )
-#endif
-
 static const char * kPassThruVertex = _STRINGIFY(
 
 attribute vec4 position;
@@ -20,7 +15,7 @@ attribute vec4 position;
 void main()
 {
     gl_Position = position;
-    gl_PointSize = 40.0;
+//    gl_PointSize = 40.0;
 }
                                                  
 );
@@ -29,20 +24,13 @@ static const char * kPassThruFragment = _STRINGIFY(
                                                    
 void main()
 {
-    gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
+    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
 }
                                                    
 );
 
 
 @interface DemoGLView ()
-
-@property (nonatomic, strong) EAGLContext *context;
-@property (nonatomic, assign) GLuint program;
-@property (nonatomic, assign) GLuint frameBufferHandler;
-@property (nonatomic, assign) GLuint renderBufferHandler;
-@property (nonatomic, assign) GLint width;
-@property (nonatomic, assign) GLint height;
 
 @end
 
@@ -79,10 +67,10 @@ void main()
 
 
 - (BOOL)loadShaders {
-    [EAGLContext setCurrentContext:self.context];
+    [EAGLContext setCurrentContext:_context];
     
     GLuint vertexShader, fragmentShader;
-    self.program = glCreateProgram();
+    _program = glCreateProgram();
     
     
     if (![DemoGLUtility complieShader:&vertexShader type:GL_VERTEX_SHADER shaderSource:kPassThruVertex]) {
@@ -92,31 +80,31 @@ void main()
         return false;
     }
     
-    glAttachShader(self.program, vertexShader);
+    glAttachShader(_program, vertexShader);
 
-    glAttachShader(self.program, fragmentShader);
+    glAttachShader(_program, fragmentShader);
     
     
-    if (![DemoGLUtility linkProgram:self.program]) {
+    if (![DemoGLUtility linkProgram:_program]) {
         if (vertexShader) {
             glDeleteShader(vertexShader);
         }
         if (fragmentShader) {
             glDeleteShader(fragmentShader);
         }
-        if (self.program) {
-            glDeleteProgram(self.program);
-            self.program = 0;
+        if (_program) {
+            glDeleteProgram(_program);
+            _program = 0;
         }
         return false;
     }
     
     if (vertexShader) {
-        glDetachShader(self.program, vertexShader);
+        glDetachShader(_program, vertexShader);
         glDeleteShader(vertexShader);
     }
     if (fragmentShader) {
-        glDetachShader(self.program, fragmentShader);
+        glDetachShader(_program, fragmentShader);
         glDeleteShader(fragmentShader);
     }
 
@@ -129,6 +117,7 @@ void main()
     
     glDisable(GL_DEPTH_TEST);
     
+    //这两句必不可少，没有framebuffer就不会正常显示
     glGenBuffers(1, &_frameBufferHandler);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferHandler);
     
@@ -148,18 +137,18 @@ void main()
         return NO;
     }
     
+    glUseProgram(_program);
+    
+    glViewport(0, 0, _width, _height);
+    
     return YES;
 }
 
 - (void)displayContent {
-    glUseProgram(self.program);
     
-    glViewport(0, 0, _width, _height);
 
     glClearColor(0.0, 0.25, 0.25f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-//
-//    [_context presentRenderbuffer:GL_RENDERBUFFER];
     
     // 设置顶点数组
     const GLfloat vertices[] = {
@@ -173,7 +162,7 @@ void main()
     glEnableVertexAttribArray(0);
 
     // Draw triangle
-    glDrawArrays(GL_POINTS, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 
     [_context presentRenderbuffer:GL_RENDERBUFFER];
     
