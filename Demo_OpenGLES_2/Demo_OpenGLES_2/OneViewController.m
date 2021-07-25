@@ -13,6 +13,10 @@
 
 @implementation OneViewController
 
+- (void)dealloc {
+    LogClassAndFunction;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

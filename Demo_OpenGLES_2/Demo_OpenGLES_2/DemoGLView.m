@@ -7,6 +7,7 @@
 
 #import "DemoGLView.h"
 #import "DemoGLUtility.h"
+#import "DemoLogDefines.h"
 
 static const char * kPassThruVertex = _STRINGIFY(
 
@@ -35,6 +36,11 @@ void main()
 @end
 
 @implementation DemoGLView
+
+- (void)dealloc {
+    [self destroyBuffers];
+    LogClassAndFunction;
+}
 
 + (Class)layerClass {
     return [CAEAGLLayer class];
@@ -150,22 +156,38 @@ void main()
     glClearColor(0.0, 0.25, 0.25f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
+    /**
+     注意!!!
+     这里没有使用vbo，是直接用glVertexAttribPointer函数将数据传递过去的
+     写在其他地方会crash，暂时还不知道为啥
+     */
     // 设置顶点数组
     const GLfloat vertices[] = {
         0.0f,  0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
         0.5f,  -0.5f, 0.0f
     };
-
-    // 给_positionSlot传递vertices数据
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
     glEnableVertexAttribArray(0);
-
+    
     // Draw triangle
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
     [_context presentRenderbuffer:GL_RENDERBUFFER];
     
+}
+
+- (void)destroyBuffers {
+    LogClassAndFunction;
+    if (_program) {
+        glDeleteProgram(_program);
+    }
+    if (_frameBufferHandler) {
+        glDeleteBuffers(1, &_frameBufferHandler);
+    }
+    if (_renderBufferHandler) {
+        glDeleteBuffers(1, &_renderBufferHandler);
+    }
 }
 
 @end

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DemoGLView.h"
+#import "DemoLogDefines.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
