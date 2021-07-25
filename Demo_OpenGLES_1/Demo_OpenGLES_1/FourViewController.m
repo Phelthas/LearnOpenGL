@@ -90,8 +90,8 @@ typedef struct {
     
     self.baseEffect = [[GLKBaseEffect alloc] init];
     self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 0.5);
-    self.baseEffect.texture2d0.name = textureInfo.name;
-    self.baseEffect.texture2d0.target = textureInfo.target;
+    self.baseEffect.texture2d0.name = textureInfo.name;// name是必须的
+    self.baseEffect.texture2d0.target = textureInfo.target;// target不设也行
     
     
     glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
