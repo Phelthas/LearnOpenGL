@@ -6,10 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DemoGLView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OneViewController : UIViewController
+
+@property (nonatomic, strong) DemoGLView *glView;
+
+/// 子类可重载，会在ViewDidLoad中调用
+- (void)setupGLView;
 
 @end
 

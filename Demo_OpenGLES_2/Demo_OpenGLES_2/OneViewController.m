@@ -6,12 +6,8 @@
 //
 
 #import "OneViewController.h"
-#import "DemoGLView.h"
-#import "DemoGLView2.h"
 
 @interface OneViewController ()
-
-@property (nonatomic, strong) DemoGLView *glView;
 
 @end
 
@@ -20,10 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self testGLView];
-    [self testGLView2];
     
-    [self.view addSubview:_glView];
+    [self setupGLView];
+    
     
     [_glView loadShaders];
     [_glView initializeBuffer];
@@ -31,12 +26,9 @@
     
 }
 
-- (void)testGLView {
+- (void)setupGLView {
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
-}
-
-- (void)testGLView2 {
-    _glView = [[DemoGLView2 alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_glView];
 }
 
 @end

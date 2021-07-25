@@ -21,6 +21,7 @@
     
     self.dataArray = @[
         [LXMDemoEntranceModel entranceModelWithName:@"OneViewController"],
+        [LXMDemoEntranceModel entranceModelWithName:@"TwoViewController" desc:nil],
     ];
     
 }

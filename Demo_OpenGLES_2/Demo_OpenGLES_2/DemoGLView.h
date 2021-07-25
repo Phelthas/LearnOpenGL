@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLView : UIView {
+    //实例变量如果没有显式的声明出来，子类就不能直接用
     EAGLContext *_context;
     GLuint _program;
     GLuint _frameBufferHandler;

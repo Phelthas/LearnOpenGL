@@ -1,11 +1,36 @@
 //
-//  DemoGLView2.m
+//  TwoViewController.m
 //  Demo_OpenGLES_2
 //
-//  Created by billthaslu on 2021/6/23.
+//  Created by billthaslu on 2021/7/25.
 //
 
-#import "DemoGLView2.h"
+#import "TwoViewController.h"
+
+@interface TwoViewController ()
+
+@end
+
+@implementation TwoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+- (void)setupGLView {
+    self.glView = [[DemoGLView2 alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.glView];
+}
+
+@end
+
+
+
+
+#pragma mark ----------------------------------DemoGLView2----------------------------------
+
+
 #import "DemoGLUtility.h"
 
 
