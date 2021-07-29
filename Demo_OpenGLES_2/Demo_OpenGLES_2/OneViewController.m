@@ -25,7 +25,7 @@
     
     
     [_glView loadShaders];
-    [_glView initializeBuffer];
+    [_glView setupProgramAndViewport];
     [_glView displayContent];
     
 }

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)loadShaders;
 
-- (BOOL)initializeBuffer;
+- (void)setupProgramAndViewport;
 
 - (void)displayContent;
 
