@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02DF26C9521F0016E618 /* ThreeViewController.m */; };
+		431E02E526C95B4C0016E618 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E326C95B4C0016E618 /* saber.jpeg */; };
+		431E02E626C95B4C0016E618 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E426C95B4C0016E618 /* xianhua.png */; };
 		432CEC0626798F1C00693516 /* DemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 432CEC0526798F1C00693516 /* DemoGLView.m */; };
 		4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDBC267776EA00AE84A6 /* AppDelegate.m */; };
 		4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4361BDC4267776EA00AE84A6 /* Main.storyboard */; };
@@ -21,6 +24,11 @@
 
 /* Begin PBXFileReference section */
 		4310E9A626AD7A0D00DBC8FC /* DemoLogDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoLogDefines.h; sourceTree = "<group>"; };
+		431E02DE26C9521F0016E618 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
+		431E02DF26C9521F0016E618 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
+		431E02E226C954340016E618 /* DemoCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCommon.h; sourceTree = "<group>"; };
+		431E02E326C95B4C0016E618 /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
+		431E02E426C95B4C0016E618 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
 		432CEC0426798F1C00693516 /* DemoGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLView.h; sourceTree = "<group>"; };
 		432CEC0526798F1C00693516 /* DemoGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLView.m; sourceTree = "<group>"; };
 		4361BDB8267776EA00AE84A6 /* Demo_OpenGLES_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +85,7 @@
 			children = (
 				4361BDBB267776EA00AE84A6 /* AppDelegate.h */,
 				4361BDBC267776EA00AE84A6 /* AppDelegate.m */,
+				431E02E226C954340016E618 /* DemoCommon.h */,
 				4310E9A626AD7A0D00DBC8FC /* DemoLogDefines.h */,
 				4361BDD42677786400AE84A6 /* DemoList2ViewController.h */,
 				4361BDD52677786400AE84A6 /* DemoList2ViewController.m */,
@@ -86,6 +95,10 @@
 				4361BDD8267778E700AE84A6 /* OneViewController.m */,
 				4398084E26AD68C40077BBDC /* TwoViewController.h */,
 				4398084F26AD68C40077BBDC /* TwoViewController.m */,
+				431E02DE26C9521F0016E618 /* ThreeViewController.h */,
+				431E02DF26C9521F0016E618 /* ThreeViewController.m */,
+				431E02E326C95B4C0016E618 /* saber.jpeg */,
+				431E02E426C95B4C0016E618 /* xianhua.png */,
 				4361BDC4267776EA00AE84A6 /* Main.storyboard */,
 				4361BDC7267776EC00AE84A6 /* Assets.xcassets */,
 				4361BDC9267776EC00AE84A6 /* LaunchScreen.storyboard */,
@@ -172,6 +185,8 @@
 				4361BDCB267776EC00AE84A6 /* LaunchScreen.storyboard in Resources */,
 				4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */,
 				4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */,
+				431E02E626C95B4C0016E618 /* xianhua.png in Resources */,
+				431E02E526C95B4C0016E618 /* saber.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4398085026AD68C40077BBDC /* TwoViewController.m in Sources */,
+				431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */,
 				4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */,
 				4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */,
 				432CEC0626798F1C00693516 /* DemoGLView.m in Sources */,
