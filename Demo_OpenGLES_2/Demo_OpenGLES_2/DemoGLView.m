@@ -85,12 +85,14 @@ void main()
     glGenBuffers(1, &_renderBufferHandler);
     glBindRenderbuffer(GL_RENDERBUFFER, _renderBufferHandler);
     
+    // 为renderBuffer分配存储区，这里是将self.layer的绘制存储区作为renderBuffer的存储区；
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
     
     //这里拿到的宽高是实际的分辨率，（1125*2436）单位像素，，而不是逻辑
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_width);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_height);
     
+    // 将renderBuffer绑定到frameBuffer
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderBufferHandler);
     
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
@@ -186,12 +188,19 @@ void main()
     LogClassAndFunction;
     if (_program) {
         glDeleteProgram(_program);
+        _program = 0;//这一句理论上不能少，需要手动置0，否则其他地方判断可能会出错
     }
     if (_frameBufferHandler) {
         glDeleteBuffers(1, &_frameBufferHandler);
+        _frameBufferHandler = 0;//这一句理论上不能少，需要手动置0，否则其他地方判断可能会出错
     }
     if (_renderBufferHandler) {
         glDeleteBuffers(1, &_renderBufferHandler);
+        _renderBufferHandler = 0;//这一句理论上不能少，需要手动置0，否则其他地方判断可能会出错
+    }
+    if ([EAGLContext currentContext] == _context) {
+        // 这一句很关键，否则_context不会释放，会占用很多内存
+        [EAGLContext setCurrentContext:nil];
     }
 }
 
