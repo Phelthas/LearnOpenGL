@@ -10,6 +10,7 @@
 		431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02DF26C9521F0016E618 /* ThreeViewController.m */; };
 		431E02E526C95B4C0016E618 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E326C95B4C0016E618 /* saber.jpeg */; };
 		431E02E626C95B4C0016E618 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E426C95B4C0016E618 /* xianhua.png */; };
+		431E02E926C963350016E618 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02E826C963350016E618 /* FourViewController.m */; };
 		432CEC0626798F1C00693516 /* DemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 432CEC0526798F1C00693516 /* DemoGLView.m */; };
 		4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDBC267776EA00AE84A6 /* AppDelegate.m */; };
 		4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4361BDC4267776EA00AE84A6 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 		431E02E226C954340016E618 /* DemoCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCommon.h; sourceTree = "<group>"; };
 		431E02E326C95B4C0016E618 /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
 		431E02E426C95B4C0016E618 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
+		431E02E726C963350016E618 /* FourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		431E02E826C963350016E618 /* FourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		432CEC0426798F1C00693516 /* DemoGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLView.h; sourceTree = "<group>"; };
 		432CEC0526798F1C00693516 /* DemoGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLView.m; sourceTree = "<group>"; };
 		4361BDB8267776EA00AE84A6 /* Demo_OpenGLES_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +100,8 @@
 				4398084F26AD68C40077BBDC /* TwoViewController.m */,
 				431E02DE26C9521F0016E618 /* ThreeViewController.h */,
 				431E02DF26C9521F0016E618 /* ThreeViewController.m */,
+				431E02E726C963350016E618 /* FourViewController.h */,
+				431E02E826C963350016E618 /* FourViewController.m */,
 				431E02E326C95B4C0016E618 /* saber.jpeg */,
 				431E02E426C95B4C0016E618 /* xianhua.png */,
 				4361BDC4267776EA00AE84A6 /* Main.storyboard */,
@@ -224,6 +229,7 @@
 			files = (
 				4398085026AD68C40077BBDC /* TwoViewController.m in Sources */,
 				431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */,
+				431E02E926C963350016E618 /* FourViewController.m in Sources */,
 				4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */,
 				4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */,
 				432CEC0626798F1C00693516 /* DemoGLView.m in Sources */,

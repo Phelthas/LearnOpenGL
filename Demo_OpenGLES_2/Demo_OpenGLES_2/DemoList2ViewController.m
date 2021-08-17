@@ -23,7 +23,7 @@
         [LXMDemoEntranceModel entranceModelWithName:@"OneViewController"],
         [LXMDemoEntranceModel entranceModelWithName:@"TwoViewController" desc:nil],
         [LXMDemoEntranceModel entranceModelWithName:@"ThreeViewController" desc:nil],
-        
+        [LXMDemoEntranceModel entranceModelWithName:@"FourViewController" desc:nil],
     ];
     
 }

@@ -1,17 +1,17 @@
 //
-//  ThreeViewController.m
+//  FourViewController.m
 //  Demo_OpenGLES_2
 //
 //  Created by billthaslu on 2021/8/15.
 //
 
-#import "ThreeViewController.h"
+#import "FourViewController.h"
 
-@interface ThreeViewController ()
+@interface FourViewController ()
 
 @end
 
-@implementation ThreeViewController
+@implementation FourViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,7 +19,7 @@
 }
 
 - (void)setupGLView {
-    self.glView = [[DemoGLView3 alloc] initWithFrame:self.view.bounds];
+    self.glView = [[DemoGLView4 alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.glView];
 }
 
@@ -28,11 +28,12 @@
 
 
 
-
-#pragma mark ----------------------------------DemoGLView3----------------------------------
+#pragma mark ----------------------------------DemoGLView4----------------------------------
 
 #import "DemoGLUtility.h"
+#import "DemoGLGeometry.h"
 #import <GLKit/GLKit.h>
+#import <LXMKit/LXMKit.h>
 
 static const char * kPassThruVertex = _STRINGIFY(
 
@@ -68,7 +69,7 @@ typedef enum : NSUInteger {
 } ShaderAttributeIndex;
 
 
-@implementation DemoGLView3
+@implementation DemoGLView4
 
 - (BOOL)loadShaders {
     [EAGLContext setCurrentContext:_context];
@@ -128,12 +129,34 @@ typedef enum : NSUInteger {
     
     glViewport(0, 0, _width, _height);
     
-    // 设置顶点数组
+    // 加载图片纹理
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+
+    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    
+    CGSize imageSize = image.size;
+    CGSize displaySize = CGSizeMake(self.width * 0.5, self.height * 0.5);
+    CGSize samplingSize = [LXMAspectUtil normalizedAspectFillSizeForSourceSize:imageSize destinationSize:displaySize];
+//    CGFloat leftX = leftXForSamplingSize(samplingSize);
+//    CGFloat rightX = rightXForSamplingSize(samplingSize);
+//    CGFloat topY = topYForSamplingSize(samplingSize);
+//    CGFloat bottomY = bottomYForSamplingSize(samplingSize);
+//
+//    const VertexAndCoordinate vertices[] = {
+//        {GLKVector3Make(-0.5, 0.5, 0), GLKVector2Make(leftX, topY)},
+//        {GLKVector3Make(0.5, 0.5, 0), GLKVector2Make(rightX, topY)},
+//        {GLKVector3Make(-0.5, -0.5, 0), GLKVector2Make(leftX, bottomY)},
+//        {GLKVector3Make(0.5, -0.5, 0), GLKVector2Make(rightX, bottomY)},
+//    };
+    
     const VertexAndCoordinate vertices[] = {
-        {GLKVector3Make(-0.5, 0.5, 0), GLKVector2Make(0.0, 1.0)},
-        {GLKVector3Make(0.5, 0.5, 0), GLKVector2Make(1.0, 1.0)},
-        {GLKVector3Make(-0.5, -0.5, 0), GLKVector2Make(0.0, 0.0)},
-        {GLKVector3Make(0.5, -0.5, 0), GLKVector2Make(1.0, 0.0)},
+        {GLKVector3Make(-0.5, 0.5, 0), [DemoGLGeometry topLeftForSamplingSize:samplingSize]},
+        {GLKVector3Make(0.5, 0.5, 0), [DemoGLGeometry topRightForSamplingSize:samplingSize]},
+        {GLKVector3Make(-0.5, -0.5, 0), [DemoGLGeometry bottomLeftForSamplingSize:samplingSize]},
+        {GLKVector3Make(0.5, -0.5, 0), [DemoGLGeometry bottomRightForSamplingSize:samplingSize]},
     };
     
     GLuint vbo;
@@ -149,13 +172,7 @@ typedef enum : NSUInteger {
     glEnableVertexAttribArray(ShaderAttributeIndexCoordinate);
     
     
-    // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+   
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
