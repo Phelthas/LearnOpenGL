@@ -1,35 +1,32 @@
 //
-//  FourViewController.m
+//  FiveViewController.m
 //  Demo_OpenGLES_2
 //
-//  Created by billthaslu on 2021/8/15.
+//  Created by billthaslu on 2021/8/22.
 //
 
-#import "FourViewController.h"
+#import "FiveViewController.h"
 
-@interface FourViewController ()
+@interface FiveViewController ()
 
 @end
 
-@implementation FourViewController
+@implementation FiveViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
 }
 
 - (void)setupGLView {
-    self.glView = [[DemoGLView4 alloc] initWithFrame:self.view.bounds];
+    self.glView = [[DemoGLView5 alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.glView];
 }
 
 @end
 
 
-
-
-#pragma mark ----------------------------------DemoGLView4----------------------------------
+#pragma mark ----------------------------------DemoGLView5----------------------------------
 
 #import "DemoGLUtility.h"
 #import "DemoGLGeometry.h"
@@ -70,7 +67,13 @@ typedef enum : NSUInteger {
 } ShaderAttributeIndex;
 
 
-@implementation DemoGLView4
+@interface DemoGLView5 ()
+
+@property (nonatomic, assign) GLint textureLocation;
+
+@end
+
+@implementation DemoGLView5
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -78,6 +81,7 @@ typedef enum : NSUInteger {
         // 测试表面设置这一句还是有用的，纹理透明的部分就会把后面的露出来；
         // 如果没有这一句，相当于背景色是黑色的
         self.backgroundColor = UIColor.clearColor;
+        _textureLocation = -1;
     }
     return self;
 }
@@ -108,7 +112,6 @@ typedef enum : NSUInteger {
         glBindAttribLocation(_program, attributeLocation[i], attributeName[i]);
     }
     
-    
     if (![DemoGLUtility linkProgram:_program]) {
         if (vertexShader) {
             glDeleteShader(vertexShader);
@@ -122,6 +125,8 @@ typedef enum : NSUInteger {
         }
         return false;
     }
+    
+    _textureLocation = glGetUniformLocation(_program, "texture");
     
     if (vertexShader) {
         glDetachShader(_program, vertexShader);
@@ -145,27 +150,12 @@ typedef enum : NSUInteger {
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
 
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLuint textureId = [DemoGLUtility createTextureWithImage:image];
     
     CGSize imageSize = image.size;
     CGSize displaySize = CGSizeMake(self.width * 0.5, self.height * 0.5);
     CGSize samplingSize = [LXMAspectUtil normalizedAspectFillSizeForSourceSize:imageSize destinationSize:displaySize];
-    /**
-     写法1
-     CGFloat leftX = leftXForSamplingSize(samplingSize);
-     CGFloat rightX = rightXForSamplingSize(samplingSize);
-     CGFloat topY = topYForSamplingSize(samplingSize);
-     CGFloat bottomY = bottomYForSamplingSize(samplingSize);
 
-     const VertexAndCoordinate vertices[] = {
-         {GLKVector3Make(-0.5, 0.5, 0), GLKVector2Make(leftX, topY)},
-         {GLKVector3Make(0.5, 0.5, 0), GLKVector2Make(rightX, topY)},
-         {GLKVector3Make(-0.5, -0.5, 0), GLKVector2Make(leftX, bottomY)},
-         {GLKVector3Make(0.5, -0.5, 0), GLKVector2Make(rightX, bottomY)},
-     };
-     */
-    
     const VertexAndCoordinate vertices[] = {
         {GLKVector3Make(-0.5, 0.5, 0), [DemoGLGeometry topLeftForSamplingSize:samplingSize]},
         {GLKVector3Make(0.5, 0.5, 0), [DemoGLGeometry topRightForSamplingSize:samplingSize]},
@@ -186,11 +176,9 @@ typedef enum : NSUInteger {
     glEnableVertexAttribArray(ShaderAttributeIndexCoordinate);
     
     
-   
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureInfo.name);
-    glUniform1i(0, 0);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    glUniform1i(_textureLocation, 1);
     
     
 }
