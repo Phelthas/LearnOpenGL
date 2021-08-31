@@ -25,6 +25,8 @@
 		4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDD52677786400AE84A6 /* DemoList2ViewController.m */; };
 		4361BDD9267778E700AE84A6 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDD8267778E700AE84A6 /* OneViewController.m */; };
 		4398085026AD68C40077BBDC /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4398084F26AD68C40077BBDC /* TwoViewController.m */; };
+		43FB42C326DE675C00B4251C /* DemoFixedPosition.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */; };
+		43FB42C626DE742700B4251C /* Two_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FB42C526DE742600B4251C /* Two_2ViewController.m */; };
 		A3A96128F79EE444852DFE28 /* libPods-Demo_OpenGLES_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,9 @@
 		4361BDD8267778E700AE84A6 /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 		4398084E26AD68C40077BBDC /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		4398084F26AD68C40077BBDC /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DemoFixedPosition.vsh; sourceTree = "<group>"; };
+		43FB42C426DE742600B4251C /* Two_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Two_2ViewController.h; sourceTree = "<group>"; };
+		43FB42C526DE742600B4251C /* Two_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Two_2ViewController.m; sourceTree = "<group>"; };
 		83252D0CCEFB1FE1EC17E773 /* Pods-Demo_OpenGLES_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.debug.xcconfig"; sourceTree = "<group>"; };
 		B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FC46FF214699F2616C71B3 /* Pods-Demo_OpenGLES_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,10 +84,11 @@
 		4306075D26D8CB0100F31B3B /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */,
 				4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */,
+				4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */,
 				4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */,
 				4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */,
+				43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -121,6 +127,8 @@
 				4361BDD8267778E700AE84A6 /* OneViewController.m */,
 				4398084E26AD68C40077BBDC /* TwoViewController.h */,
 				4398084F26AD68C40077BBDC /* TwoViewController.m */,
+				43FB42C426DE742600B4251C /* Two_2ViewController.h */,
+				43FB42C526DE742600B4251C /* Two_2ViewController.m */,
 				431E02DE26C9521F0016E618 /* ThreeViewController.h */,
 				431E02DF26C9521F0016E618 /* ThreeViewController.m */,
 				431E02E726C963350016E618 /* FourViewController.h */,
@@ -212,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FB42C326DE675C00B4251C /* DemoFixedPosition.vsh in Resources */,
 				4361BDCB267776EC00AE84A6 /* LaunchScreen.storyboard in Resources */,
 				4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */,
 				4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */,
@@ -256,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FB42C626DE742700B4251C /* Two_2ViewController.m in Sources */,
 				433D1CD726D2907D0058ECD9 /* FiveViewController.m in Sources */,
 				4398085026AD68C40077BBDC /* TwoViewController.m in Sources */,
 				431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */,

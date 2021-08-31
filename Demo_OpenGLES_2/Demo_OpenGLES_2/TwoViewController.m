@@ -34,61 +34,77 @@
 
 #import "DemoGLUtility.h"
 #import <GLKit/GLKit.h>
-
+#import <LXMKit/LXMKit.h>
 
 @implementation DemoGLView2
 
+- (CGFloat)screenAspectRatio {
+    return self.width / self.height;
+}
+
 - (void)setupProgramAndViewport {
+//    [self setupProgramAndViewport1];
+    
+    [self setupProgramAndViewport2];
+
+    
+}
+
+- (void)setupProgramAndViewport1 {
     glUseProgram(_program);
     
     glViewport(0, 0, _width, _height);
     
-//    // 设置顶点数组
-//    const GLfloat vertices[] = {
-//        -0.75f,  0.5f, 0.0f,
-//        0.75f,  0.5f, 0.0f,
-//        -0.5f, -0.5f, 0.0f,
-//        0.5f,  -0.5f, 0.0f
-//    };
-//
-//    GLuint vbo;
-//    glGenBuffers(1, &vbo);
-//    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-//
-//    // 传递vertices数据;3是每个顶点所占用元素个数，即这里是3个float为一个顶点
-//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLfloat *)NULL);
-//    glEnableVertexAttribArray(0);
+    // 设置顶点数组
+    const GLfloat vertices[] = {
+        -0.75f,  0.5f, 0.0f,
+        0.75f,  0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f,
+        0.5f,  -0.5f, 0.0f
+    };
     
-    {
-        // 设置顶点数组
-        const GLKVector3 vertices[] = {
-            GLKVector3Make(-0.75f, 0.5f, 0.0f),
-            GLKVector3Make(0.75f, 0.5f, 0.0f),
-            GLKVector3Make(-0.5f, -0.5f, 0.0f),
-            GLKVector3Make(0.5f, -0.5f, 0.0f),
-//            GLKVector3Make(1.0f, 1.0f, 0.0f),
-        };
-        /**
-         // 有问题的顺序，
-         const GLKVector3 vertices[] = {
-             GLKVector3Make(-0.75f, 0.5f, 0.0f),
-             GLKVector3Make(0.75f, 0.5f, 0.0f),
-             GLKVector3Make(0.5f, -0.5f, 0.0f),
-             GLKVector3Make(-0.5f, -0.5f, 0.0f),
-         };
-         */
-        
-        GLuint vbo;
-        glGenBuffers(1, &vbo);
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-        
-        // 传递vertices数据;3是每个顶点所占用元素个数，即这里是3个float为一个顶点
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLfloat *)NULL);
-        glEnableVertexAttribArray(0);
-        
-    }
+    /**
+     // 有问题的顺序，
+     const GLKVector3 vertices[] = {
+         GLKVector3Make(-0.75f, 0.5f, 0.0f),
+         GLKVector3Make(0.75f, 0.5f, 0.0f),
+         GLKVector3Make(0.5f, -0.5f, 0.0f),
+         GLKVector3Make(-0.5f, -0.5f, 0.0f),
+     };
+     */
+
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    // 传递vertices数据;3是每个顶点所占用元素个数，即这里是3个float为一个顶点
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLfloat *)NULL);
+    glEnableVertexAttribArray(0);
+    
+}
+
+- (void)setupProgramAndViewport2 {
+    glUseProgram(_program);
+    
+    glViewport(0, 0, _width, _height);
+    
+    // 设置顶点数组
+    const GLKVector3 vertices[] = {
+        GLKVector3Make(-0.5f, 0.5f * [self screenAspectRatio], 0.0f), //topLeft
+        GLKVector3Make(0.5f, 0.5f * [self screenAspectRatio], 0.0f),  //topRight
+        GLKVector3Make(-0.5f, -0.5f * [self screenAspectRatio], 0.0f), // bottomLeft
+        GLKVector3Make(0.5f, -0.5f * [self screenAspectRatio], 0.0f),  // bottomRight
+    };
+    
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    // 传递vertices数据;3是每个顶点所占用元素个数，即这里是3个float为一个顶点
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLfloat *)NULL);
+    glEnableVertexAttribArray(0);
     
 }
 
