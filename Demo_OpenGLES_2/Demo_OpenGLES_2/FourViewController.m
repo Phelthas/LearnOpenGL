@@ -21,6 +21,7 @@
 
 - (void)setupGLView {
     self.glView = [[DemoGLView4 alloc] initWithFrame:self.view.bounds];
+    [self.glView loadShaders];
     [self.view addSubview:self.glView];
 }
 
@@ -36,39 +37,6 @@
 #import <GLKit/GLKit.h>
 #import <LXMKit/LXMKit.h>
 
-static const char * kPassThruVertex = _STRINGIFY(
-
-attribute vec4 position;
-attribute mediump vec4 inputCoordinate;
-varying mediump vec2 coordinate;
-                                                 
-void main()
-{
-    gl_Position = position;
-    coordinate = inputCoordinate.xy;
-//    gl_PointSize = 40.0;
-}
-                                                 
-);
-
-static const char * kPassThruFragment = _STRINGIFY(
-
-varying mediump vec2 coordinate;
-uniform sampler2D texture;
-                                                   
-void main()
-{
-    gl_FragColor = texture2D(texture, coordinate);
-}
-                                                   
-);
-
-typedef enum : NSUInteger {
-    ShaderAttributeIndexPosition = 0,
-    ShaderAttributeIndexCoordinate,
-    ShaderAttributeIndexCount,  //不实际使用，只是为了计数
-} ShaderAttributeIndex;
-
 
 @implementation DemoGLView4
 
@@ -80,59 +48,6 @@ typedef enum : NSUInteger {
         self.backgroundColor = UIColor.clearColor;
     }
     return self;
-}
-
-- (BOOL)loadShaders {
-    [EAGLContext setCurrentContext:_context];
-    
-    GLuint vertexShader, fragmentShader;
-    _program = glCreateProgram();
-    
-    
-    if (![DemoGLUtility complieShader:&vertexShader type:GL_VERTEX_SHADER shaderSource:kPassThruVertex]) {
-        return false;
-    }
-    if (![DemoGLUtility complieShader:&fragmentShader type:GL_FRAGMENT_SHADER shaderSource:kPassThruFragment]) {
-        return false;
-    }
-    
-    glAttachShader(_program, vertexShader);
-
-    glAttachShader(_program, fragmentShader);
-
-    
-    GLint attributeLocation[ShaderAttributeIndexCount] = {ShaderAttributeIndexPosition, ShaderAttributeIndexCoordinate};
-    GLchar *attributeName[ShaderAttributeIndexCount] = {"position", "inputCoordinate"};
-        
-    for (int i = 0; i < ShaderAttributeIndexCount; i++) {
-        glBindAttribLocation(_program, attributeLocation[i], attributeName[i]);
-    }
-    
-    
-    if (![DemoGLUtility linkProgram:_program]) {
-        if (vertexShader) {
-            glDeleteShader(vertexShader);
-        }
-        if (fragmentShader) {
-            glDeleteShader(fragmentShader);
-        }
-        if (_program) {
-            glDeleteProgram(_program);
-            _program = 0;
-        }
-        return false;
-    }
-    
-    if (vertexShader) {
-        glDetachShader(_program, vertexShader);
-        glDeleteShader(vertexShader);
-    }
-    if (fragmentShader) {
-        glDetachShader(_program, fragmentShader);
-        glDeleteShader(fragmentShader);
-    }
-
-    return true;
 }
 
 - (void)setupProgramAndViewport {

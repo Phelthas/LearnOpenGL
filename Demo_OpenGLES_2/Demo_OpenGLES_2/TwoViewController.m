@@ -20,6 +20,7 @@
 
 - (void)setupGLView {
     self.glView = [[DemoGLView2 alloc] initWithFrame:self.view.bounds];
+    [self.glView loadShadersWithVertexShaderFileName:@"DemoOnlyPosition.vsh" fragmentShaderFileName:@"DemoWhiteColor.fsh"];
     [self.view addSubview:self.glView];
 }
 

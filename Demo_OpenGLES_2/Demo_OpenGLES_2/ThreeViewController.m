@@ -20,6 +20,7 @@
 
 - (void)setupGLView {
     self.glView = [[DemoGLView3 alloc] initWithFrame:self.view.bounds];
+    [self.glView loadShaders];
     [self.view addSubview:self.glView];
 }
 
@@ -61,19 +62,12 @@ void main()
                                                    
 );
 
-typedef enum : NSUInteger {
-    ShaderAttributeIndexPosition = 0,
-    ShaderAttributeIndexCoordinate,
-    ShaderAttributeIndexCount,  //不实际使用，只是为了计数
-} ShaderAttributeIndex;
-
-
 @implementation DemoGLView3
 
 - (BOOL)loadShaders {
-    [EAGLContext setCurrentContext:_context];
     
-    GLuint vertexShader, fragmentShader;
+    GLuint vertexShader;
+    GLuint fragmentShader;
     _program = glCreateProgram();
     
     
@@ -89,6 +83,7 @@ typedef enum : NSUInteger {
     glAttachShader(_program, fragmentShader);
 
     
+    // 绑定的操作必须要在link之前进行，link成功之后生效
     GLint attributeLocation[ShaderAttributeIndexCount] = {ShaderAttributeIndexPosition, ShaderAttributeIndexCoordinate};
     GLchar *attributeName[ShaderAttributeIndexCount] = {"position", "inputCoordinate"};
         

@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)loadShaders;
 
+- (BOOL)loadShadersWithVertexShaderSource:(const GLchar *)vertexShaderSource fragmentShaderSource:(const GLchar *)fragmentShaderSource;
+
+- (BOOL)loadShadersWithVertexShaderFileName:(NSString *)vertexShaderFileName fragmentShaderFileName:(NSString *)fragmentShaderFileName;
+
 - (void)setupProgramAndViewport;
 
 - (void)displayContent;

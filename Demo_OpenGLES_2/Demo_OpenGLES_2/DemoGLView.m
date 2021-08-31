@@ -105,18 +105,72 @@ void main()
 
 
 - (BOOL)loadShaders {
-    [EAGLContext setCurrentContext:_context];
+    return [self loadShadersWithVertexShaderSource:kPassThruVertex fragmentShaderSource:kPassThruFragment];
+}
+
+- (BOOL)loadShadersWithVertexShaderSource:(const GLchar *)vertexShaderSource fragmentShaderSource:(const GLchar *)fragmentShaderSource {
     
     GLuint vertexShader, fragmentShader;
     _program = glCreateProgram();
     
     
-    if (![DemoGLUtility complieShader:&vertexShader type:GL_VERTEX_SHADER shaderSource:kPassThruVertex]) {
+    if (![DemoGLUtility complieShader:&vertexShader type:GL_VERTEX_SHADER shaderSource:vertexShaderSource]) {
         return false;
     }
-    if (![DemoGLUtility complieShader:&fragmentShader type:GL_FRAGMENT_SHADER shaderSource:kPassThruFragment]) {
+    if (![DemoGLUtility complieShader:&fragmentShader type:GL_FRAGMENT_SHADER shaderSource:fragmentShaderSource]) {
         return false;
     }
+    
+    glAttachShader(_program, vertexShader);
+
+    glAttachShader(_program, fragmentShader);
+    
+    
+    if (![DemoGLUtility linkProgram:_program]) {
+        if (vertexShader) {
+            glDeleteShader(vertexShader);
+        }
+        if (fragmentShader) {
+            glDeleteShader(fragmentShader);
+        }
+        if (_program) {
+            glDeleteProgram(_program);
+            _program = 0;
+        }
+        return false;
+    }
+    
+    if (vertexShader) {
+        glDetachShader(_program, vertexShader);
+        glDeleteShader(vertexShader);
+    }
+    if (fragmentShader) {
+        glDetachShader(_program, fragmentShader);
+        glDeleteShader(fragmentShader);
+    }
+
+    return true;
+}
+
+
+- (BOOL)loadShadersWithVertexShaderFileName:(NSString *)vertexShaderFileName fragmentShaderFileName:(NSString *)fragmentShaderFileName {
+    NSArray *vertexShaderNameArray = [vertexShaderFileName componentsSeparatedByString:@"."];
+    NSAssert(vertexShaderNameArray.count == 2, @"必须传入shader的文件名");
+    
+    NSArray *fragmentShaderNameArray = [fragmentShaderFileName componentsSeparatedByString:@"."];
+    NSAssert(fragmentShaderNameArray.count == 2, @"必须传入shader的文件名");
+    
+    GLuint vertexShader, fragmentShader;
+    _program = glCreateProgram();
+    
+    if (![DemoGLUtility complieShader:&vertexShader type:GL_VERTEX_SHADER shaderFileName:vertexShaderNameArray[0] shaderExtension:vertexShaderNameArray[1]]) {
+        return false;
+    }
+
+    if (![DemoGLUtility complieShader:&fragmentShader type:GL_FRAGMENT_SHADER shaderFileName:fragmentShaderNameArray[0] shaderExtension:fragmentShaderNameArray[1]]) {
+        return false;
+    }
+
     
     glAttachShader(_program, vertexShader);
 

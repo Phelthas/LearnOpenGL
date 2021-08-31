@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4306076026D8CB0100F31B3B /* DemoWhiteColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */; };
+		4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */; };
+		4306076426D8CE2600F31B3B /* DemoTexturePassThrouhg.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */; };
+		4306076526D8CE2600F31B3B /* DemoPositionCorodinate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */; };
 		431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02DF26C9521F0016E618 /* ThreeViewController.m */; };
 		431E02E526C95B4C0016E618 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E326C95B4C0016E618 /* saber.jpeg */; };
 		431E02E626C95B4C0016E618 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E426C95B4C0016E618 /* xianhua.png */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoWhiteColor.fsh; sourceTree = "<group>"; };
+		4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoOnlyPosition.vsh; sourceTree = "<group>"; };
+		4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoTexturePassThrouhg.fsh; sourceTree = "<group>"; };
+		4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoPositionCorodinate.vsh; sourceTree = "<group>"; };
 		4310E9A626AD7A0D00DBC8FC /* DemoLogDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoLogDefines.h; sourceTree = "<group>"; };
 		431E02DE26C9521F0016E618 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
 		431E02DF26C9521F0016E618 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
@@ -68,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4306075D26D8CB0100F31B3B /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */,
+				4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */,
+				4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */,
+				4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
 		4361BDAF267776EA00AE84A6 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +108,7 @@
 		4361BDBA267776EA00AE84A6 /* Demo_OpenGLES_2 */ = {
 			isa = PBXGroup;
 			children = (
+				4306075D26D8CB0100F31B3B /* shaders */,
 				4361BDBB267776EA00AE84A6 /* AppDelegate.h */,
 				4361BDBC267776EA00AE84A6 /* AppDelegate.m */,
 				431E02E226C954340016E618 /* DemoCommon.h */,
@@ -193,10 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4361BDCB267776EC00AE84A6 /* LaunchScreen.storyboard in Resources */,
+				4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */,
 				4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */,
+				4306076026D8CB0100F31B3B /* DemoWhiteColor.fsh in Resources */,
 				4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */,
 				431E02E626C95B4C0016E618 /* xianhua.png in Resources */,
+				4306076426D8CE2600F31B3B /* DemoTexturePassThrouhg.fsh in Resources */,
 				431E02E526C95B4C0016E618 /* saber.jpeg in Resources */,
+				4306076526D8CE2600F31B3B /* DemoPositionCorodinate.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

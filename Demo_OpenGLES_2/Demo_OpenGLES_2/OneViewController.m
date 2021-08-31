@@ -24,7 +24,6 @@
     [self setupGLView];
     
     
-    [_glView loadShaders];
     [_glView setupProgramAndViewport];
     [_glView displayContent];
     
@@ -32,6 +31,7 @@
 
 - (void)setupGLView {
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    [_glView loadShaders];
     [self.view addSubview:_glView];
 }
 

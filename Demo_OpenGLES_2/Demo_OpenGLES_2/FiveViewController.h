@@ -5,17 +5,17 @@
 //  Created by billthaslu on 2021/8/22.
 //
 
-#import "OneViewController.h"
+#import "ThreeViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FiveViewController : OneViewController
+@interface FiveViewController : ThreeViewController
 
 @end
 
 #pragma mark ----------------------------------DemoGLView5----------------------------------
 
-@interface DemoGLView5 : DemoGLView
+@interface DemoGLView5 : DemoGLView3
 
 @end
 
