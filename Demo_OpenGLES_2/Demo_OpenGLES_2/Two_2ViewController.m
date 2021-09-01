@@ -58,12 +58,20 @@
     
     glViewport(0, 0, _width, _height);
     
+//    // 设置顶点数组
+//    const GLKVector3 vertices[] = {
+//        GLKVector3Make(-0.5f, 0.5f, 0.0f), //topLeft
+//        GLKVector3Make(0.5f, 0.5f, 0.0f),  //topRight
+//        GLKVector3Make(-0.5f, -0.5f, 0.0f), // bottomLeft
+//        GLKVector3Make(0.5f, -0.5f, 0.0f),  // bottomRight
+//    };
+    
     // 设置顶点数组
     const GLKVector3 vertices[] = {
-        GLKVector3Make(-0.5f, 0.5f, 0.0f), //topLeft
-        GLKVector3Make(0.5f, 0.5f, 0.0f),  //topRight
-        GLKVector3Make(-0.5f, -0.5f, 0.0f), // bottomLeft
-        GLKVector3Make(0.5f, -0.5f, 0.0f),  // bottomRight
+        GLKVector3Make(-0.75f, 0.75f, 0.0f), //topLeft
+        GLKVector3Make(-0.25f, 0.75f, 0.0f),  //topRight
+        GLKVector3Make(-0.75f, 0.25f, 0.0f), // bottomLeft
+        GLKVector3Make(-0.25f, 0.25f, 0.0f),  // bottomRight
     };
     
     GLuint vbo;
@@ -78,6 +86,7 @@
 //    GLKMatrix4 matrix = GLKMatrix4Identity;
     
     GLKMatrix4 matrix = GLKMatrix4MakeScale(1, [self screenAspectRatio], 1); // 缩放后的矩阵
+    matrix = GLKMatrix4Translate(matrix, 0, 0.5, 0);
     glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
     
 }
