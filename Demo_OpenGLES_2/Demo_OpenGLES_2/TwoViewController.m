@@ -20,7 +20,6 @@
 
 - (void)setupGLView {
     self.glView = [[DemoGLView2 alloc] initWithFrame:self.view.bounds];
-    [self.glView loadShadersWithVertexShaderFileName:@"DemoOnlyPosition.vsh" fragmentShaderFileName:@"DemoWhiteColor.fsh"];
     [self.view addSubview:self.glView];
 }
 
@@ -38,8 +37,9 @@
 
 @implementation DemoGLView2
 
-- (CGFloat)screenAspectRatio {
-    return MIN(self.width, self.height) / MAX(self.width, self.height);
+- (BOOL)loadShaders {
+    BOOL result = [super loadShadersWithVertexShaderFileName:@"DemoOnlyPosition.vsh" fragmentShaderFileName:@"DemoWhiteColor.fsh"];
+    return result;
 }
 
 - (void)setupProgramAndViewport {
@@ -151,11 +151,11 @@
     CGFloat xRatio = 1;
     CGFloat yRation = 1;
     if (self.width > self.height) {
-        xRatio = [self screenAspectRatio];
+        xRatio = self.height / self.width;
         yRation = 1;
     } else {
         xRatio = 1;
-        yRation = [self screenAspectRatio];
+        yRation = self.width / self.height;
     }
     
     CGFloat width = (rightX - leftX) * xRatio;

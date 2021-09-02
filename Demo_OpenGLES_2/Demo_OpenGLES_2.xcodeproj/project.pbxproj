@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		4306076026D8CB0100F31B3B /* DemoWhiteColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */; };
 		4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */; };
-		4306076426D8CE2600F31B3B /* DemoTexturePassThrouhg.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */; };
+		4306076426D8CE2600F31B3B /* DemoTexturePassThrough.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076226D8CE2500F31B3B /* DemoTexturePassThrough.fsh */; };
 		4306076526D8CE2600F31B3B /* DemoPositionCorodinate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */; };
 		431E02E026C9521F0016E618 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02DF26C9521F0016E618 /* ThreeViewController.m */; };
 		431E02E526C95B4C0016E618 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E326C95B4C0016E618 /* saber.jpeg */; };
 		431E02E626C95B4C0016E618 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E426C95B4C0016E618 /* xianhua.png */; };
 		431E02E926C963350016E618 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431E02E826C963350016E618 /* FourViewController.m */; };
-		432CEC0626798F1C00693516 /* DemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 432CEC0526798F1C00693516 /* DemoGLView.m */; };
 		433D1CD726D2907D0058ECD9 /* FiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 433D1CD626D2907D0058ECD9 /* FiveViewController.m */; };
 		4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDBC267776EA00AE84A6 /* AppDelegate.m */; };
 		4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4361BDC4267776EA00AE84A6 /* Main.storyboard */; };
@@ -27,13 +26,15 @@
 		4398085026AD68C40077BBDC /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4398084F26AD68C40077BBDC /* TwoViewController.m */; };
 		43FB42C326DE675C00B4251C /* DemoFixedPosition.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */; };
 		43FB42C626DE742700B4251C /* Two_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FB42C526DE742600B4251C /* Two_2ViewController.m */; };
+		43FB42C826E0A8AF00B4251C /* DemoThree.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43FB42C726E0A8AF00B4251C /* DemoThree.vsh */; };
+		43FB42CB26E0A98200B4251C /* Three_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FB42CA26E0A98200B4251C /* Three_2ViewController.m */; };
 		A3A96128F79EE444852DFE28 /* libPods-Demo_OpenGLES_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoWhiteColor.fsh; sourceTree = "<group>"; };
 		4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoOnlyPosition.vsh; sourceTree = "<group>"; };
-		4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoTexturePassThrouhg.fsh; sourceTree = "<group>"; };
+		4306076226D8CE2500F31B3B /* DemoTexturePassThrough.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoTexturePassThrough.fsh; sourceTree = "<group>"; };
 		4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoPositionCorodinate.vsh; sourceTree = "<group>"; };
 		4310E9A626AD7A0D00DBC8FC /* DemoLogDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoLogDefines.h; sourceTree = "<group>"; };
 		431E02DE26C9521F0016E618 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
@@ -43,8 +44,6 @@
 		431E02E426C95B4C0016E618 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
 		431E02E726C963350016E618 /* FourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
 		431E02E826C963350016E618 /* FourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
-		432CEC0426798F1C00693516 /* DemoGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLView.h; sourceTree = "<group>"; };
-		432CEC0526798F1C00693516 /* DemoGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLView.m; sourceTree = "<group>"; };
 		433D1CD526D2907D0058ECD9 /* FiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FiveViewController.h; sourceTree = "<group>"; };
 		433D1CD626D2907D0058ECD9 /* FiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FiveViewController.m; sourceTree = "<group>"; };
 		4361BDB8267776EA00AE84A6 /* Demo_OpenGLES_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +63,9 @@
 		43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DemoFixedPosition.vsh; sourceTree = "<group>"; };
 		43FB42C426DE742600B4251C /* Two_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Two_2ViewController.h; sourceTree = "<group>"; };
 		43FB42C526DE742600B4251C /* Two_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Two_2ViewController.m; sourceTree = "<group>"; };
+		43FB42C726E0A8AF00B4251C /* DemoThree.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DemoThree.vsh; sourceTree = "<group>"; };
+		43FB42C926E0A98200B4251C /* Three_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Three_2ViewController.h; sourceTree = "<group>"; };
+		43FB42CA26E0A98200B4251C /* Three_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Three_2ViewController.m; sourceTree = "<group>"; };
 		83252D0CCEFB1FE1EC17E773 /* Pods-Demo_OpenGLES_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.debug.xcconfig"; sourceTree = "<group>"; };
 		B3EA790848CB179CA1AACB2B /* libPods-Demo_OpenGLES_2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FC46FF214699F2616C71B3 /* Pods-Demo_OpenGLES_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_2.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_2/Pods-Demo_OpenGLES_2.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,8 +89,9 @@
 				4306075F26D8CB0100F31B3B /* DemoOnlyPosition.vsh */,
 				4306075E26D8CB0100F31B3B /* DemoWhiteColor.fsh */,
 				4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */,
-				4306076226D8CE2500F31B3B /* DemoTexturePassThrouhg.fsh */,
+				4306076226D8CE2500F31B3B /* DemoTexturePassThrough.fsh */,
 				43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */,
+				43FB42C726E0A8AF00B4251C /* DemoThree.vsh */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -121,8 +124,6 @@
 				4310E9A626AD7A0D00DBC8FC /* DemoLogDefines.h */,
 				4361BDD42677786400AE84A6 /* DemoList2ViewController.h */,
 				4361BDD52677786400AE84A6 /* DemoList2ViewController.m */,
-				432CEC0426798F1C00693516 /* DemoGLView.h */,
-				432CEC0526798F1C00693516 /* DemoGLView.m */,
 				4361BDD7267778E700AE84A6 /* OneViewController.h */,
 				4361BDD8267778E700AE84A6 /* OneViewController.m */,
 				4398084E26AD68C40077BBDC /* TwoViewController.h */,
@@ -131,6 +132,8 @@
 				43FB42C526DE742600B4251C /* Two_2ViewController.m */,
 				431E02DE26C9521F0016E618 /* ThreeViewController.h */,
 				431E02DF26C9521F0016E618 /* ThreeViewController.m */,
+				43FB42C926E0A98200B4251C /* Three_2ViewController.h */,
+				43FB42CA26E0A98200B4251C /* Three_2ViewController.m */,
 				431E02E726C963350016E618 /* FourViewController.h */,
 				431E02E826C963350016E618 /* FourViewController.m */,
 				433D1CD526D2907D0058ECD9 /* FiveViewController.h */,
@@ -222,12 +225,13 @@
 			files = (
 				43FB42C326DE675C00B4251C /* DemoFixedPosition.vsh in Resources */,
 				4361BDCB267776EC00AE84A6 /* LaunchScreen.storyboard in Resources */,
+				43FB42C826E0A8AF00B4251C /* DemoThree.vsh in Resources */,
 				4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */,
 				4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */,
 				4306076026D8CB0100F31B3B /* DemoWhiteColor.fsh in Resources */,
 				4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */,
 				431E02E626C95B4C0016E618 /* xianhua.png in Resources */,
-				4306076426D8CE2600F31B3B /* DemoTexturePassThrouhg.fsh in Resources */,
+				4306076426D8CE2600F31B3B /* DemoTexturePassThrough.fsh in Resources */,
 				431E02E526C95B4C0016E618 /* saber.jpeg in Resources */,
 				4306076526D8CE2600F31B3B /* DemoPositionCorodinate.vsh in Resources */,
 			);
@@ -265,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FB42CB26E0A98200B4251C /* Three_2ViewController.m in Sources */,
 				43FB42C626DE742700B4251C /* Two_2ViewController.m in Sources */,
 				433D1CD726D2907D0058ECD9 /* FiveViewController.m in Sources */,
 				4398085026AD68C40077BBDC /* TwoViewController.m in Sources */,
@@ -272,7 +277,6 @@
 				431E02E926C963350016E618 /* FourViewController.m in Sources */,
 				4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */,
 				4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */,
-				432CEC0626798F1C00693516 /* DemoGLView.m in Sources */,
 				4361BDCE267776EC00AE84A6 /* main.m in Sources */,
 				4361BDD9267778E700AE84A6 /* OneViewController.m in Sources */,
 			);

@@ -1,17 +1,17 @@
 //
-//  ThreeViewController.m
+//  Three_2ViewController.m
 //  Demo_OpenGLES_2
 //
-//  Created by billthaslu on 2021/8/15.
+//  Created by billthaslu on 2021/9/2.
 //
 
-#import "ThreeViewController.h"
+#import "Three_2ViewController.h"
 
-@interface ThreeViewController ()
+@interface Three_2ViewController ()
 
 @end
 
-@implementation ThreeViewController
+@implementation Three_2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,13 +19,11 @@
 }
 
 - (void)setupGLView {
-    self.glView = [[DemoGLView3 alloc] initWithFrame:self.view.bounds];
+    self.glView = [[DemoGLView3_2 alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.glView];
 }
 
 @end
-
-
 
 
 
@@ -34,38 +32,16 @@
 #import "DemoGLUtility.h"
 #import <GLKit/GLKit.h>
 
-static const char * kPassThruVertex = _STRINGIFY(
+@interface DemoGLView3_2 ()
 
-attribute vec4 position;
-attribute mediump vec4 inputCoordinate;
-varying mediump vec2 coordinate;
-                                                 
-void main()
-{
-    gl_Position = position;
-    coordinate = inputCoordinate.xy;
-//    gl_PointSize = 40.0;
-}
-                                                 
-);
+@property (nonatomic, assign) GLuint matrixLocation;
 
-static const char * kPassThruFragment = _STRINGIFY(
+@end
 
-varying mediump vec2 coordinate;
-uniform sampler2D texture;
-                                                   
-void main()
-{
-    gl_FragColor = texture2D(texture, coordinate);
-}
-                                                   
-);
-
-@implementation DemoGLView3
+@implementation DemoGLView3_2
 
 - (BOOL)loadShaders {
-    
-    BOOL result = [super loadShadersWithVertexShaderSource:kPassThruVertex fragmentShaderSource:kPassThruFragment];
+    BOOL result = [super loadShadersWithVertexShaderFileName:@"DemoThree.vsh" fragmentShaderFileName:@"DemoTexturePassThrough.fsh"];
     if (result) {
         // 绑定的操作必须要在link之前进行，link成功之后生效
         GLint attributeLocation[ShaderAttributeIndexCount] = {ShaderAttributeIndexPosition, ShaderAttributeIndexCoordinate};
@@ -74,6 +50,14 @@ void main()
         for (int i = 0; i < ShaderAttributeIndexCount; i++) {
             glBindAttribLocation(_program, attributeLocation[i], attributeName[i]);
         }
+    }
+    return result;
+}
+
+- (BOOL)linkProgram {
+    BOOL result = [super linkProgram];
+    if (result) {
+        _matrixLocation = glGetUniformLocation(_program, "projectionMatrix");
     }
     return result;
 }
@@ -116,8 +100,21 @@ void main()
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
     glUniform1i(ShaderAttributeIndexCoordinate, 0);
     
+    [self setupMatrix2];
     
 }
+
+- (void)setupMatrix1 {
+    // 给matrix赋值
+    GLKMatrix4 matrix = GLKMatrix4Identity;
+    glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
+}
+
+- (void)setupMatrix2 {
+    GLKMatrix4 matrix = GLKMatrix4MakeScale(1, [self screenAspectRatio], 1); // 缩放后的矩阵
+    glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
+}
+
 
 - (void)displayContent {
     
