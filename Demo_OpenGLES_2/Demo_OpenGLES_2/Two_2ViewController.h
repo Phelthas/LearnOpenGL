@@ -5,17 +5,17 @@
 //  Created by billthaslu on 2021/8/31.
 //
 
-#import "OneViewController.h"
+#import "TwoViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Two_2ViewController : OneViewController
+@interface Two_2ViewController : TwoViewController
 
 @end
 
 #pragma mark ----------------------------------DemoGLView2_2----------------------------------
 
-@interface DemoGLView2_2 : DemoGLView
+@interface DemoGLView2_2 : DemoGLView2
 
 @end
 

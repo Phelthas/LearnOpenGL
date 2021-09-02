@@ -27,7 +27,7 @@
 
 
 
-#pragma mark ----------------------------------DemoGLView3----------------------------------
+#pragma mark ----------------------------------DemoGLView3_2----------------------------------
 
 #import "DemoGLUtility.h"
 #import <GLKit/GLKit.h>
@@ -98,9 +98,9 @@
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
-    glUniform1i(ShaderAttributeIndexCoordinate, 0);
+    glUniform1i(0, 0);
     
-    [self setupMatrix2];
+    [self setupMatrix3];
     
 }
 
@@ -115,27 +115,13 @@
     glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
 }
 
-
-- (void)displayContent {
+- (void)setupMatrix3 {
+    GLKMatrix4 matrix = GLKMatrix4MakeWithRows(GLKVector4Make(1, 0, 0, 0),
+                                               GLKVector4Make(0, -1, 0, 0),
+                                               GLKVector4Make(0, 0, 1, 1),
+                                               GLKVector4Make(0, 0, 0, 1));
     
-
-    glClearColor(0.0, 0.25, 0.25f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    
-    // Draw triangle
-    // GL_TRIANGLE_STRIP的方式是固定的顶点顺序还绘制三角形的
-    /**
-     if n % 2 == 0 {
-         vertex = [n-1, n-2, n]
-     } else {
-         vertex = [n-2, n-1, n]
-     }
-     即画出来的三角形一定是（v1, v0, v2）, (v1, v2, v3), (v3, v2, v4)... 这样的顺序
-     */
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
-    [_context presentRenderbuffer:GL_RENDERBUFFER];
-    
+    glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
 }
 
 
