@@ -145,14 +145,15 @@ void main()
         yRation = self.width / self.height;
     }
     
-    CGFloat width = (rightX - leftX) * xRatio;
-    CGFloat height = (topY - bottomY) * yRation;
-    
-    CGFloat centerX = (rightX + leftX) / 2;
-    CGFloat centerY = (topY + bottomY) / 2;
-    
     /**
      计算公式
+     CGFloat width = (rightX - leftX) * xRatio;
+     CGFloat height = (topY - bottomY) * yRation;
+     
+     CGFloat centerX = (rightX + leftX) / 2;
+     CGFloat centerY = (topY + bottomY) / 2;
+     
+     
      CGFloat newLeftX = centerX - width / 2 = (rightX + leftX) / 2 - (rightX - leftX) * xRatio / 2;
      CGFloat newTopY = centerY + height / 2 = (topY + bottomY) / 2 + (topY - bottomY) * yRation / 2
                                              = (1 + yRation) * topY / 2 + (1 - yRation) * bottomY / 2;
