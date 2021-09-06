@@ -80,7 +80,7 @@ void main()
 }
 
 - (void)setupProgramAndViewport {
-    [self setupProgramAndViewport0];
+    [self setupProgramAndViewport3];
 }
 
 - (void)setupProgramAndViewport0 {
@@ -121,6 +121,48 @@ void main()
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
     glUniform1i(0, 0);
     
+    
+}
+
+- (void)setupProgramAndViewport3 {
+    glUseProgram(_program);
+    
+    glViewport(0, 0, _width, _height);
+    
+    
+    
+    // 设置顶点数组
+    const VertexAndCoordinate vertices[] = {
+        {GLKVector3Make(-0.75, 0.75, 0), GLKVector2Make(0.0, 1.0)},
+        {GLKVector3Make(-0.25, 0.75, 0), GLKVector2Make(1.0, 1.0)},
+        {GLKVector3Make(-0.75, 0.25, 0), GLKVector2Make(0.0, 0.0)},
+        {GLKVector3Make(-0.25, 0.25, 0), GLKVector2Make(1.0, 0.0)},
+    };
+    
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    // 传递vertices数据;3是每个顶点所占用元素个数，即这里是3个float为一个顶点
+    glVertexAttribPointer(ShaderAttributeIndexPosition, 3, GL_FLOAT, GL_FALSE, sizeof(VertexAndCoordinate), offsetof(VertexAndCoordinate, vertex) + NULL);
+    glEnableVertexAttribArray(ShaderAttributeIndexPosition);
+    
+    glVertexAttribPointer(ShaderAttributeIndexCoordinate, 2, GL_FLOAT, GL_FALSE, sizeof(VertexAndCoordinate), offsetof(VertexAndCoordinate, coordinate) + NULL);
+    glEnableVertexAttribArray(ShaderAttributeIndexCoordinate);
+    
+    
+    // 加载图片纹理
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+
+    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureInfo.name);
+    glUniform1i(0, 0);
     
 }
 

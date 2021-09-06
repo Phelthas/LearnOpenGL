@@ -13,6 +13,8 @@
 		4306076526D8CE2600F31B3B /* DemoPositionCorodinate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4306076326D8CE2500F31B3B /* DemoPositionCorodinate.vsh */; };
 		431E02E526C95B4C0016E618 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E326C95B4C0016E618 /* saber.jpeg */; };
 		431E02E626C95B4C0016E618 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 431E02E426C95B4C0016E618 /* xianhua.png */; };
+		4360907426E6520C0007DC40 /* Three_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4360907326E6520C0007DC40 /* Three_3ViewController.m */; };
+		4360907626E652780007DC40 /* DemoThree_3.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4360907526E652780007DC40 /* DemoThree_3.vsh */; };
 		4361BDBD267776EA00AE84A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4361BDBC267776EA00AE84A6 /* AppDelegate.m */; };
 		4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4361BDC4267776EA00AE84A6 /* Main.storyboard */; };
 		4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4361BDC7267776EC00AE84A6 /* Assets.xcassets */; };
@@ -41,6 +43,9 @@
 		431E02E226C954340016E618 /* DemoCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCommon.h; sourceTree = "<group>"; };
 		431E02E326C95B4C0016E618 /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
 		431E02E426C95B4C0016E618 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
+		4360907226E6520C0007DC40 /* Three_3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Three_3ViewController.h; sourceTree = "<group>"; };
+		4360907326E6520C0007DC40 /* Three_3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Three_3ViewController.m; sourceTree = "<group>"; };
+		4360907526E652780007DC40 /* DemoThree_3.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DemoThree_3.vsh; sourceTree = "<group>"; };
 		4361BDB8267776EA00AE84A6 /* Demo_OpenGLES_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4361BDBB267776EA00AE84A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4361BDBC267776EA00AE84A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 				4306076226D8CE2500F31B3B /* DemoTexturePassThrough.fsh */,
 				43FB42C226DE675C00B4251C /* DemoFixedPosition.vsh */,
 				43FB42C726E0A8AF00B4251C /* DemoThree.vsh */,
+				4360907526E652780007DC40 /* DemoThree_3.vsh */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 				43FB42EB26E1CD4400B4251C /* ThreeViewController.m */,
 				43FB42E626E1CD4400B4251C /* Three_2ViewController.h */,
 				43FB42E826E1CD4400B4251C /* Three_2ViewController.m */,
+				4360907226E6520C0007DC40 /* Three_3ViewController.h */,
+				4360907326E6520C0007DC40 /* Three_3ViewController.m */,
 				43FB42EE26E1CD4400B4251C /* FourViewController.h */,
 				43FB42E926E1CD4400B4251C /* FourViewController.m */,
 				43FB42E326E1CD4400B4251C /* FiveViewController.h */,
@@ -241,6 +249,7 @@
 				43FB42C826E0A8AF00B4251C /* DemoThree.vsh in Resources */,
 				4306076126D8CB0100F31B3B /* DemoOnlyPosition.vsh in Resources */,
 				4361BDC8267776EC00AE84A6 /* Assets.xcassets in Resources */,
+				4360907626E652780007DC40 /* DemoThree_3.vsh in Resources */,
 				4306076026D8CB0100F31B3B /* DemoWhiteColor.fsh in Resources */,
 				4361BDC6267776EA00AE84A6 /* Main.storyboard in Resources */,
 				431E02E626C95B4C0016E618 /* xianhua.png in Resources */,
@@ -289,6 +298,7 @@
 				43FB42F626E1CD4400B4251C /* FiveViewController.m in Sources */,
 				43FB42F926E1CDCB00B4251C /* Demo2GLView.m in Sources */,
 				4361BDD62677786400AE84A6 /* DemoList2ViewController.m in Sources */,
+				4360907426E6520C0007DC40 /* Three_3ViewController.m in Sources */,
 				4361BDCE267776EC00AE84A6 /* main.m in Sources */,
 				43FB42F526E1CD4400B4251C /* TwoViewController.m in Sources */,
 				43FB42F026E1CD4400B4251C /* OneViewController.m in Sources */,

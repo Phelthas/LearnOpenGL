@@ -31,6 +31,7 @@
 
 #import "DemoGLUtility.h"
 #import <GLKit/GLKit.h>
+#import <LXMKit/LXMKit.h>
 
 @interface DemoGLView3_2 ()
 
@@ -120,6 +121,18 @@
                                                GLKVector4Make(0, -1, 0, 0),
                                                GLKVector4Make(0, 0, 1, 1),
                                                GLKVector4Make(0, 0, 0, 1));
+    
+    
+    // 正交投影
+//    GLKMatrix4MakeOrtho(<#float left#>, <#float right#>, <#float bottom#>, <#float top#>, <#float nearZ#>, <#float farZ#>)
+//    float viewWidth = self.width;
+//    float viewHeight = self.height;
+//    GLKMatrix4 matrix = GLKMatrix4MakeOrtho(-viewWidth/2, viewWidth/2, -viewHeight/2, viewHeight/2, -1, 1);
+//
+//    GLKMatrix4 matrix = GLKMatrix4MakeWithRows(GLKVector4Make(2 / viewWidth, 0, 0, 0),
+//                                               GLKVector4Make(0, -2 / viewHeight, 0, 0),
+//                                               GLKVector4Make(0, 0, 1, 0),
+//                                               GLKVector4Make(-1, 1, 0, 1));
     
     glUniformMatrix4fv(_matrixLocation, 1, GL_FALSE, (const GLfloat *)matrix.m);
 }

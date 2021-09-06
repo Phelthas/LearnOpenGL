@@ -25,6 +25,7 @@
         [LXMDemoEntranceModel entranceModelWithName:@"Two_2ViewController" desc:@"用 投影矩阵 的方式修复图形被拉伸的问题"],
         [LXMDemoEntranceModel entranceModelWithName:@"ThreeViewController" desc:nil],
         [LXMDemoEntranceModel entranceModelWithName:@"Three_2ViewController" desc:nil],
+        [LXMDemoEntranceModel entranceModelWithName:@"Three_3ViewController" desc:nil],
         [LXMDemoEntranceModel entranceModelWithName:@"FourViewController" desc:nil],
         [LXMDemoEntranceModel entranceModelWithName:@"FiveViewController" desc:nil],
     ];
