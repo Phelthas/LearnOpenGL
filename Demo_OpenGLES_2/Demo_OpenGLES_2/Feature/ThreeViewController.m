@@ -80,7 +80,7 @@ void main()
 }
 
 - (void)setupProgramAndViewport {
-    [self setupProgramAndViewport3];
+    [self setupProgramAndViewport6];
 }
 
 - (void)setupProgramAndViewport0 {

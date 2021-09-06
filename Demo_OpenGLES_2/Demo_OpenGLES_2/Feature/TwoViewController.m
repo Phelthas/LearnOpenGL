@@ -44,7 +44,7 @@
 
 - (void)setupProgramAndViewport {
     
-    [self setupProgramAndViewport4];
+    [self setupProgramAndViewport6];
 
 }
 
@@ -208,7 +208,8 @@
     
     glViewport(0, 0, _width, _height);
     
-    CGFloat width = MIN(self.width, self.height) * 0.25;
+//    CGFloat width = MIN(self.width, self.height) * 0.25;
+    CGFloat width = 100;
     CGSize size = CGSizeMake(width, width);
     CGRect rect = CGRectMake(self.width / 4 - size.width / 2, self.height / 4 - size.height / 2, width, width);
     
@@ -279,11 +280,18 @@
      */
     
     // 设置顶点数组
+//    const GLKVector3 vertices[] = {
+//        GLKVector3Make(normalizedVertices[0].x * 2 - 1, 1 - normalizedVertices[0].y * 2, 0.0f), //topLeft
+//        GLKVector3Make(normalizedVertices[1].x * 2 - 1, 1 - normalizedVertices[1].y * 2, 0.0f),  //topRight
+//        GLKVector3Make(normalizedVertices[2].x * 2 - 1, 1 - normalizedVertices[2].y * 2, 0.0f), // bottomLeft
+//        GLKVector3Make(normalizedVertices[3].x * 2 - 1, 1 - normalizedVertices[3].y * 2, 0.0f),  // bottomRight
+//    };
+    
     const GLKVector3 vertices[] = {
-        GLKVector3Make(normalizedVertices[0].x * 2 - 1, 1 - normalizedVertices[0].y * 2, 0.0f), //topLeft
-        GLKVector3Make(normalizedVertices[1].x * 2 - 1, 1 - normalizedVertices[1].y * 2, 0.0f),  //topRight
-        GLKVector3Make(normalizedVertices[2].x * 2 - 1, 1 - normalizedVertices[2].y * 2, 0.0f), // bottomLeft
-        GLKVector3Make(normalizedVertices[3].x * 2 - 1, 1 - normalizedVertices[3].y * 2, 0.0f),  // bottomRight
+        vertexConvertion(normalizedVertices[0]), //topLeft
+        vertexConvertion(normalizedVertices[1]),  //topRight
+        vertexConvertion(normalizedVertices[2]), // bottomLeft
+        vertexConvertion(normalizedVertices[3]),  // bottomRight
     };
     
     GLuint vbo;
@@ -295,6 +303,18 @@
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLfloat *)NULL);
     glEnableVertexAttribArray(0);
     
+}
+
+static inline float vertexXConvertion(float normalizedValue) {
+    return normalizedValue * 2 - 1;
+}
+
+static inline float vertexYConvertion(float normalizedValue) {
+    return 1 - normalizedValue * 2;
+}
+
+static inline GLKVector3 vertexConvertion(GLKVector3 normalizedVector) {
+    return GLKVector3Make(vertexXConvertion(normalizedVector.x), vertexYConvertion(normalizedVector.y), 0);
 }
 
 - (void)displayContent {
