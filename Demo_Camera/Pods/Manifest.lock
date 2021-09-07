@@ -14,11 +14,13 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - DemoUtils (0.1.0)
   - GPUImage (0.1.7)
   - LXMKit (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - DemoUtils (from `../DemoUtils`)
   - GPUImage
   - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
 
@@ -28,14 +30,17 @@ SPEC REPOS:
     - GPUImage
 
 EXTERNAL SOURCES:
+  DemoUtils:
+    :path: "../DemoUtils"
   LXMKit:
     :path: "~/Documents/LXMGitHub/LXMKit"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  DemoUtils: 4db393988e78bf73939ae5bef6cee5408d036fe0
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   LXMKit: b184ae26f50177607294b28140c2c423473927f7
 
-PODFILE CHECKSUM: af111c3888706a10ef87a2f61595ed467fd1ea88
+PODFILE CHECKSUM: da841519adb205c8910bb230c74d09ca1e7d09ee
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

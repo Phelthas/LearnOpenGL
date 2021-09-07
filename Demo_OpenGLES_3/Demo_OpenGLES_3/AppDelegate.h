@@ -1,15 +1,15 @@
 //
 //  AppDelegate.h
-//  Demo_VideoCapture
+//  Demo_OpenGLES_3
 //
-//  Created by billthaslu on 2021/5/30.
+//  Created by billthaslu on 2021/9/7.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow * window;
+@property (nonatomic, strong) UIWindow *window;
 
 
 @end

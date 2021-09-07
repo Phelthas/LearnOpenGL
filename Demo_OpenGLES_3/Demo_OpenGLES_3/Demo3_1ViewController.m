@@ -1,22 +1,26 @@
 //
-//  ViewController.m
-//  Demo_VideoCapture
+//  Demo3_1ViewController.m
+//  Demo_OpenGLES_3
 //
-//  Created by billthaslu on 2021/5/30.
+//  Created by billthaslu on 2021/9/7.
 //
 
-#import "ViewController.h"
+#import "Demo3_1ViewController.h"
 #import "DemoCapturePipline.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController ()
+@interface Demo3_1ViewController ()
 
 @property (nonatomic, strong) DemoCapturePipline *pipeline;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 
 @end
 
-@implementation ViewController
+@implementation Demo3_1ViewController
+
+- (void)dealloc {
+    [_pipeline stopRunning];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

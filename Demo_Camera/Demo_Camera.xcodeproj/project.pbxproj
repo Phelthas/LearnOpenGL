@@ -17,7 +17,6 @@
 		43A5C5092616F0BF00594CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A5C5072616F0BF00594CE3 /* LaunchScreen.storyboard */; };
 		43A5C50C2616F0BF00594CE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5C50B2616F0BF00594CE3 /* main.m */; };
 		43A5C5192616F2B300594CE3 /* DemoCapturePipline.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5C5182616F2B300594CE3 /* DemoCapturePipline.m */; };
-		43EA4963261C046E00C2C05F /* DemoGLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EA4962261C046E00C2C05F /* DemoGLUtility.m */; };
 		8ED23B8BC59A45BD28C1E959 /* libPods-Demo_Camera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FA1A715C86C1BCF5AD5F86 /* libPods-Demo_Camera.a */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +37,6 @@
 		43A5C50B2616F0BF00594CE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43A5C5172616F2B300594CE3 /* DemoCapturePipline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCapturePipline.h; sourceTree = "<group>"; };
 		43A5C5182616F2B300594CE3 /* DemoCapturePipline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCapturePipline.m; sourceTree = "<group>"; };
-		43EA4961261C046E00C2C05F /* DemoGLUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLUtility.h; sourceTree = "<group>"; };
-		43EA4962261C046E00C2C05F /* DemoGLUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLUtility.m; sourceTree = "<group>"; };
 		8F32FE5349126462BC9C465A /* Pods-Demo_Camera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_Camera.release.xcconfig"; path = "Target Support Files/Pods-Demo_Camera/Pods-Demo_Camera.release.xcconfig"; sourceTree = "<group>"; };
 		98FA1A715C86C1BCF5AD5F86 /* libPods-Demo_Camera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_Camera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E174AFD64ABBDB8D8C95E60F /* Pods-Demo_Camera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_Camera.debug.xcconfig"; path = "Target Support Files/Pods-Demo_Camera/Pods-Demo_Camera.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,8 +85,6 @@
 				43A5C5182616F2B300594CE3 /* DemoCapturePipline.m */,
 				43766C0726174AB3006D6398 /* DemoGLView.h */,
 				43766C0826174AB3006D6398 /* DemoGLView.m */,
-				43EA4961261C046E00C2C05F /* DemoGLUtility.h */,
-				43EA4962261C046E00C2C05F /* DemoGLUtility.m */,
 				43A5C5022616F0BF00594CE3 /* Main.storyboard */,
 				43A5C5052616F0BF00594CE3 /* Assets.xcassets */,
 				43A5C5072616F0BF00594CE3 /* LaunchScreen.storyboard */,
@@ -234,7 +229,6 @@
 				43A5C5012616F0BF00594CE3 /* ViewController.m in Sources */,
 				43A5C4FB2616F0BF00594CE3 /* AppDelegate.m in Sources */,
 				43766C0926174AB3006D6398 /* DemoGLView.m in Sources */,
-				43EA4963261C046E00C2C05F /* DemoGLUtility.m in Sources */,
 				43A5C50C2616F0BF00594CE3 /* main.m in Sources */,
 				43A5C5192616F2B300594CE3 /* DemoCapturePipline.m in Sources */,
 			);

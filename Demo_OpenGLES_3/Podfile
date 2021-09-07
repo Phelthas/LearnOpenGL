@@ -2,11 +2,8 @@ platform :ios, '9.0'
 
 #use_frameworks!
 
-target "Demo_Camera" do
+target "Demo_OpenGLES_3" do
 
-pod "AFNetworking"
-
-pod 'GPUImage'
 
 #pod 'LXMKit',  :git => "https://github.com/Phelthas/LXMKit.git"
 pod 'LXMKit',  :path => "~/Documents/LXMGitHub/LXMKit"

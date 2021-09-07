@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  Demo_VideoCapture
+//  Demo_OpenGLES_3
 //
-//  Created by billthaslu on 2021/5/30.
+//  Created by billthaslu on 2021/9/7.
 //
 
 #import "AppDelegate.h"
@@ -18,6 +18,5 @@
     // Override point for customization after application launch.
     return YES;
 }
-
 
 @end

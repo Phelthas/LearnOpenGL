@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4360908926E70F100007DC40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4360908826E70F100007DC40 /* AppDelegate.m */; };
+		4360909226E70F100007DC40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360909026E70F100007DC40 /* Main.storyboard */; };
+		4360909426E70F110007DC40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4360909326E70F110007DC40 /* Assets.xcassets */; };
+		4360909726E70F110007DC40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360909526E70F110007DC40 /* LaunchScreen.storyboard */; };
+		4360909A26E70F110007DC40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4360909926E70F110007DC40 /* main.m */; };
+		436090A526E711190007DC40 /* DemoList3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090A426E711190007DC40 /* DemoList3ViewController.m */; };
+		436090A826E711B80007DC40 /* DemoCapturePipline.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090A726E711B80007DC40 /* DemoCapturePipline.m */; };
+		436090AB26E711EE0007DC40 /* Demo3_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */; };
+		58B6776E191DE4FED04C1058 /* libPods-Demo_OpenGLES_3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		226BBDA04E088492CF0955D9 /* Pods-Demo_OpenGLES_3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_3.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_3/Pods-Demo_OpenGLES_3.debug.xcconfig"; sourceTree = "<group>"; };
+		4360908426E70F100007DC40 /* Demo_OpenGLES_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4360908726E70F100007DC40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4360908826E70F100007DC40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4360909126E70F100007DC40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4360909326E70F110007DC40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4360909626E70F110007DC40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4360909826E70F110007DC40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4360909926E70F110007DC40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		436090A326E711190007DC40 /* DemoList3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoList3ViewController.h; sourceTree = "<group>"; };
+		436090A426E711190007DC40 /* DemoList3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoList3ViewController.m; sourceTree = "<group>"; };
+		436090A626E711B80007DC40 /* DemoCapturePipline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCapturePipline.h; sourceTree = "<group>"; };
+		436090A726E711B80007DC40 /* DemoCapturePipline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCapturePipline.m; sourceTree = "<group>"; };
+		436090A926E711EE0007DC40 /* Demo3_1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3_1ViewController.h; sourceTree = "<group>"; };
+		436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3_1ViewController.m; sourceTree = "<group>"; };
+		50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AB647E6DA38EAD4A3B5EEAD /* Pods-Demo_OpenGLES_3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_3.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_3/Pods-Demo_OpenGLES_3.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4360908126E70F100007DC40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B6776E191DE4FED04C1058 /* libPods-Demo_OpenGLES_3.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2272B85879C4FF5FEB09299D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4360907B26E70F0F0007DC40 = {
+			isa = PBXGroup;
+			children = (
+				4360908626E70F100007DC40 /* Demo_OpenGLES_3 */,
+				4360908526E70F100007DC40 /* Products */,
+				8483075F0E5FB0C7799119A7 /* Pods */,
+				2272B85879C4FF5FEB09299D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4360908526E70F100007DC40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4360908426E70F100007DC40 /* Demo_OpenGLES_3.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4360908626E70F100007DC40 /* Demo_OpenGLES_3 */ = {
+			isa = PBXGroup;
+			children = (
+				4360908726E70F100007DC40 /* AppDelegate.h */,
+				4360908826E70F100007DC40 /* AppDelegate.m */,
+				436090A326E711190007DC40 /* DemoList3ViewController.h */,
+				436090A426E711190007DC40 /* DemoList3ViewController.m */,
+				436090A626E711B80007DC40 /* DemoCapturePipline.h */,
+				436090A726E711B80007DC40 /* DemoCapturePipline.m */,
+				436090A926E711EE0007DC40 /* Demo3_1ViewController.h */,
+				436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */,
+				4360909026E70F100007DC40 /* Main.storyboard */,
+				4360909326E70F110007DC40 /* Assets.xcassets */,
+				4360909526E70F110007DC40 /* LaunchScreen.storyboard */,
+				4360909826E70F110007DC40 /* Info.plist */,
+				4360909926E70F110007DC40 /* main.m */,
+			);
+			path = Demo_OpenGLES_3;
+			sourceTree = "<group>";
+		};
+		8483075F0E5FB0C7799119A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				226BBDA04E088492CF0955D9 /* Pods-Demo_OpenGLES_3.debug.xcconfig */,
+				8AB647E6DA38EAD4A3B5EEAD /* Pods-Demo_OpenGLES_3.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4360908326E70F100007DC40 /* Demo_OpenGLES_3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4360909D26E70F110007DC40 /* Build configuration list for PBXNativeTarget "Demo_OpenGLES_3" */;
+			buildPhases = (
+				B6252956021D4D6AA5F201B7 /* [CP] Check Pods Manifest.lock */,
+				4360908026E70F100007DC40 /* Sources */,
+				4360908126E70F100007DC40 /* Frameworks */,
+				4360908226E70F100007DC40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo_OpenGLES_3;
+			productName = Demo_OpenGLES_3;
+			productReference = 4360908426E70F100007DC40 /* Demo_OpenGLES_3.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4360907C26E70F0F0007DC40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					4360908326E70F100007DC40 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 4360907F26E70F0F0007DC40 /* Build configuration list for PBXProject "Demo_OpenGLES_3" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4360907B26E70F0F0007DC40;
+			productRefGroup = 4360908526E70F100007DC40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4360908326E70F100007DC40 /* Demo_OpenGLES_3 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4360908226E70F100007DC40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4360909726E70F110007DC40 /* LaunchScreen.storyboard in Resources */,
+				4360909426E70F110007DC40 /* Assets.xcassets in Resources */,
+				4360909226E70F100007DC40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B6252956021D4D6AA5F201B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo_OpenGLES_3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4360908026E70F100007DC40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4360908926E70F100007DC40 /* AppDelegate.m in Sources */,
+				436090A826E711B80007DC40 /* DemoCapturePipline.m in Sources */,
+				436090AB26E711EE0007DC40 /* Demo3_1ViewController.m in Sources */,
+				4360909A26E70F110007DC40 /* main.m in Sources */,
+				436090A526E711190007DC40 /* DemoList3ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4360909026E70F100007DC40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4360909126E70F100007DC40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4360909526E70F110007DC40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4360909626E70F110007DC40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4360909B26E70F110007DC40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4360909C26E70F110007DC40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4360909E26E70F110007DC40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 226BBDA04E088492CF0955D9 /* Pods-Demo_OpenGLES_3.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E4R9H9F9L2;
+				INFOPLIST_FILE = Demo_OpenGLES_3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-3";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4360909F26E70F110007DC40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AB647E6DA38EAD4A3B5EEAD /* Pods-Demo_OpenGLES_3.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E4R9H9F9L2;
+				INFOPLIST_FILE = Demo_OpenGLES_3/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-3";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4360907F26E70F0F0007DC40 /* Build configuration list for PBXProject "Demo_OpenGLES_3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4360909B26E70F110007DC40 /* Debug */,
+				4360909C26E70F110007DC40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4360909D26E70F110007DC40 /* Build configuration list for PBXNativeTarget "Demo_OpenGLES_3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4360909E26E70F110007DC40 /* Debug */,
+				4360909F26E70F110007DC40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4360907C26E70F0F0007DC40 /* Project object */;
+}
