@@ -15,6 +15,8 @@
 		436090A526E711190007DC40 /* DemoList3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090A426E711190007DC40 /* DemoList3ViewController.m */; };
 		436090A826E711B80007DC40 /* DemoCapturePipline.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090A726E711B80007DC40 /* DemoCapturePipline.m */; };
 		436090AB26E711EE0007DC40 /* Demo3_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */; };
+		436090AE26E714C50007DC40 /* Demo3_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090AD26E714C50007DC40 /* Demo3_2ViewController.m */; };
+		436090B426E7172C0007DC40 /* Demo3GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090B326E7172C0007DC40 /* Demo3GLView.m */; };
 		58B6776E191DE4FED04C1058 /* libPods-Demo_OpenGLES_3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,10 @@
 		436090A726E711B80007DC40 /* DemoCapturePipline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCapturePipline.m; sourceTree = "<group>"; };
 		436090A926E711EE0007DC40 /* Demo3_1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3_1ViewController.h; sourceTree = "<group>"; };
 		436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3_1ViewController.m; sourceTree = "<group>"; };
+		436090AC26E714C50007DC40 /* Demo3_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3_2ViewController.h; sourceTree = "<group>"; };
+		436090AD26E714C50007DC40 /* Demo3_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3_2ViewController.m; sourceTree = "<group>"; };
+		436090B226E7172C0007DC40 /* Demo3GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3GLView.h; sourceTree = "<group>"; };
+		436090B326E7172C0007DC40 /* Demo3GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3GLView.m; sourceTree = "<group>"; };
 		50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB647E6DA38EAD4A3B5EEAD /* Pods-Demo_OpenGLES_3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_3.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_3/Pods-Demo_OpenGLES_3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,8 +91,12 @@
 				436090A426E711190007DC40 /* DemoList3ViewController.m */,
 				436090A626E711B80007DC40 /* DemoCapturePipline.h */,
 				436090A726E711B80007DC40 /* DemoCapturePipline.m */,
+				436090B226E7172C0007DC40 /* Demo3GLView.h */,
+				436090B326E7172C0007DC40 /* Demo3GLView.m */,
 				436090A926E711EE0007DC40 /* Demo3_1ViewController.h */,
 				436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */,
+				436090AC26E714C50007DC40 /* Demo3_2ViewController.h */,
+				436090AD26E714C50007DC40 /* Demo3_2ViewController.m */,
 				4360909026E70F100007DC40 /* Main.storyboard */,
 				4360909326E70F110007DC40 /* Assets.xcassets */,
 				4360909526E70F110007DC40 /* LaunchScreen.storyboard */,
@@ -200,10 +210,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436090AE26E714C50007DC40 /* Demo3_2ViewController.m in Sources */,
 				4360908926E70F100007DC40 /* AppDelegate.m in Sources */,
 				436090A826E711B80007DC40 /* DemoCapturePipline.m in Sources */,
 				436090AB26E711EE0007DC40 /* Demo3_1ViewController.m in Sources */,
 				4360909A26E70F110007DC40 /* main.m in Sources */,
+				436090B426E7172C0007DC40 /* Demo3GLView.m in Sources */,
 				436090A526E711190007DC40 /* DemoList3ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

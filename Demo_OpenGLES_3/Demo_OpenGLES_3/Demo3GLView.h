@@ -1,15 +1,15 @@
 //
-//  Demo2GLView.h
-//  Demo_OpenGLES_2
+//  Demo3GLView.h
+//  Demo_OpenGLES_3
 //
-//  Created by billthaslu on 2021/9/3.
+//  Created by billthaslu on 2021/9/7.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Demo2GLView : UIView {
+@interface Demo3GLView : UIView {
     //实例变量如果没有显式的声明出来，子类就不能直接用
     EAGLContext *_context;
     GLuint _program;
