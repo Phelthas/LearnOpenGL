@@ -6,26 +6,41 @@
 //
 
 #import "Demo3_2ViewController.h"
+#import "DemoCapturePipline.h"
+#import "Demo3GLView.h"
 
-@interface Demo3_2ViewController ()
+
+@interface Demo3_2ViewController ()<DemoCapturePiplineDelegate>
+
+@property (nonatomic, strong) DemoCapturePipline *pipeline;
+@property (nonatomic, strong) Demo3GLView *glView;
+
 
 @end
 
 @implementation Demo3_2ViewController
 
+- (void)dealloc {
+    [_pipeline stopRunning];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _pipeline = [[DemoCapturePipline alloc] init];
+    _pipeline.delegate = self;
+    [_pipeline startRunning];
+    
+    _glView = [[Demo3GLView alloc] initWithFrame:self.view.bounds vertexShaderFileName:@"DemoPositionCorodinate.vsh" fragmentShaderFileName:@"DemoTexturePassThrough.fsh"];
+   
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - DemoCapturePiplineDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)capturePipline:(DemoCapturePipline *)capturePipline didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    
 }
-*/
+
 
 @end

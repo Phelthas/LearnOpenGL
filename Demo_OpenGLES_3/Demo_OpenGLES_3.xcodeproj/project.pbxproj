@@ -17,6 +17,8 @@
 		436090AB26E711EE0007DC40 /* Demo3_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090AA26E711EE0007DC40 /* Demo3_1ViewController.m */; };
 		436090AE26E714C50007DC40 /* Demo3_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090AD26E714C50007DC40 /* Demo3_2ViewController.m */; };
 		436090B426E7172C0007DC40 /* Demo3GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 436090B326E7172C0007DC40 /* Demo3GLView.m */; };
+		43DD599226E902CA00FD0ECA /* DemoTexturePassThrough.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43DD599026E902CA00FD0ECA /* DemoTexturePassThrough.fsh */; };
+		43DD599326E902CA00FD0ECA /* DemoPositionCorodinate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43DD599126E902CA00FD0ECA /* DemoPositionCorodinate.vsh */; };
 		58B6776E191DE4FED04C1058 /* libPods-Demo_OpenGLES_3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		436090AD26E714C50007DC40 /* Demo3_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3_2ViewController.m; sourceTree = "<group>"; };
 		436090B226E7172C0007DC40 /* Demo3GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo3GLView.h; sourceTree = "<group>"; };
 		436090B326E7172C0007DC40 /* Demo3GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo3GLView.m; sourceTree = "<group>"; };
+		43DD599026E902CA00FD0ECA /* DemoTexturePassThrough.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoTexturePassThrough.fsh; sourceTree = "<group>"; };
+		43DD599126E902CA00FD0ECA /* DemoPositionCorodinate.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoPositionCorodinate.vsh; sourceTree = "<group>"; };
 		50DFE078BB09F763E8929BCA /* libPods-Demo_OpenGLES_3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB647E6DA38EAD4A3B5EEAD /* Pods-Demo_OpenGLES_3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_3.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_3/Pods-Demo_OpenGLES_3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +89,8 @@
 		4360908626E70F100007DC40 /* Demo_OpenGLES_3 */ = {
 			isa = PBXGroup;
 			children = (
+				43DD599126E902CA00FD0ECA /* DemoPositionCorodinate.vsh */,
+				43DD599026E902CA00FD0ECA /* DemoTexturePassThrough.fsh */,
 				4360908726E70F100007DC40 /* AppDelegate.h */,
 				4360908826E70F100007DC40 /* AppDelegate.m */,
 				436090A326E711190007DC40 /* DemoList3ViewController.h */,
@@ -174,7 +180,9 @@
 			files = (
 				4360909726E70F110007DC40 /* LaunchScreen.storyboard in Resources */,
 				4360909426E70F110007DC40 /* Assets.xcassets in Resources */,
+				43DD599326E902CA00FD0ECA /* DemoPositionCorodinate.vsh in Resources */,
 				4360909226E70F100007DC40 /* Main.storyboard in Resources */,
+				43DD599226E902CA00FD0ECA /* DemoTexturePassThrough.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -128,6 +128,10 @@
      */
     
 //    NSLog(@"sampleBuffer is %@", sampleBuffer);
+    
+    if ([self.delegate respondsToSelector:@selector(capturePipline:didOutputSampleBuffer:)]) {
+        [self.delegate capturePipline:self didOutputSampleBuffer:sampleBuffer];
+    }
 
 }
 
