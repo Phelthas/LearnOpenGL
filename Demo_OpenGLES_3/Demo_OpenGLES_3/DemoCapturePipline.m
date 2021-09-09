@@ -13,6 +13,7 @@
 @property (nonatomic, strong) dispatch_queue_t sessionQueue;
 @property (nonatomic, strong) dispatch_queue_t dataOutputQueue;
 
+@property (nonatomic, strong) AVCaptureConnection *videoConnection;
 
 
 @end
@@ -75,20 +76,20 @@
      而VideoRange和FullRange的不同，在定义里有注释。
      */
 
-//    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
-    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
-    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
+    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
+//    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
+//    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     dataOutput.alwaysDiscardsLateVideoFrames = YES;
-    
-//    //加上这几句可以解决摄像头旋转的问题，但是貌似更常用的做法是在shader中做一次旋转
-//    _videoConnection = [dataOutput connectionWithMediaType:AVMediaTypeVideo];
-//    _videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
-//    _videoConnection.videoMirrored = YES;
-    
+        
     [dataOutput setSampleBufferDelegate:self queue:_dataOutputQueue];
     if ([_captureSession canAddOutput:dataOutput]) {
         [_captureSession addOutput:dataOutput];
     }
+    
+    //加上这几句可以解决摄像头旋转的问题，但是貌似更常用的做法是在shader中做一次旋转
+    _videoConnection = [dataOutput connectionWithMediaType:AVMediaTypeVideo];
+    _videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
+    _videoConnection.videoMirrored = YES;
 }
 
 #pragma mark - PublicMethod
@@ -114,9 +115,9 @@
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    AVCaptureVideoDataOutput *dataOutput = (AVCaptureVideoDataOutput *)output;
-    NSDictionary *dict = dataOutput.videoSettings;
-    NSLog(@"dataOutput.videoSettings is \n %@", dict);
+//    AVCaptureVideoDataOutput *dataOutput = (AVCaptureVideoDataOutput *)output;
+//    NSDictionary *dict = dataOutput.videoSettings;
+//    NSLog(@"dataOutput.videoSettings is \n %@", dict);
     
     /**
      iPhoneX上的默认值

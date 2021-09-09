@@ -6,8 +6,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef struct {
+    GLKVector3 vertex;
+    GLKVector2 coordinate;
+} VertexAndCoordinate;
+
+typedef enum : NSUInteger {
+    ShaderAttributeIndexPosition = 0,
+    ShaderAttributeIndexCoordinate,
+    ShaderAttributeIndexCount,  //不实际使用，只是为了计数
+} ShaderAttributeIndex;
+
 
 @interface Demo3GLView : UIView {
     //实例变量如果没有显式的声明出来，子类就不能直接用
