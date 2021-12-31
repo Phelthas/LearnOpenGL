@@ -9,6 +9,8 @@
 
 @interface ThreeViewController ()
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation ThreeViewController
@@ -16,11 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self testTimer];
 }
 
 - (void)setupGLView {
     self.glView = [[DemoGLView3 alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.glView];
+}
+
+- (void)testTimer {
+    self.timer = [NSTimer timerWithTimeInterval:0.1 target:self.glView selector:@selector(displayContent) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 @end
@@ -83,6 +91,17 @@ void main()
     [self setupProgramAndViewport6];
 }
 
+- (GLKTextureInfo *)textureInfoForTest {
+    // 加载图片纹理
+//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+
+    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    return textureInfo;
+}
+
 - (void)setupProgramAndViewport0 {
     glUseProgram(_program);
     
@@ -110,12 +129,7 @@ void main()
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
@@ -153,12 +167,7 @@ void main()
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
@@ -234,12 +243,7 @@ void main()
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
@@ -298,12 +302,7 @@ void main()
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
@@ -362,12 +361,7 @@ void main()
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);

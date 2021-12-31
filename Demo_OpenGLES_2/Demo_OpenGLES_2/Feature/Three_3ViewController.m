@@ -101,12 +101,7 @@
     
     
     // 加载图片纹理
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-
-    NSDictionary *optionDict = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:optionDict error:nil];
+    GLKTextureInfo *textureInfo = [self textureInfoForTest];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureInfo.name);

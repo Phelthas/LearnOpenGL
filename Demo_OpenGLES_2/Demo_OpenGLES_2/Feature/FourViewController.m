@@ -42,7 +42,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // 测试表面设置这一句还是有用的，纹理透明的部分就会把后面的露出来；
+        // 测试表明设置这一句还是有用的，纹理透明的部分就会把后面的露出来；
         // 如果没有这一句，相当于背景色是黑色的
         self.backgroundColor = UIColor.clearColor;
     }

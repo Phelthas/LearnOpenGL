@@ -25,6 +25,8 @@ typedef enum : NSUInteger {
 
 @interface DemoGLView3 : DemoGLView
 
+- (GLKTextureInfo *)textureInfoForTest;
+
 @end
 
 NS_ASSUME_NONNULL_END

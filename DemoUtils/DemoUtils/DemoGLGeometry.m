@@ -7,6 +7,18 @@
 
 #import "DemoGLGeometry.h"
 
+#pragma mark ----------------------------------Coordinate----------------------------------
+
+CGFloat coordinateConvertionX(CGFloat normalizedValue) {
+    return normalizedValue * 2 - 1;
+}
+
+CGFloat coordinateConvertionY(CGFloat normalizedValue) {
+    return 1 - normalizedValue * 2;
+}
+
+#pragma mark ----------------------------------sampling----------------------------------
+
 CGFloat leftXForSamplingSize(CGSize samplingSize) {
     return (1 - samplingSize.width) / 2;
 }

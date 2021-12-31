@@ -1,16 +1,21 @@
 PODS:
+  - DemoUtils (0.1.0)
   - LXMKit (0.1.0)
 
 DEPENDENCIES:
+  - DemoUtils (from `../DemoUtils`)
   - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
 
 EXTERNAL SOURCES:
+  DemoUtils:
+    :path: "../DemoUtils"
   LXMKit:
     :path: "~/Documents/LXMGitHub/LXMKit"
 
 SPEC CHECKSUMS:
+  DemoUtils: 4db393988e78bf73939ae5bef6cee5408d036fe0
   LXMKit: b184ae26f50177607294b28140c2c423473927f7
 
-PODFILE CHECKSUM: 411c815e17fe7338c79ec30f0dc95e55aa0e0f2d
+PODFILE CHECKSUM: 8363e3c3bec69fcea78e08e9fc49b2b821a57548
 
 COCOAPODS: 1.9.1

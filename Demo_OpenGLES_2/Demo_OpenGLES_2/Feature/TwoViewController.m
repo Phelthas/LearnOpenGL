@@ -32,6 +32,7 @@
 
 
 #import "DemoGLUtility.h"
+#import "DemoGLGeometry.h"
 #import <GLKit/GLKit.h>
 #import <LXMKit/LXMKit.h>
 
@@ -233,10 +234,10 @@
     // 设置顶点数组
     // 注意：先用CGRect转换区间，则计算y坐标的时候会不一样 ！！！
     const GLKVector3 vertices[] = {
-        GLKVector3Make(finalRect.origin.x, finalRect.origin.y, 0.0f), //topLeft
-        GLKVector3Make(finalRect.origin.x + finalRect.size.width, finalRect.origin.y, 0.0f),  //topRight
-        GLKVector3Make(finalRect.origin.x, finalRect.origin.y - finalRect.size.height, 0.0f), // bottomLeft 此时坐标系已经变成向下减少，所以要减去
-        GLKVector3Make(finalRect.origin.x + finalRect.size.width, finalRect.origin.y - finalRect.size.height, 0.0f),  // bottomRight 此时坐标系已经变成向下减少，所以要减去
+        GLKVector3Make(CGRectGetMinX(finalRect), CGRectGetMinY(finalRect), 0.0f), //topLeft
+        GLKVector3Make(CGRectGetMaxX(finalRect), CGRectGetMinY(finalRect), 0.0f),  //topRight
+        GLKVector3Make(CGRectGetMinX(finalRect), CGRectGetMinY(finalRect) - finalRect.size.height, 0.0f), // bottomLeft 此时坐标系已经变成向下减少，所以要减去
+        GLKVector3Make(CGRectGetMaxX(finalRect), CGRectGetMinY(finalRect) - finalRect.size.height, 0.0f),  // bottomRight 此时坐标系已经变成向下减少，所以要减去
     };
     
     GLuint vbo;
@@ -265,34 +266,35 @@
                                        rect.size.width / self.width,
                                        rect.size.height / self.height);
     
-    // 归一化以后的顶点
-    GLKVector3 normalizedVertices[] = {
-        GLKVector3Make(normalizedRect.origin.x, normalizedRect.origin.y, 0.0f), //topLeft
-        GLKVector3Make(normalizedRect.origin.x + normalizedRect.size.width, normalizedRect.origin.y, 0.0f),  //topRight
-        GLKVector3Make(normalizedRect.origin.x, normalizedRect.origin.y + normalizedRect.size.height, 0.0f), // bottomLeft
-        GLKVector3Make(normalizedRect.origin.x + normalizedRect.size.width, normalizedRect.origin.y + normalizedRect.size.height, 0.0f), //bottomRight
-    };
-    
     /**
      转换到（-1， 1）区间 公式
      x坐标 = normalizedValue * 2 - 1
      y坐标 = (normalizedValue * 2 - 1) * -1
+     
+     // 归一化以后的顶点
+     GLKVector3 normalizedVertices[] = {
+         GLKVector3Make(CGRectGetMinX(normalizedRect), CGRectGetMinY(normalizedRect), 0.0f), //topLeft
+         GLKVector3Make(CGRectGetMaxX(normalizedRect), CGRectGetMinY(normalizedRect), 0.0f),  //topRight
+         GLKVector3Make(CGRectGetMinX(normalizedRect), CGRectGetMaxY(normalizedRect), 0.0f), // bottomLeft
+         GLKVector3Make(CGRectGetMaxX(normalizedRect), CGRectGetMaxY(normalizedRect), 0.0f), //bottomRight
+     };
+     
+     // 设置顶点数组
+     const GLKVector3 vertices[] = {
+         GLKVector3Make(normalizedVertices[0].x * 2 - 1, 1 - normalizedVertices[0].y * 2, 0.0f), //topLeft
+         GLKVector3Make(normalizedVertices[1].x * 2 - 1, 1 - normalizedVertices[1].y * 2, 0.0f),  //topRight
+         GLKVector3Make(normalizedVertices[2].x * 2 - 1, 1 - normalizedVertices[2].y * 2, 0.0f), // bottomLeft
+         GLKVector3Make(normalizedVertices[3].x * 2 - 1, 1 - normalizedVertices[3].y * 2, 0.0f),  // bottomRight
+     };
+     
      */
-    
-    // 设置顶点数组
-//    const GLKVector3 vertices[] = {
-//        GLKVector3Make(normalizedVertices[0].x * 2 - 1, 1 - normalizedVertices[0].y * 2, 0.0f), //topLeft
-//        GLKVector3Make(normalizedVertices[1].x * 2 - 1, 1 - normalizedVertices[1].y * 2, 0.0f),  //topRight
-//        GLKVector3Make(normalizedVertices[2].x * 2 - 1, 1 - normalizedVertices[2].y * 2, 0.0f), // bottomLeft
-//        GLKVector3Make(normalizedVertices[3].x * 2 - 1, 1 - normalizedVertices[3].y * 2, 0.0f),  // bottomRight
-//    };
-    
     const GLKVector3 vertices[] = {
-        vertexConvertion(normalizedVertices[0]), //topLeft
-        vertexConvertion(normalizedVertices[1]),  //topRight
-        vertexConvertion(normalizedVertices[2]), // bottomLeft
-        vertexConvertion(normalizedVertices[3]),  // bottomRight
+        vertexConvertionFromNormalizedPoint(CGRectGetTopLeftPoint(normalizedRect)), //topLeft
+        vertexConvertionFromNormalizedPoint(CGRectGetTopRightPoint(normalizedRect)),  //topRight
+        vertexConvertionFromNormalizedPoint(CGRectGetBottomLeftPoint(normalizedRect)), // bottomLeft
+        vertexConvertionFromNormalizedPoint(CGRectGetBottomRightPoint(normalizedRect)),  // bottomRight
     };
+
     
     GLuint vbo;
     glGenBuffers(1, &vbo);
@@ -305,16 +307,8 @@
     
 }
 
-static inline float vertexXConvertion(float normalizedValue) {
-    return normalizedValue * 2 - 1;
-}
-
-static inline float vertexYConvertion(float normalizedValue) {
-    return 1 - normalizedValue * 2;
-}
-
-static inline GLKVector3 vertexConvertion(GLKVector3 normalizedVector) {
-    return GLKVector3Make(vertexXConvertion(normalizedVector.x), vertexYConvertion(normalizedVector.y), 0);
+static inline GLKVector3 vertexConvertionFromNormalizedPoint(CGPoint normalizedPoint) {
+    return GLKVector3Make(coordinateConvertionX(normalizedPoint.x), coordinateConvertionX(normalizedPoint.y), 0);
 }
 
 - (void)displayContent {
