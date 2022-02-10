@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)linkProgram:(GLuint)program;
 
++ (BOOL)validateProgram:(GLuint)program;
+
 + (GLuint)createTextureWithImage:(UIImage *)image;
 
 @end

@@ -68,6 +68,21 @@
     return true;
 }
 
++ (BOOL)validateProgram:(GLuint)program {
+    GLint logLength;
+    
+    glValidateProgram(program);
+    glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logLength);
+    if (logLength > 0) {
+        GLchar *log = (GLchar *)malloc(logLength);
+        glGetProgramInfoLog(program, logLength, &logLength, log);
+        NSLog(@"program validate info log: %s", log);
+        free(log);
+        return false;
+    }
+    return true;
+}
+
 + (GLuint)createTextureWithImage:(UIImage *)image {
     CGImageRef cgImageRef = image.CGImage;
     GLint width = (GLint)CGImageGetWidth(cgImageRef);

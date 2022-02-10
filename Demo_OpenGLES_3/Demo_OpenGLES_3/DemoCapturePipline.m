@@ -54,6 +54,14 @@
     }
     
     AVCaptureVideoDataOutput *dataOutput = [[AVCaptureVideoDataOutput alloc] init];
+    BOOL supportFullRange = NO;
+    NSArray *supportedPixelFormats = dataOutput.availableVideoCVPixelFormatTypes;
+    for (NSNumber *pixelFormat in supportedPixelFormats) {
+        if ([pixelFormat integerValue] == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+            supportFullRange = YES;
+        }
+    }
+    
     /**
         See AVVideoSettings.h for more information on how to construct a video settings dictionary. To receive samples in their device native format, set this property to an empty dictionary (i.e. [NSDictionary dictionary]). To receive samples in a default uncompressed format, set this property to nil. Note that after this property is set to nil, subsequent querying of this property will yield a non-nil dictionary reflecting the settings used by the AVCaptureSession's current sessionPreset.
      
@@ -75,8 +83,8 @@
      就像是一个三维平面一样。
      而VideoRange和FullRange的不同，在定义里有注释。
      */
-
-    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
+    
+//    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
 //    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
 //    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     dataOutput.alwaysDiscardsLateVideoFrames = YES;
@@ -97,7 +105,7 @@
 - (void)startRunning {
     dispatch_sync(_sessionQueue, ^{
         [self setupCaptureSession];
-        if (_captureSession) {
+        if (![_captureSession isRunning]) {
             [_captureSession startRunning];
         }
     });
@@ -105,7 +113,7 @@
 
 - (void)stopRunning {
     dispatch_sync(_sessionQueue, ^{
-        if (_captureSession) {
+        if ([_captureSession isRunning]) {
             [_captureSession stopRunning];
         }
     });
@@ -115,8 +123,20 @@
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-//    AVCaptureVideoDataOutput *dataOutput = (AVCaptureVideoDataOutput *)output;
-//    NSDictionary *dict = dataOutput.videoSettings;
+    /**
+     AVCaptureVideoDataOutput *dataOutput = (AVCaptureVideoDataOutput *)output;
+     NSDictionary *dict = dataOutput.videoSettings;
+     NSInteger pixelFormatType = [dict[(id)kCVPixelBufferPixelFormatTypeKey] integerValue];
+     if (pixelFormatType == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange) {
+         NSLog(@"kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange");
+     } else if (pixelFormatType == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+         NSLog(@"kCVPixelFormatType_420YpCbCr8BiPlanarFullRange");
+     }
+     貌似在这里判断videoSettings的值也可以判断出sampleBuffer的格式，但是GPUImage是在设置的时候记录一下，然后用sampleBuffer
+     中的字段来判断的，不知道有啥深意
+     */
+    
+    
 //    NSLog(@"dataOutput.videoSettings is \n %@", dict);
     
     /**
@@ -129,6 +149,8 @@
      */
     
 //    NSLog(@"sampleBuffer is %@", sampleBuffer);
+    
+    
     
     if ([self.delegate respondsToSelector:@selector(capturePipline:didOutputSampleBuffer:)]) {
         [self.delegate capturePipline:self didOutputSampleBuffer:sampleBuffer];
