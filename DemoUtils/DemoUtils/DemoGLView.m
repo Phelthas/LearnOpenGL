@@ -24,6 +24,7 @@
 @property (nonatomic, assign) GLint displayPositionAttribute;
 @property (nonatomic, assign) GLint displayTextureCoordinateAttribute;
 @property (nonatomic, assign) GLint displayInputTextureUniform;
+@property (nonatomic, assign) GLint displayRotateZMatrixUniform;
 @property (nonatomic, assign) GLint backingWidth;
 @property (nonatomic, assign) GLint backingHeight;
 @property (nonatomic, assign) CGSize boundsSizeForFramebuffer;
@@ -70,7 +71,7 @@
     
     runSyncOnVideoProcessingQueue(^{
         [DemoGLContext useImageProcessingContext];
-        self.displayProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
+        self.displayProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageRotationVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
         [self.displayProgram addAttribute:@"position"];
         [self.displayProgram addAttribute:@"inputTextureCoordinate"];
         
@@ -81,6 +82,7 @@
         self.displayPositionAttribute = [self.displayProgram attributeIndex:@"position"];
         self.displayTextureCoordinateAttribute = [self.displayProgram attributeIndex:@"inputTextureCoordinate"];
         self.displayInputTextureUniform = [self.displayProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
+        self.displayRotateZMatrixUniform = [self.displayProgram uniformIndex:@"rotateZMatrix"];
         
         glEnableVertexAttribArray(self.displayPositionAttribute);
         glEnableVertexAttribArray(self.displayTextureCoordinateAttribute);
@@ -168,6 +170,18 @@
         glActiveTexture(GL_TEXTURE4);
         glBindTexture(GL_TEXTURE_2D, [self.inputFrameBufferForDisplay texture]);
         glUniform1i(self.displayInputTextureUniform, 4);
+        
+        //如果使用了kGPUImageRotationVertexShaderString，要把旋转矩阵传进去，如果没有旋转，要传CATransform3DIdentity
+//        CATransform3D transform = CATransform3DMakeRotation(degree / 360.0 * 2 * M_PI, 0, 0, 1);
+        CATransform3D transform = CATransform3DIdentity;
+        GLfloat rotateZMatrix[] = {
+            transform.m11, transform.m12, transform.m13, transform.m14,
+            transform.m21, transform.m22, transform.m23, transform.m24,
+            transform.m31, transform.m32, transform.m33, transform.m34,
+            transform.m41, transform.m42, transform.m43, transform.m44,
+        };
+        
+        glUniformMatrix4fv(self.displayRotateZMatrixUniform, 1, 0, rotateZMatrix);
 #warning testCode------------------------start
         
         static const GLfloat imageVertices[] = {

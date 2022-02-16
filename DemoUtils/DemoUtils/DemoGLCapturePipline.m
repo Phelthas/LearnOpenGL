@@ -15,16 +15,23 @@
 @property (nonatomic, strong) dispatch_queue_t dataOutputQueue;
 @property (nonatomic, strong) AVCaptureDeviceInput *videoInput;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
+@property (nonatomic, assign) AVCaptureDevicePosition cameraPosition;
 
 @property (nonatomic, assign, readwrite) BOOL isFullYUVRange;
+
 
 @end
 
 @implementation DemoGLCapturePipline
 
 - (instancetype)init {
+    return [self initWithCameraPosition:AVCaptureDevicePositionBack];
+}
+
+- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
     self = [super init];
     if (self) {
+        _cameraPosition = cameraPosition;
         _sessionQueue = dispatch_queue_create("DemoCapturePipline.sessionQueue", DISPATCH_QUEUE_SERIAL);
         _dataOutputQueue = dispatch_queue_create("DemoCapturePipline.dataOutputQueue", DISPATCH_QUEUE_SERIAL);
         dispatch_set_target_queue(_dataOutputQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
@@ -42,7 +49,7 @@
     NSArray<AVCaptureDevice *> *deviceArray = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     AVCaptureDevice *frontDevice = nil;
     for (AVCaptureDevice *device in deviceArray) {
-        if (device.position == AVCaptureDevicePositionFront) {
+        if (device.position == self.cameraPosition) {
             frontDevice = device;
             break;
         }
@@ -120,10 +127,10 @@
     
     
     
-    //加上这几句可以解决摄像头旋转的问题，但是貌似更常用的做法是在shader中做一次旋转
-    _videoConnection = [_videoDataOutput connectionWithMediaType:AVMediaTypeVideo];
-    _videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
-    _videoConnection.videoMirrored = YES;
+//    //加上这几句可以解决摄像头旋转的问题，但是貌似更常用的做法是在shader中做一次旋转
+//    _videoConnection = [_videoDataOutput connectionWithMediaType:AVMediaTypeVideo];
+//    _videoConnection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+//    _videoConnection.videoMirrored = YES;
 }
 
 - (void)dealloc {
@@ -179,9 +186,26 @@
      其中 int('0')=48, int('a')=97, int('A')=65
      */
     
+    /**
+     前面没有设置connection.videoOrientation时，
+     如果是前置摄像头，这里取到的是AVCaptureVideoOrientationLandscapeLeft
+     如果是后置摄像头，这里取到的是AVCaptureVideoOrientationLandscapeRight
+     */
+    
 //    NSLog(@"sampleBuffer is %@", sampleBuffer);
     
+//    CMSampleBufferRef tempBuffer = sampleBuffer;
+//    CFDictionaryRef dict = CMGetAttachment(sampleBuffer, kCGImagePropertyExifDictionary, NULL);
+//    CFDictionaryRef temp = CMGetAttachment(sampleBuffer, kCGImagePropertyOrientation, NULL);
     
+#if DEBUG
+    
+    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    UIImage *image = [self uiImageFromPixelBuffer:imageBuffer];
+    
+#endif
+    
+
     
     if ([self.delegate respondsToSelector:@selector(capturePipline:didOutputSampleBuffer:)]) {
         [self.delegate capturePipline:self didOutputSampleBuffer:sampleBuffer];
@@ -189,7 +213,19 @@
 
 }
 
-
+- (UIImage *)uiImageFromPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    CIImage* ciImage = [CIImage imageWithCVPixelBuffer:pixelBuffer];
+    
+    CIContext* context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer : @(YES)}];
+    
+    CGRect rect = CGRectMake(0, 0, CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer));
+    CGImageRef videoImage = [context createCGImage:ciImage fromRect:rect];
+    
+    UIImage* image = [UIImage imageWithCGImage:videoImage];
+    CGImageRelease(videoImage);
+    
+    return image;
+}
 
 
 @end

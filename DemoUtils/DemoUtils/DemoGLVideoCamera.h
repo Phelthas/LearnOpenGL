@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLVideoCamera : DemoGLOutput
 
+- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition;
+
 - (void)startCameraCapture;
 
 - (void)stopCameraCapture;

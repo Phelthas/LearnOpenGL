@@ -12,6 +12,7 @@
 #define SHADER_STRING(text) @ STRINGIZE2(text)
 
 UIKIT_EXTERN NSString *const kGPUImageVertexShaderString;
+UIKIT_EXTERN NSString *const kGPUImageRotationVertexShaderString;
 UIKIT_EXTERN NSString *const kGPUImagePassthroughFragmentShaderString;
 
 

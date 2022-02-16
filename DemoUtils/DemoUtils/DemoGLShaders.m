@@ -23,6 +23,21 @@ NSString *const kGPUImageVertexShaderString = SHADER_STRING
  );
 
 
+NSString *const kGPUImageRotationVertexShaderString = SHADER_STRING
+(
+ attribute vec4 position;
+ attribute vec4 inputTextureCoordinate;
+ uniform mat4 rotateZMatrix; //用来做z轴旋转
+ varying vec2 textureCoordinate;
+ 
+ void main()
+ {
+     gl_Position = position * rotateZMatrix;
+     textureCoordinate = inputTextureCoordinate.xy;
+ }
+ );
+
+
 NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
 (
  varying highp vec2 textureCoordinate;

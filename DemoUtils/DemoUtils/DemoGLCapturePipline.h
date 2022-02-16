@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL isFullYUVRange;
 @property (nonatomic, weak) id<DemoGLCapturePiplineDelegate> delegate;
 
+- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition;
+
 - (void)startRunning;
 
 - (void)stopRunning;

@@ -37,10 +37,14 @@
 @implementation DemoGLVideoCamera
 
 - (instancetype)init {
+    return [self initWithCameraPosition:AVCaptureDevicePositionBack];
+}
+
+- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
     self = [super init];
     if (self) {
         _frameRenderingSemaphore = dispatch_semaphore_create(1);
-        _capturePipline = [[DemoGLCapturePipline alloc] init];
+        _capturePipline = [[DemoGLCapturePipline alloc] initWithCameraPosition:cameraPosition];
         _capturePipline.delegate = self;
         _preferredConversion = kColorConversion709;
         
