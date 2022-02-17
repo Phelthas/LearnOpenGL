@@ -13,6 +13,8 @@
 @property (nonatomic, strong) DemoGLVideoCamera *videoCamera;
 @property (nonatomic, strong) DemoGLView *glView;
 @property (nonatomic, assign) AVCaptureDevicePosition cameraPosition;
+@property (nonatomic, assign)AVCaptureVideoOrientation videoOrientation;
+
 
 @end
 
@@ -25,12 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.cameraPosition = AVCaptureDevicePositionFront;
+    self.cameraPosition = AVCaptureDevicePositionBack;
+    self.videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
     
+    __weak typeof(self)weakSelf = self;
     _videoCamera = [[DemoGLVideoCamera alloc] initWithCameraPosition:self.cameraPosition];
     [_videoCamera setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
 //        //设置为AVCaptureVideoOrientationPortrait，输出的sampleBuffer宽高就会变成720*1280
-//        connection.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+        connection.videoOrientation = weakSelf.videoOrientation;
 //        connection.videoMirrored = NO;
     }];
     
@@ -50,14 +54,15 @@
     UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
 
     if (self.cameraPosition == AVCaptureDevicePositionFront) {
-        CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithOrientation:deviceOrientation];
+//        CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithOrientation:deviceOrientation];
+        CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation];
         CATransform3D transform = CATransform3DIdentity;
         //注意：矩阵乘法不遵守交换律，先旋转再缩放，跟先缩放再旋转，效果是不一样的！！！常规做法都是先缩放再旋转
         transform = CATransform3DScale(transform, -1, 1, 1);
         transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
         self.glView.layer.transform = transform;
     } else {
-        CGFloat degree = [Demo4_2ViewController degreeToRoateForBackCameraWithOrientation:deviceOrientation];
+        CGFloat degree = [Demo4_2ViewController degreeToRoateForBackCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation];
         CATransform3D transform = CATransform3DIdentity;
         transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
         self.glView.layer.transform = transform;
@@ -114,5 +119,216 @@
     return degree;
 }
 
+
++ (CGFloat)degreeToRoateForFrontCameraWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation videoOrientation:(AVCaptureVideoOrientation)videoOrientation {
+    CGFloat degree = 0;
+    /*
+    if (videoOrientation == AVCaptureVideoOrientationPortrait) {
+        //videoOrientation = 1
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 270;
+        }
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationPortraitUpsideDown) {
+        //videoOrientation = 2
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 90;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了180
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
+        //videoOrientation = 3
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 180;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了270
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        //videoOrientation = 4
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 0;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了90
+    }
+    */
+     
+    if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+        //interfaceOrientation = 1
+        degree = 0;
+    } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        //interfaceOrientation = 2
+        degree = 180;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+        //interfaceOrientation = 3
+        degree = 90;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+        //interfaceOrientation = 4
+        degree = 270;
+    }
+    
+    if (videoOrientation == AVCaptureVideoOrientationPortrait) {
+        //videoOrientation = 1
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationPortraitUpsideDown) {
+        //videoOrientation = 2
+        degree += 180;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
+        //videoOrientation = 3
+        degree += 270;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        //videoOrientation = 4
+        degree += 90;
+    }
+    
+    return degree;
+}
+
++ (CGFloat)degreeToRoateForBackCameraWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation videoOrientation:(AVCaptureVideoOrientation)videoOrientation {
+    //后置摄像头情况下
+    CGFloat degree = 0;
+    /*
+    if (videoOrientation == AVCaptureVideoOrientationPortrait) {
+        //videoOrientation = 1
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 90;
+        }
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationPortraitUpsideDown) {
+        //videoOrientation = 2
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 270;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了180
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
+        //videoOrientation = 3
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 0;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 180;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了90
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        //videoOrientation = 4
+        if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+            //interfaceOrientation = 1
+            degree = 270;
+        } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            //interfaceOrientation = 2
+            degree = 90;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+            //interfaceOrientation = 3
+            degree = 180;
+        } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+            //interfaceOrientation = 4
+            degree = 0;
+        }
+        //可以看出，是在AVCaptureVideoOrientationPortrait结果的基础上，加了270
+    }
+    */
+    
+    if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+        //interfaceOrientation = 1
+        degree = 0;
+    } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        //interfaceOrientation = 2
+        degree = 180;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+        //interfaceOrientation = 3
+        degree = 270;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+        //interfaceOrientation = 4
+        degree = 90;
+    }
+
+    if (videoOrientation == AVCaptureVideoOrientationPortrait) {
+        //videoOrientation = 1
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationPortraitUpsideDown) {
+        //videoOrientation = 2
+        degree += 180;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
+        //videoOrientation = 3
+        degree += 90;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        //videoOrientation = 4
+        degree += 270;
+    }
+    
+    return degree;
+}
 
 @end
