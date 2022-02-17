@@ -6,12 +6,15 @@
 //
 
 #import "DemoGLOutput.h"
+#import "DemoGLCapturePipline.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLVideoCamera : DemoGLOutput
 
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition;
+
+- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock;
 
 - (void)startCameraCapture;
 

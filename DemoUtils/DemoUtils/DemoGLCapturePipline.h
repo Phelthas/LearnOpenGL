@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+typedef void(^DemoGLCaptureConnectionConfigure)(AVCaptureConnection *connection);
 
 @interface DemoGLCapturePipline : NSObject
 
@@ -25,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<DemoGLCapturePiplineDelegate> delegate;
 
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition;
+
+- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock;
 
 - (void)startRunning;
 

@@ -125,12 +125,16 @@
         [_captureSession setSessionPreset:AVCaptureSessionPreset1280x720];
     }
     
+}
+
+- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock {
+    if (!self.videoConnection) {
+        self.videoConnection = [self.videoDataOutput connectionWithMediaType:AVMediaTypeVideo];
+    }
+    if (configureBlock) {
+        configureBlock(self.videoConnection);
+    }
     
-    
-//    //加上这几句可以解决摄像头旋转的问题，但是貌似更常用的做法是在shader中做一次旋转
-//    _videoConnection = [_videoDataOutput connectionWithMediaType:AVMediaTypeVideo];
-//    _videoConnection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
-//    _videoConnection.videoMirrored = YES;
 }
 
 - (void)dealloc {

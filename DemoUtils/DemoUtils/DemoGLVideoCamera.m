@@ -37,7 +37,7 @@
 @implementation DemoGLVideoCamera
 
 - (instancetype)init {
-    return [self initWithCameraPosition:AVCaptureDevicePositionBack];
+    return [self initWithCameraPosition:AVCaptureDevicePositionFront];
 }
 
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
@@ -90,14 +90,6 @@
 
 - (DemoGLTextureFrame *)framebufferForOutput {
     return _outputFramebuffer;
-}
-
-- (void)startCameraCapture {
-    [self.capturePipline startRunning];
-}
-
-- (void)stopCameraCapture {
-    [self.capturePipline stopRunning];
 }
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
@@ -244,6 +236,20 @@
     glVertexAttribPointer(self.yuvConversionTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
+#pragma mark - PublicMethod
+
+- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock {
+    [self.capturePipline setupAVCaptureConnectionWithBlock:configureBlock];
+}
+
+- (void)startCameraCapture {
+    [self.capturePipline startRunning];
+}
+
+- (void)stopCameraCapture {
+    [self.capturePipline stopRunning];
 }
 
 #pragma mark - DemoGLCapturePiplineDelegate
