@@ -11,6 +11,9 @@
 #define STRINGIZE2(x) STRINGIZE(x)
 #define SHADER_STRING(text) @ STRINGIZE2(text)
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 UIKIT_EXTERN NSString *const kGPUImageVertexShaderString;
 UIKIT_EXTERN NSString *const kGPUImageRotationVertexShaderString;
 UIKIT_EXTERN NSString *const kGPUImagePassthroughFragmentShaderString;
@@ -23,7 +26,6 @@ UIKIT_EXTERN const GLfloat kColorConversion709[];
 UIKIT_EXTERN NSString *const kGPUImageYUVFullRangeConversionForLAFragmentShaderString;
 UIKIT_EXTERN NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString;
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLShaders : NSObject
 

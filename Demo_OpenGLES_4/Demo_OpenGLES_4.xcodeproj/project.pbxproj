@@ -15,6 +15,7 @@
 		4325321427B4EAAB00FC37D6 /* DemoList4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4325321327B4EAAB00FC37D6 /* DemoList4ViewController.m */; };
 		4325321727B4EB2700FC37D6 /* Demo4_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4325321627B4EB2700FC37D6 /* Demo4_1ViewController.m */; };
 		43AB8A8C27BE4F620032E73A /* Demo4_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AB8A8B27BE4F620032E73A /* Demo4_2ViewController.m */; };
+		43AB8A8F27BE85D30032E73A /* Demo4GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AB8A8E27BE85D30032E73A /* Demo4GLView.m */; };
 		57EAFF06FC61846664388BE6 /* libPods-Demo_OpenGLES_4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 599F392E3F464C2FA398B966 /* libPods-Demo_OpenGLES_4.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		4325321627B4EB2700FC37D6 /* Demo4_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_1ViewController.m; sourceTree = "<group>"; };
 		43AB8A8A27BE4F620032E73A /* Demo4_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_2ViewController.h; sourceTree = "<group>"; };
 		43AB8A8B27BE4F620032E73A /* Demo4_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_2ViewController.m; sourceTree = "<group>"; };
+		43AB8A8D27BE85D30032E73A /* Demo4GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4GLView.h; sourceTree = "<group>"; };
+		43AB8A8E27BE85D30032E73A /* Demo4GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4GLView.m; sourceTree = "<group>"; };
 		4CA1699B19C331D170B28886 /* Pods-Demo_OpenGLES_4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_4.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_4/Pods-Demo_OpenGLES_4.release.xcconfig"; sourceTree = "<group>"; };
 		599F392E3F464C2FA398B966 /* libPods-Demo_OpenGLES_4.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_4.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D70EB589ABF5209326A114E /* Pods-Demo_OpenGLES_4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_4.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_4/Pods-Demo_OpenGLES_4.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 			children = (
 				432531CD27B2932000FC37D6 /* AppDelegate.h */,
 				432531CE27B2932000FC37D6 /* AppDelegate.m */,
+				43AB8A8D27BE85D30032E73A /* Demo4GLView.h */,
+				43AB8A8E27BE85D30032E73A /* Demo4GLView.m */,
 				4325321227B4EAAB00FC37D6 /* DemoList4ViewController.h */,
 				4325321327B4EAAB00FC37D6 /* DemoList4ViewController.m */,
 				4325321527B4EB2700FC37D6 /* Demo4_1ViewController.h */,
@@ -202,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4325321427B4EAAB00FC37D6 /* DemoList4ViewController.m in Sources */,
+				43AB8A8F27BE85D30032E73A /* Demo4GLView.m in Sources */,
 				432531CF27B2932000FC37D6 /* AppDelegate.m in Sources */,
 				43AB8A8C27BE4F620032E73A /* Demo4_2ViewController.m in Sources */,
 				4325321727B4EB2700FC37D6 /* Demo4_1ViewController.m in Sources */,
