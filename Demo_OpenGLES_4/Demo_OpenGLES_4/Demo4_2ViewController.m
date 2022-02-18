@@ -27,8 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.cameraPosition = AVCaptureDevicePositionBack;
-    self.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+    self.cameraPosition = AVCaptureDevicePositionFront;
+    self.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
     
     __weak typeof(self)weakSelf = self;
     _videoCamera = [[DemoGLVideoCamera alloc] initWithCameraPosition:self.cameraPosition];
@@ -54,14 +54,14 @@
     UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
 
     if (self.cameraPosition == AVCaptureDevicePositionFront) {
-        CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation];
+        CGFloat degree = [Demo4_2ViewController degreeToRoateForCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation isFront:YES];
         CATransform3D transform = CATransform3DIdentity;
         //注意：矩阵乘法不遵守交换律，先旋转再缩放，跟先缩放再旋转，效果是不一样的！！！常规做法都是先缩放再旋转
         transform = CATransform3DScale(transform, -1, 1, 1);
         transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
         self.glView.layer.transform = transform;
     } else {
-        CGFloat degree = [Demo4_2ViewController degreeToRoateForBackCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation];
+        CGFloat degree = [Demo4_2ViewController degreeToRoateForCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation isFront:NO];
         CATransform3D transform = CATransform3DIdentity;
         transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
         self.glView.layer.transform = transform;
@@ -295,6 +295,58 @@
     }
     
     return degree;
+}
+
+
+/**
+ 对比以上两个方法，可以看出来，前置摄像头画面的旋转方的角度跟后置摄像头是不一样的：
+ 对于backCamera，设备怎么转，camera怎么转就可以了，
+ 对于frontCamera，设备怎么转，camera要反过来转；
+ 这里将 顺时针转270 改为 逆时针转90 比较好对比，
+ 其实frontCamera旋转的角度，刚好就是 负的backCamera旋转的角度；
+ 为什么会这样呢？
+ 1是因为旋转的数学原理，360度一圈，顺时针转x度跟逆时针转（360-x）度是完全一样的；
+ 2是因为前后摄像头自己的方向：
+ backCamera是背对我们，而frontCamera是正对我们，
+ 当把手机旋转x角度时，backCamera就是跟着旋转了x角度，
+ 而从frontCamera的角度来看，其实是旋转了-x角度！！！
+ 综上所述，以上两个方法其实可以改为一个方法
+ */
++ (CGFloat)degreeToRoateForCameraWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation videoOrientation:(AVCaptureVideoOrientation)videoOrientation isFront:(BOOL)isFront {
+    //后置摄像头情况下
+    CGFloat degree = 0;
+    
+    if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+        //interfaceOrientation = 1
+        degree = 0;
+    } else if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        //interfaceOrientation = 2
+        degree = 180;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
+        //interfaceOrientation = 3
+        degree = -90;
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
+        //interfaceOrientation = 4
+        degree = 90;
+    }
+
+    if (videoOrientation == AVCaptureVideoOrientationPortrait) {
+        //videoOrientation = 1
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationPortraitUpsideDown) {
+        //videoOrientation = 2
+        degree += 180;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
+        //videoOrientation = 3
+        degree += 90;
+    }
+    else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        //videoOrientation = 4
+        degree += -90;
+    }
+    
+    return isFront ? -degree : degree;
 }
 
 @end
