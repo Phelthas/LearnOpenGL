@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.cameraPosition = AVCaptureDevicePositionBack;
-    self.videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+    self.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
     
     __weak typeof(self)weakSelf = self;
     _videoCamera = [[DemoGLVideoCamera alloc] initWithCameraPosition:self.cameraPosition];
@@ -54,7 +54,6 @@
     UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
 
     if (self.cameraPosition == AVCaptureDevicePositionFront) {
-//        CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithOrientation:deviceOrientation];
         CGFloat degree = [Demo4_2ViewController degreeToRoateForFrontCameraWithInterfaceOrientation:deviceOrientation videoOrientation:self.videoOrientation];
         CATransform3D transform = CATransform3DIdentity;
         //注意：矩阵乘法不遵守交换律，先旋转再缩放，跟先缩放再旋转，效果是不一样的！！！常规做法都是先缩放再旋转
@@ -67,59 +66,18 @@
         transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
         self.glView.layer.transform = transform;
     }
+    
     self.glView.frame = self.view.bounds;//这一句要放到修改transform之后，因为glView修改frame的时候才会重新创建frameBuffer
 }
 
 
 /**
  顺时针或逆时针旋转180度等于先作一个水平镜像,再作一个垂直镜像；
- 对于前置摄像头来说，
+ 对于前置摄像头来说，videoOrientation 默认 AVCaptureVideoOrientationLandscapeLeft，
+ 此时将手机放到UIInterfaceOrientationLandscapeLeft时，采集的画面是正向的。
  设置videoOrientation = AVCaptureVideoOrientationLandscapeLeft，输出的image会逆时针旋转90度，看起来图片就是往左倒了；
  设置videoOrientation = AVCaptureVideoOrientationLandscapeRight，输出的image会顺时针旋转90度，看起来图片就是往右倒了；
- 
- 对于后置摄像头来说，
- 设置videoOrientation = AVCaptureVideoOrientationLandscapeLeft，输出的image会顺时针旋转90度，看起来图片就是往右倒了；
- 设置videoOrientation = AVCaptureVideoOrientationLandscapeRight，输出的image会逆时针旋转90度，看起来图片就是往左倒了；
  */
-+ (CGFloat)degreeToRoateForFrontCameraWithOrientation:(UIInterfaceOrientation)orientation {
-    //前置摄像头情况下,没有设置videoOrientation，所以此时videoOrientation = AVCaptureVideoOrientationLandscapeLeft
-    CGFloat degree = 0;
-    if (orientation == UIInterfaceOrientationPortrait) {
-        //orientation = 1
-        degree = 90;
-    } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        //orientation = 2
-        degree = 270;
-    } else if (orientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
-        //orientation = 3
-        degree = 180;
-    } else if (orientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
-        //orientation = 4
-        degree = 0;
-    }
-    return degree;
-}
-
-+ (CGFloat)degreeToRoateForBackCameraWithOrientation:(UIInterfaceOrientation)orientation {
-    //后置摄像头情况下,没有设置videoOrientation，所以此时videoOrientation = AVCaptureVideoOrientationLandscapeRight
-    CGFloat degree = 0;
-    if (orientation == UIInterfaceOrientationPortrait) {
-        //orientation = 1
-        degree = 90;
-    } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        //orientation = 2
-        degree = 270;
-    } else if (orientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
-        //orientation = 3
-        degree = 0;
-    } else if (orientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
-        //orientation = 4
-        degree = 180;
-    }
-    return degree;
-}
-
-
 + (CGFloat)degreeToRoateForFrontCameraWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation videoOrientation:(AVCaptureVideoOrientation)videoOrientation {
     CGFloat degree = 0;
     /*
@@ -203,7 +161,7 @@
         degree = 90;
     } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
         //interfaceOrientation = 4
-        degree = 270;
+        degree = -90;
     }
     
     if (videoOrientation == AVCaptureVideoOrientationPortrait) {
@@ -215,7 +173,7 @@
     }
     else if (videoOrientation == AVCaptureVideoOrientationLandscapeRight) {
         //videoOrientation = 3
-        degree += 270;
+        degree += -90;
     }
     else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
         //videoOrientation = 4
@@ -225,10 +183,18 @@
     return degree;
 }
 
+/**
+ 对于后置摄像头来说，videoOrientation 默认 AVCaptureVideoOrientationLandscapeRight，
+ 此时将手机放到UIInterfaceOrientationLandscapeRight时，采集的画面是正向的。
+ 设置videoOrientation = AVCaptureVideoOrientationLandscapeLeft，输出的image会顺时针旋转90度，看起来图片就是往右倒了；
+ 设置videoOrientation = AVCaptureVideoOrientationLandscapeRight，输出的image会逆时针旋转90度，看起来图片就是往左倒了；
+ */
 + (CGFloat)degreeToRoateForBackCameraWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation videoOrientation:(AVCaptureVideoOrientation)videoOrientation {
     //后置摄像头情况下
     CGFloat degree = 0;
     /*
+     设置videoOrientation为什么，那么当interfaceOrientation也转到相同的方向时，画面就是正的；
+     当interfaceOrientation为其他方向时，只需要相应的旋转摄像机的方向即可
     if (videoOrientation == AVCaptureVideoOrientationPortrait) {
         //videoOrientation = 1
         if (interfaceOrientation == UIInterfaceOrientationPortrait) {
@@ -306,7 +272,7 @@
         degree = 180;
     } else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {//home button on the right
         //interfaceOrientation = 3
-        degree = 270;
+        degree = -90;
     } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {//home button on the left
         //interfaceOrientation = 4
         degree = 90;
@@ -325,7 +291,7 @@
     }
     else if (videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
         //videoOrientation = 4
-        degree += 270;
+        degree += -90;
     }
     
     return degree;
