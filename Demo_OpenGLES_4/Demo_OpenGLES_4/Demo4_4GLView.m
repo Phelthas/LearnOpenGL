@@ -1,11 +1,11 @@
 //
-//  Demo4GLView.m
+//  Demo4_4GLView.m
 //  Demo_OpenGLES_4
 //
-//  Created by billthaslu on 2022/2/17.
+//  Created by billthaslu on 2022/2/19.
 //
 
-#import "Demo4GLView.h"
+#import "Demo4_4GLView.h"
 #import "DemoGLTextureFrame.h"
 #import "DemoGLProgram.h"
 #import "DemoGLOutput.h"
@@ -14,19 +14,15 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-@interface Demo4GLView ()
-
-@property (nonatomic, assign) GLint displayRotateXMatrixUniform;
-@property (nonatomic, assign) GLint displayRotateYMatrixUniform;
-@property (nonatomic, assign) GLint displayRotateZMatrixUniform;
-
+@interface Demo4_4GLView ()
 
 @end
 
-@implementation Demo4GLView
+@implementation Demo4_4GLView
 
 - (void)commonInit {
     self.contentScaleFactor = UIScreen.mainScreen.scale;
+    _rotateZMatrix = CATransform3DIdentity;
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if ([UIScreen instancesRespondToSelector:@selector(nativeScale)]) {
@@ -52,9 +48,6 @@
         self.displayPositionAttribute = [self.displayProgram attributeIndex:@"position"];
         self.displayTextureCoordinateAttribute = [self.displayProgram attributeIndex:@"inputTextureCoordinate"];
         self.displayInputTextureUniform = [self.displayProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
-        self.displayRotateXMatrixUniform = [self.displayProgram uniformIndex:@"rotateXMatrix"];
-        self.displayRotateYMatrixUniform = [self.displayProgram uniformIndex:@"rotateYMatrix"];
-        self.displayRotateZMatrixUniform = [self.displayProgram uniformIndex:@"rotateZMatrix"];
         
         
         glEnableVertexAttribArray(self.displayPositionAttribute);
@@ -74,10 +67,24 @@
         glBindTexture(GL_TEXTURE_2D, [self.inputFrameBufferForDisplay texture]);
         glUniform1i(self.displayInputTextureUniform, 4);
         
-        [self rotateXWithDegree:self.xDegree];
-        [self rotateYWithDegree:self.yDegree];
-        [self rotateZWithDegree:self.zDegree];
         
+//        //         转置矩阵
+//        GLfloat rotateZMatrix[] = {
+//            self.rotateZMatrix.m11, self.rotateZMatrix.m21, self.rotateZMatrix.m31, self.rotateZMatrix.m41,
+//            self.rotateZMatrix.m12, self.rotateZMatrix.m22, self.rotateZMatrix.m32, self.rotateZMatrix.m42,
+//            self.rotateZMatrix.m13, self.rotateZMatrix.m23, self.rotateZMatrix.m33, self.rotateZMatrix.m43,
+//            self.rotateZMatrix.m14, self.rotateZMatrix.m24, self.rotateZMatrix.m34, self.rotateZMatrix.m44,
+//        };
+        
+
+//         正常矩阵
+//        GLfloat rotateZMatrix[] = {
+//            self.rotateZMatrix.m11, self.rotateZMatrix.m12, self.rotateZMatrix.m13, self.rotateZMatrix.m14,
+//            self.rotateZMatrix.m21, self.rotateZMatrix.m22, self.rotateZMatrix.m23, self.rotateZMatrix.m24,
+//            self.rotateZMatrix.m31, self.rotateZMatrix.m32, self.rotateZMatrix.m33, self.rotateZMatrix.m34,
+//            self.rotateZMatrix.m41, self.rotateZMatrix.m42, self.rotateZMatrix.m43, self.rotateZMatrix.m44,
+//        };
+
         static const GLfloat imageVertices[] = {
             -1.0f, -1.0f,
             1.0f, -1.0f,
@@ -101,49 +108,5 @@
     });
 }
 
-- (void)rotateXWithDegree:(CGFloat)degree {
-    //参考https://learnopengl-cn.github.io/01%20Getting%20started/07%20Transformations/
-    CGFloat radius = degree * 2 * M_PI / 360.0; //注意顺序，之前写成 180/360 结果直接变成0了，坑了自己半天
-    CGFloat s = sin(radius);
-    CGFloat c = cos(radius);
-    //x轴方向旋转矩阵
-    GLfloat rotateXMatrix[] = {
-        1, 0, 0, 0,
-        0, c, -s, 0,
-        0, s, c, 0,
-        0, 0, 0, 1,
-    };
-    glUniformMatrix4fv(self.displayRotateXMatrixUniform, 1, 0, rotateXMatrix);
-}
-
-- (void)rotateYWithDegree:(CGFloat)degree {
-    //参考https://learnopengl-cn.github.io/01%20Getting%20started/07%20Transformations/
-    CGFloat radius = degree * 2 * M_PI / 360.0; //注意顺序，之前写成 180/360 结果直接变成0了，坑了自己半天
-    CGFloat s = sin(radius);
-    CGFloat c = cos(radius);
-    //y轴方向旋转矩阵
-    GLfloat rotateYMatrix[] = {
-        c, 0, s, 0,
-        0, 1, 0, 0,
-        -s, 0, c, 0,
-        0, 0, 0, 1,
-    };
-    glUniformMatrix4fv(self.displayRotateYMatrixUniform, 1, 0, rotateYMatrix);
-}
-
-- (void)rotateZWithDegree:(CGFloat)degree {
-    //参考https://learnopengl-cn.github.io/01%20Getting%20started/07%20Transformations/
-    CGFloat radius = degree * 2 * M_PI / 360.0; //注意顺序，之前写成 180/360 结果直接变成0了，坑了自己半天
-    CGFloat s = sin(radius);
-    CGFloat c = cos(radius);
-    //z轴方向旋转矩阵，
-    GLfloat rotateZMatrix[] = {
-        c, -s, 0, 0,
-        s, c, 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1,
-    };
-    glUniformMatrix4fv(self.displayRotateZMatrixUniform, 1, 0, rotateZMatrix);
-}
-
 @end
+

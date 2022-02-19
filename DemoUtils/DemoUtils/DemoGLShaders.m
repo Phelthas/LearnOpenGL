@@ -27,12 +27,16 @@ NSString *const kGPUImageRotationVertexShaderString = SHADER_STRING
 (
  attribute vec4 position;
  attribute vec4 inputTextureCoordinate;
+ uniform mat4 rotateXMatrix; //用来做x轴旋转
+ uniform mat4 rotateYMatrix; //用来做y轴旋转
  uniform mat4 rotateZMatrix; //用来做z轴旋转
  varying vec2 textureCoordinate;
  
  void main()
  {
-     gl_Position = position * rotateZMatrix;
+    //因为OpenGL是列向量，所以矩阵是从右向左起作用的，position要在最后
+    //这里的意思是，postion先做z旋转，再做y旋转，再做x旋转
+     gl_Position = rotateXMatrix * rotateYMatrix * rotateZMatrix * position;
      textureCoordinate = inputTextureCoordinate.xy;
  }
  );

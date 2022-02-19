@@ -14,6 +14,11 @@
 		432531E027B2932100FC37D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 432531DF27B2932100FC37D6 /* main.m */; };
 		4325321427B4EAAB00FC37D6 /* DemoList4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4325321327B4EAAB00FC37D6 /* DemoList4ViewController.m */; };
 		4325321727B4EB2700FC37D6 /* Demo4_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4325321627B4EB2700FC37D6 /* Demo4_1ViewController.m */; };
+		432E926727C0BD910032CABB /* Demo4_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 432E926627C0BD910032CABB /* Demo4_TestViewController.m */; };
+		432E926927C0D8B00032CABB /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 432E926827C0D8B00032CABB /* saber.jpeg */; };
+		4341F4D227C131530007959E /* Demo4_4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4341F4D127C131530007959E /* Demo4_4ViewController.m */; };
+		4341F4D527C133090007959E /* Demo4_4GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4341F4D427C133090007959E /* Demo4_4GLView.m */; };
+		43589FD427BF93D000542B3A /* Demo4_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43589FD327BF93D000542B3A /* Demo4_3ViewController.m */; };
 		43AB8A8C27BE4F620032E73A /* Demo4_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AB8A8B27BE4F620032E73A /* Demo4_2ViewController.m */; };
 		43AB8A8F27BE85D30032E73A /* Demo4GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43AB8A8E27BE85D30032E73A /* Demo4GLView.m */; };
 		57EAFF06FC61846664388BE6 /* libPods-Demo_OpenGLES_4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 599F392E3F464C2FA398B966 /* libPods-Demo_OpenGLES_4.a */; };
@@ -32,6 +37,15 @@
 		4325321327B4EAAB00FC37D6 /* DemoList4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoList4ViewController.m; sourceTree = "<group>"; };
 		4325321527B4EB2700FC37D6 /* Demo4_1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_1ViewController.h; sourceTree = "<group>"; };
 		4325321627B4EB2700FC37D6 /* Demo4_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_1ViewController.m; sourceTree = "<group>"; };
+		432E926527C0BD910032CABB /* Demo4_TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_TestViewController.h; sourceTree = "<group>"; };
+		432E926627C0BD910032CABB /* Demo4_TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_TestViewController.m; sourceTree = "<group>"; };
+		432E926827C0D8B00032CABB /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
+		4341F4D027C131530007959E /* Demo4_4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_4ViewController.h; sourceTree = "<group>"; };
+		4341F4D127C131530007959E /* Demo4_4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_4ViewController.m; sourceTree = "<group>"; };
+		4341F4D327C133090007959E /* Demo4_4GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_4GLView.h; sourceTree = "<group>"; };
+		4341F4D427C133090007959E /* Demo4_4GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_4GLView.m; sourceTree = "<group>"; };
+		43589FD227BF93D000542B3A /* Demo4_3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_3ViewController.h; sourceTree = "<group>"; };
+		43589FD327BF93D000542B3A /* Demo4_3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_3ViewController.m; sourceTree = "<group>"; };
 		43AB8A8A27BE4F620032E73A /* Demo4_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4_2ViewController.h; sourceTree = "<group>"; };
 		43AB8A8B27BE4F620032E73A /* Demo4_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo4_2ViewController.m; sourceTree = "<group>"; };
 		43AB8A8D27BE85D30032E73A /* Demo4GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo4GLView.h; sourceTree = "<group>"; };
@@ -78,12 +92,21 @@
 				432531CE27B2932000FC37D6 /* AppDelegate.m */,
 				43AB8A8D27BE85D30032E73A /* Demo4GLView.h */,
 				43AB8A8E27BE85D30032E73A /* Demo4GLView.m */,
+				4341F4D327C133090007959E /* Demo4_4GLView.h */,
+				4341F4D427C133090007959E /* Demo4_4GLView.m */,
 				4325321227B4EAAB00FC37D6 /* DemoList4ViewController.h */,
 				4325321327B4EAAB00FC37D6 /* DemoList4ViewController.m */,
+				432E926527C0BD910032CABB /* Demo4_TestViewController.h */,
+				432E926627C0BD910032CABB /* Demo4_TestViewController.m */,
 				4325321527B4EB2700FC37D6 /* Demo4_1ViewController.h */,
 				4325321627B4EB2700FC37D6 /* Demo4_1ViewController.m */,
 				43AB8A8A27BE4F620032E73A /* Demo4_2ViewController.h */,
 				43AB8A8B27BE4F620032E73A /* Demo4_2ViewController.m */,
+				43589FD227BF93D000542B3A /* Demo4_3ViewController.h */,
+				43589FD327BF93D000542B3A /* Demo4_3ViewController.m */,
+				4341F4D027C131530007959E /* Demo4_4ViewController.h */,
+				4341F4D127C131530007959E /* Demo4_4ViewController.m */,
+				432E926827C0D8B00032CABB /* saber.jpeg */,
 				432531D627B2932000FC37D6 /* Main.storyboard */,
 				432531D927B2932100FC37D6 /* Assets.xcassets */,
 				432531DB27B2932100FC37D6 /* LaunchScreen.storyboard */,
@@ -171,6 +194,7 @@
 				432531DD27B2932100FC37D6 /* LaunchScreen.storyboard in Resources */,
 				432531DA27B2932100FC37D6 /* Assets.xcassets in Resources */,
 				432531D827B2932000FC37D6 /* Main.storyboard in Resources */,
+				432E926927C0D8B00032CABB /* saber.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,10 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432E926727C0BD910032CABB /* Demo4_TestViewController.m in Sources */,
 				4325321427B4EAAB00FC37D6 /* DemoList4ViewController.m in Sources */,
+				4341F4D527C133090007959E /* Demo4_4GLView.m in Sources */,
+				4341F4D227C131530007959E /* Demo4_4ViewController.m in Sources */,
 				43AB8A8F27BE85D30032E73A /* Demo4GLView.m in Sources */,
 				432531CF27B2932000FC37D6 /* AppDelegate.m in Sources */,
 				43AB8A8C27BE4F620032E73A /* Demo4_2ViewController.m in Sources */,
+				43589FD427BF93D000542B3A /* Demo4_3ViewController.m in Sources */,
 				4325321727B4EB2700FC37D6 /* Demo4_1ViewController.m in Sources */,
 				432531E027B2932100FC37D6 /* main.m in Sources */,
 			);
@@ -360,11 +388,12 @@
 				DEVELOPMENT_TEAM = E4R9H9F9L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo_OpenGLES_4/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,11 +418,12 @@
 				DEVELOPMENT_TEAM = E4R9H9F9L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo_OpenGLES_4/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

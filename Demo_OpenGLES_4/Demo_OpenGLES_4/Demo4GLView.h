@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Demo4GLView : DemoGLView
 
+@property (nonatomic, assign) CGFloat xDegree;
+@property (nonatomic, assign) CGFloat yDegree;
+@property (nonatomic, assign) CGFloat zDegree;
+
 @end
 
 NS_ASSUME_NONNULL_END
