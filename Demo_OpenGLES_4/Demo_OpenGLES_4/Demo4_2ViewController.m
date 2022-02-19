@@ -71,6 +71,7 @@
         transform = CATransform3DScale(transform, -1, 1, 1);
         logTransform3D(transform);
         transform = CATransform3DRotate(transform, degree * 2 * M_PI / 360, 0, 0, 1);
+        //CATransform3D是行主序的，使用CATransform3Dxxx函数相当于左乘原来的矩阵！！！
         logTransform3D(transform);
         
         self.glView.layer.transform = transform;
