@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Demo4_4GLView : DemoGLView
 
-@property (nonatomic, assign) CATransform3D rotateZMatrix;
+@property (nonatomic, assign) CATransform3D rotateMatrix;
+@property (nonatomic, assign) CATransform3D scaleMatrix;
 
 @end
 

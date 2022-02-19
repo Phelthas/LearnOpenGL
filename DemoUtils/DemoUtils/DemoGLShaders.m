@@ -42,6 +42,25 @@ NSString *const kGPUImageRotationVertexShaderString = SHADER_STRING
  );
 
 
+NSString *const kGPUImageTransversalVertexShaderString = SHADER_STRING
+(
+ attribute vec4 position;
+ attribute vec4 inputTextureCoordinate;
+ uniform mat4 rotateMatrix; //用来做旋转
+ uniform mat4 scaleMatrix; //用来做缩放
+ varying vec2 textureCoordinate;
+ 
+ void main()
+ {
+    //写成position * matrix时，OpenGL会把position当初横向量来计算，注意此时rotateMatrix也需要是横向量
+    //https://stackoverflow.com/questions/24593939/matrix-multiplication-with-vector-in-glsl
+    gl_Position = position * rotateMatrix * scaleMatrix;
+    textureCoordinate = inputTextureCoordinate.xy;
+ }
+ );
+
+
+
 NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
 (
  varying highp vec2 textureCoordinate;

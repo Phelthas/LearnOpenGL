@@ -16,13 +16,17 @@
 
 @interface Demo4_4GLView ()
 
+@property (nonatomic, assign) GLint displayRotateMatrixUniform;
+@property (nonatomic, assign) GLint displayScaleMatrixUniform;
+
 @end
 
 @implementation Demo4_4GLView
 
 - (void)commonInit {
     self.contentScaleFactor = UIScreen.mainScreen.scale;
-    _rotateZMatrix = CATransform3DIdentity;
+    _rotateMatrix = CATransform3DIdentity;
+    _scaleMatrix = CATransform3DIdentity;
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if ([UIScreen instancesRespondToSelector:@selector(nativeScale)]) {
@@ -38,7 +42,7 @@
     
     runSyncOnVideoProcessingQueue(^{
         [DemoGLContext useImageProcessingContext];
-        self.displayProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageRotationVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
+        self.displayProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageTransversalVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
         [self.displayProgram addAttribute:@"position"];
         [self.displayProgram addAttribute:@"inputTextureCoordinate"];
         
@@ -48,7 +52,8 @@
         self.displayPositionAttribute = [self.displayProgram attributeIndex:@"position"];
         self.displayTextureCoordinateAttribute = [self.displayProgram attributeIndex:@"inputTextureCoordinate"];
         self.displayInputTextureUniform = [self.displayProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
-        
+        self.displayRotateMatrixUniform = [self.displayProgram uniformIndex:@"rotateMatrix"];
+        self.displayScaleMatrixUniform = [self.displayProgram uniformIndex:@"scaleMatrix"];
         
         glEnableVertexAttribArray(self.displayPositionAttribute);
         glEnableVertexAttribArray(self.displayTextureCoordinateAttribute);
@@ -67,23 +72,9 @@
         glBindTexture(GL_TEXTURE_2D, [self.inputFrameBufferForDisplay texture]);
         glUniform1i(self.displayInputTextureUniform, 4);
         
-        
-//        //         转置矩阵
-//        GLfloat rotateZMatrix[] = {
-//            self.rotateZMatrix.m11, self.rotateZMatrix.m21, self.rotateZMatrix.m31, self.rotateZMatrix.m41,
-//            self.rotateZMatrix.m12, self.rotateZMatrix.m22, self.rotateZMatrix.m32, self.rotateZMatrix.m42,
-//            self.rotateZMatrix.m13, self.rotateZMatrix.m23, self.rotateZMatrix.m33, self.rotateZMatrix.m43,
-//            self.rotateZMatrix.m14, self.rotateZMatrix.m24, self.rotateZMatrix.m34, self.rotateZMatrix.m44,
-//        };
-        
+        [self setupWithScaleMatrix:self.scaleMatrix];
+        [self setupWithRotateMatrix:self.rotateMatrix];
 
-//         正常矩阵
-//        GLfloat rotateZMatrix[] = {
-//            self.rotateZMatrix.m11, self.rotateZMatrix.m12, self.rotateZMatrix.m13, self.rotateZMatrix.m14,
-//            self.rotateZMatrix.m21, self.rotateZMatrix.m22, self.rotateZMatrix.m23, self.rotateZMatrix.m24,
-//            self.rotateZMatrix.m31, self.rotateZMatrix.m32, self.rotateZMatrix.m33, self.rotateZMatrix.m34,
-//            self.rotateZMatrix.m41, self.rotateZMatrix.m42, self.rotateZMatrix.m43, self.rotateZMatrix.m44,
-//        };
 
         static const GLfloat imageVertices[] = {
             -1.0f, -1.0f,
@@ -106,6 +97,37 @@
         [self prensentFramebuffer];
         
     });
+}
+
+- (void)setupWithRotateMatrix:(CATransform3D)transform {
+    //        //         转置矩阵
+    //        GLfloat rotateZMatrix[] = {
+    //            self.rotateZMatrix.m11, self.rotateZMatrix.m21, self.rotateZMatrix.m31, self.rotateZMatrix.m41,
+    //            self.rotateZMatrix.m12, self.rotateZMatrix.m22, self.rotateZMatrix.m32, self.rotateZMatrix.m42,
+    //            self.rotateZMatrix.m13, self.rotateZMatrix.m23, self.rotateZMatrix.m33, self.rotateZMatrix.m43,
+    //            self.rotateZMatrix.m14, self.rotateZMatrix.m24, self.rotateZMatrix.m34, self.rotateZMatrix.m44,
+    //        };
+            
+    //             正常矩阵
+    GLfloat rotateMatrix[] = {
+        transform.m11, transform.m12, transform.m13, transform.m14,
+        transform.m21, transform.m22, transform.m23, transform.m24,
+        transform.m31, transform.m32, transform.m33, transform.m34,
+        transform.m41, transform.m42, transform.m43, transform.m44,
+    };
+    glUniformMatrix4fv(self.displayRotateMatrixUniform, 1, 0, rotateMatrix);
+}
+
+- (void)setupWithScaleMatrix:(CATransform3D)transform {
+            
+    //             正常矩阵
+    GLfloat scaleMatrix[] = {
+        transform.m11, transform.m12, transform.m13, transform.m14,
+        transform.m21, transform.m22, transform.m23, transform.m24,
+        transform.m31, transform.m32, transform.m33, transform.m34,
+        transform.m41, transform.m42, transform.m43, transform.m44,
+    };
+    glUniformMatrix4fv(self.displayScaleMatrixUniform, 1, 0, scaleMatrix);
 }
 
 @end

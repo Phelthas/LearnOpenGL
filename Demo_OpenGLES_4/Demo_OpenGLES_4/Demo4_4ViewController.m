@@ -8,13 +8,13 @@
 #import "Demo4_4ViewController.h"
 #import "DemoGLKit.h"
 #import <LXMKit.h>
-#import "Demo4GLView.h"
+#import "Demo4_4GLView.h"
 
 
 @interface Demo4_4ViewController ()
 
 @property (nonatomic, strong) DemoGLVideoCamera *videoCamera;
-@property (nonatomic, strong) Demo4GLView *glView;
+@property (nonatomic, strong) Demo4_4GLView *glView;
 @property (nonatomic, assign) AVCaptureDevicePosition cameraPosition;
 @property (nonatomic, assign) AVCaptureVideoOrientation videoOrientation;
 
@@ -41,7 +41,7 @@
     }];
     
     
-    _glView = [[Demo4GLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[Demo4_4GLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
     [_videoCamera addTarget:_glView];
@@ -61,21 +61,14 @@
     UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     if (self.cameraPosition == AVCaptureDevicePositionFront) {
         CGFloat degree = [LXMCameraGeometry degreeToRoateForCameraWithVideoOrientation:self.videoOrientation interfaceOrientation:deviceOrientation isFrontCamera:YES];
-        CATransform3D transform = CATransform3DIdentity;
-        //注意：矩阵乘法不遵守交换律，先旋转再缩放，跟先缩放再旋转，效果是不一样的！！！常规做法都是先缩放再旋转
-        transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
-        transform = CATransform3DScale(transform, -1, 1, 1);
-        
-        self.glView.zDegree = degree;
-        self.glView.yDegree = 180;
+        self.glView.rotateMatrix = CATransform3DMakeRotation(degree * 2 * M_PI / 360, 0, 0, 1);
+        self.glView.scaleMatrix = CATransform3DMakeScale(-1, 1, 1);
         
     } else {
         CGFloat degree = [LXMCameraGeometry degreeToRoateForCameraWithVideoOrientation:self.videoOrientation interfaceOrientation:deviceOrientation isFrontCamera:NO];
-        
         CATransform3D transform = CATransform3DIdentity;
-        transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
-        
-        self.glView.zDegree = degree;
+        transform = CATransform3DRotate(transform, degree * 2 * M_PI / 360, 0, 0, 1);
+        self.glView.rotateMatrix = transform;
     }
     
 }

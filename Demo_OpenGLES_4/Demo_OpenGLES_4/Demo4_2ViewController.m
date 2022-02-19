@@ -70,14 +70,14 @@
         //注意：矩阵乘法不遵守交换律，先旋转再缩放，跟先缩放再旋转，效果是不一样的！！！常规做法都是先缩放再旋转
         transform = CATransform3DScale(transform, -1, 1, 1);
         logTransform3D(transform);
-        transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
+        transform = CATransform3DRotate(transform, degree * 2 * M_PI / 360, 0, 0, 1);
         logTransform3D(transform);
         
         self.glView.layer.transform = transform;
     } else {
         CGFloat degree = [LXMCameraGeometry degreeToRoateForCameraWithVideoOrientation:self.videoOrientation interfaceOrientation:deviceOrientation isFrontCamera:NO];
         CATransform3D transform = CATransform3DIdentity;
-        transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);
+        transform = CATransform3DRotate(transform, degree * 2 * M_PI / 360, 0, 0, 1);
         self.glView.layer.transform = transform;
     }
     
