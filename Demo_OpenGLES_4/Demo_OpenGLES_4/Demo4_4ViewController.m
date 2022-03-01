@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.cameraPosition = AVCaptureDevicePositionFront;
+    self.cameraPosition = AVCaptureDevicePositionBack;
     self.videoOrientation = AVCaptureVideoOrientationPortrait;
     
     __weak typeof(self)weakSelf = self;
@@ -38,6 +38,7 @@
     [_videoCamera setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
         //设置为AVCaptureVideoOrientationPortrait，输出的sampleBuffer宽高就会变成720*1280
         connection.videoOrientation = weakSelf.videoOrientation;
+        connection.videoMirrored = YES;
     }];
     
     

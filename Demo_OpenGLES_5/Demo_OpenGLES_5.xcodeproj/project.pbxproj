@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43382AC027CE63640064757D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ABF27CE63640064757D /* AppDelegate.m */; };
+		43382AC927CE63640064757D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43382AC727CE63640064757D /* Main.storyboard */; };
+		43382ACB27CE63670064757D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43382ACA27CE63670064757D /* Assets.xcassets */; };
+		43382ACE27CE63670064757D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43382ACC27CE63670064757D /* LaunchScreen.storyboard */; };
+		43382AD127CE63670064757D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382AD027CE63670064757D /* main.m */; };
+		43382AD927CE648E0064757D /* DemoList5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382AD827CE648E0064757D /* DemoList5ViewController.m */; };
+		43382ADC27CE65370064757D /* Demo5_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ADB27CE65370064757D /* Demo5_1ViewController.m */; };
+		43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ADE27CE65450064757D /* Demo5_TestViewController.m */; };
+		86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24045789A82304C79CC15F1C /* Pods-Demo_OpenGLES_5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_5.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_5/Pods-Demo_OpenGLES_5.debug.xcconfig"; sourceTree = "<group>"; };
+		43382ABB27CE63640064757D /* Demo_OpenGLES_5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_5.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43382ABE27CE63640064757D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		43382ABF27CE63640064757D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		43382AC827CE63640064757D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		43382ACA27CE63670064757D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43382ACD27CE63670064757D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		43382ACF27CE63670064757D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43382AD027CE63670064757D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		43382AD727CE648E0064757D /* DemoList5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoList5ViewController.h; sourceTree = "<group>"; };
+		43382AD827CE648E0064757D /* DemoList5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoList5ViewController.m; sourceTree = "<group>"; };
+		43382ADA27CE65370064757D /* Demo5_1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_1ViewController.h; sourceTree = "<group>"; };
+		43382ADB27CE65370064757D /* Demo5_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_1ViewController.m; sourceTree = "<group>"; };
+		43382ADD27CE65450064757D /* Demo5_TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_TestViewController.h; sourceTree = "<group>"; };
+		43382ADE27CE65450064757D /* Demo5_TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_TestViewController.m; sourceTree = "<group>"; };
+		973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_5.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_5/Pods-Demo_OpenGLES_5.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43382AB827CE63640064757D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40E5628EE2545414E8505F9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43382AB227CE63640064757D = {
+			isa = PBXGroup;
+			children = (
+				43382ABD27CE63640064757D /* Demo_OpenGLES_5 */,
+				43382ABC27CE63640064757D /* Products */,
+				6C3487A5CBEEC8C4D4EC780D /* Pods */,
+				40E5628EE2545414E8505F9E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		43382ABC27CE63640064757D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43382ABB27CE63640064757D /* Demo_OpenGLES_5.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43382ABD27CE63640064757D /* Demo_OpenGLES_5 */ = {
+			isa = PBXGroup;
+			children = (
+				43382ABE27CE63640064757D /* AppDelegate.h */,
+				43382ABF27CE63640064757D /* AppDelegate.m */,
+				43382AD727CE648E0064757D /* DemoList5ViewController.h */,
+				43382AD827CE648E0064757D /* DemoList5ViewController.m */,
+				43382ADD27CE65450064757D /* Demo5_TestViewController.h */,
+				43382ADE27CE65450064757D /* Demo5_TestViewController.m */,
+				43382ADA27CE65370064757D /* Demo5_1ViewController.h */,
+				43382ADB27CE65370064757D /* Demo5_1ViewController.m */,
+				43382AC727CE63640064757D /* Main.storyboard */,
+				43382ACA27CE63670064757D /* Assets.xcassets */,
+				43382ACC27CE63670064757D /* LaunchScreen.storyboard */,
+				43382ACF27CE63670064757D /* Info.plist */,
+				43382AD027CE63670064757D /* main.m */,
+			);
+			path = Demo_OpenGLES_5;
+			sourceTree = "<group>";
+		};
+		6C3487A5CBEEC8C4D4EC780D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24045789A82304C79CC15F1C /* Pods-Demo_OpenGLES_5.debug.xcconfig */,
+				A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43382ABA27CE63640064757D /* Demo_OpenGLES_5 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43382AD427CE63670064757D /* Build configuration list for PBXNativeTarget "Demo_OpenGLES_5" */;
+			buildPhases = (
+				1A8DB7567AB0E6EAD1404E5E /* [CP] Check Pods Manifest.lock */,
+				43382AB727CE63640064757D /* Sources */,
+				43382AB827CE63640064757D /* Frameworks */,
+				43382AB927CE63640064757D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo_OpenGLES_5;
+			productName = Demo_OpenGLES_5;
+			productReference = 43382ABB27CE63640064757D /* Demo_OpenGLES_5.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43382AB327CE63640064757D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					43382ABA27CE63640064757D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 43382AB627CE63640064757D /* Build configuration list for PBXProject "Demo_OpenGLES_5" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 43382AB227CE63640064757D;
+			productRefGroup = 43382ABC27CE63640064757D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43382ABA27CE63640064757D /* Demo_OpenGLES_5 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43382AB927CE63640064757D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43382ACE27CE63670064757D /* LaunchScreen.storyboard in Resources */,
+				43382ACB27CE63670064757D /* Assets.xcassets in Resources */,
+				43382AC927CE63640064757D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A8DB7567AB0E6EAD1404E5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Demo_OpenGLES_5-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43382AB727CE63640064757D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43382AD927CE648E0064757D /* DemoList5ViewController.m in Sources */,
+				43382ADC27CE65370064757D /* Demo5_1ViewController.m in Sources */,
+				43382AC027CE63640064757D /* AppDelegate.m in Sources */,
+				43382AD127CE63670064757D /* main.m in Sources */,
+				43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		43382AC727CE63640064757D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43382AC827CE63640064757D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		43382ACC27CE63670064757D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43382ACD27CE63670064757D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43382AD227CE63670064757D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		43382AD327CE63670064757D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43382AD527CE63670064757D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24045789A82304C79CC15F1C /* Pods-Demo_OpenGLES_5.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4R9H9F9L2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Demo_OpenGLES_5/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-5";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		43382AD627CE63670064757D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E4R9H9F9L2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Demo_OpenGLES_5/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-5";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43382AB627CE63640064757D /* Build configuration list for PBXProject "Demo_OpenGLES_5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43382AD227CE63670064757D /* Debug */,
+				43382AD327CE63670064757D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43382AD427CE63670064757D /* Build configuration list for PBXNativeTarget "Demo_OpenGLES_5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43382AD527CE63670064757D /* Debug */,
+				43382AD627CE63670064757D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43382AB327CE63640064757D /* Project object */;
+}

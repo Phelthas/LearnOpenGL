@@ -28,7 +28,7 @@
     _imageView.image = [UIImage imageNamed:@"saber.jpeg"];
     [self.view addSubview:_imageView];
 
-    CGFloat degree = 90;
+//    CGFloat degree = 90;
     CATransform3D transform = CATransform3DIdentity;
     
 //    transform = CATransform3DRotate(transform, degree / 360 * 2 * M_PI, 0, 0, 1);

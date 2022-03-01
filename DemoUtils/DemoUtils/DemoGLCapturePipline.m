@@ -204,8 +204,8 @@
     
 #if DEBUG
     
-    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    UIImage *image = [self uiImageFromPixelBuffer:imageBuffer];
+//    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+//    UIImage *image = [self uiImageFromPixelBuffer:imageBuffer];
     
 #endif
     

@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) DemoGLVideoCamera *videoCamera;
 @property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) DemoGLView *glView2;
 
 @end
 
@@ -19,6 +20,7 @@
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
+    [EAGLContext setCurrentContext:nil];
 }
 
 - (void)viewDidLoad {
@@ -34,6 +36,12 @@
     [self.view addSubview:_glView];
     
     [_videoCamera addTarget:_glView];
+    
+    
+//    _glView2 = [[DemoGLView alloc] initWithFrame:CGRectMake(200, 100, 90, 160)];
+//    [self.view addSubview:_glView2];
+//    [_videoCamera addTarget:_glView2];
+    
     
     [_videoCamera startCameraCapture];
     
