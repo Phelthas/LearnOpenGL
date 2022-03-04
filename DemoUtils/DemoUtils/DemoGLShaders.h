@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import <UIKit/UIKit.h>  //UIKIT_EXTERN
 
 #define STRINGIZE(x) #x
 #define STRINGIZE2(x) STRINGIZE(x)
@@ -14,19 +15,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-UIKIT_EXTERN NSString *const kGPUImageVertexShaderString;
-UIKIT_EXTERN NSString *const kGPUImageRotationVertexShaderString;
-UIKIT_EXTERN NSString *const kGPUImageTransversalVertexShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageVertexShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageRotationVertexShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageTransversalVertexShaderString;
 
 
-UIKIT_EXTERN const GLfloat kColorConversion601[];
-UIKIT_EXTERN const GLfloat kColorConversion601FullRange[];
-UIKIT_EXTERN const GLfloat kColorConversion709[];
+FOUNDATION_EXTERN const GLfloat kColorConversion601[];
+FOUNDATION_EXTERN const GLfloat kColorConversion601FullRange[];
+FOUNDATION_EXTERN const GLfloat kColorConversion709[];
 
-UIKIT_EXTERN NSString *const kGPUImagePassthroughFragmentShaderString;
-UIKIT_EXTERN NSString *const kGPUImageYUVFullRangeConversionForLAFragmentShaderString;
-UIKIT_EXTERN NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString;
-
+FOUNDATION_EXTERN NSString *const kGPUImagePassthroughFragmentShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageYUVFullRangeConversionForLAFragmentShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString;
+FOUNDATION_EXTERN NSString *const kGPUImageYUVFullRangeConversionForI420ShaderString;
 
 @interface DemoGLShaders : NSObject
 

@@ -11,6 +11,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#import "DemoGLDefines.h"
 #import "DemoGLProgram.h"
 #import "DemoGLContext.h"
 #import "DemoGLOutput.h"

@@ -1,17 +1,17 @@
 //
-//  Demo5_1ViewController.m
+//  Demo5_2ViewController.m
 //  Demo_OpenGLES_5
 //
-//  Created by billthaslu on 2022/3/1.
+//  Created by billthaslu on 2022/3/4.
 //
 
-#import "Demo5_1ViewController.h"
+#import "Demo5_2ViewController.h"
 #import "DemoGLKit.h"
 #import "Demo5GLView.h"
 #import "DemoGLi420Camera.h"
 
 
-@interface Demo5_1ViewController ()
+@interface Demo5_2ViewController ()
 
 @property (nonatomic, strong) DemoGLi420Camera *i420Camera;
 @property (nonatomic, strong) Demo5GLView *glView;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation Demo5_1ViewController
+@implementation Demo5_2ViewController
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
@@ -56,3 +56,4 @@
 }
 
 @end
+

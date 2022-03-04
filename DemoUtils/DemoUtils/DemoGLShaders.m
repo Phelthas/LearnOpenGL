@@ -140,6 +140,32 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
  }
  );
 
+
+
+NSString *const kGPUImageYUVFullRangeConversionForI420ShaderString = SHADER_STRING
+(
+ varying highp vec2 textureCoordinate;
+ 
+ uniform sampler2D yTexture;
+ uniform sampler2D uTexture;
+ uniform sampler2D vTexture;
+ uniform mediump mat3 colorConversionMatrix;
+ 
+ void main()
+ {
+     mediump vec3 yuv;
+     lowp vec3 rgb;
+     
+     yuv.x = texture2D(yTexture, textureCoordinate).r;
+     yuv.y = texture2D(uTexture, textureCoordinate).r - 0.5;
+     yuv.z = texture2D(vTexture, textureCoordinate).r - 0.5;
+     rgb = colorConversionMatrix * yuv;
+     
+     gl_FragColor = vec4(rgb, 1);
+    
+ }
+ );
+
 @implementation DemoGLShaders
 
 @end

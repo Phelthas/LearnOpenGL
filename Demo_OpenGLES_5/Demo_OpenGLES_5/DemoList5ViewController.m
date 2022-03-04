@@ -21,19 +21,11 @@
     self.dataArray = @[
         [LXMDemoEntranceModel entranceModelWithName:@"Demo5_TestViewController"],
         [LXMDemoEntranceModel entranceModelWithName:@"Demo5_1ViewController"],
+        [LXMDemoEntranceModel entranceModelWithName:@"Demo5_2ViewController"],
         
     ];
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

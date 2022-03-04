@@ -15,7 +15,11 @@
 		43382AD927CE648E0064757D /* DemoList5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382AD827CE648E0064757D /* DemoList5ViewController.m */; };
 		43382ADC27CE65370064757D /* Demo5_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ADB27CE65370064757D /* Demo5_1ViewController.m */; };
 		43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ADE27CE65450064757D /* Demo5_TestViewController.m */; };
-		43D854EE27CE7B79003D3837 /* DemoListXXXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D854ED27CE7B79003D3837 /* DemoListXXXViewController.m */; };
+		43DE627427CF97AA0083FCCE /* Demo5GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE627327CF97AA0083FCCE /* Demo5GLView.m */; };
+		43DE629927D098590083FCCE /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DE629827D098580083FCCE /* libyuv.a */; };
+		43DE630F27D0DF150083FCCE /* DemoGLi420Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */; };
+		43DE638227D228290083FCCE /* Demo5_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE638127D228290083FCCE /* Demo5_2ViewController.m */; };
+		43DE638527D236970083FCCE /* DemoGLI420Camera2.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE638427D236970083FCCE /* DemoGLI420Camera2.m */; };
 		86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +39,37 @@
 		43382ADB27CE65370064757D /* Demo5_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_1ViewController.m; sourceTree = "<group>"; };
 		43382ADD27CE65450064757D /* Demo5_TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_TestViewController.h; sourceTree = "<group>"; };
 		43382ADE27CE65450064757D /* Demo5_TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_TestViewController.m; sourceTree = "<group>"; };
-		43D854EC27CE7B79003D3837 /* DemoListXXXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoListXXXViewController.h; sourceTree = "<group>"; };
-		43D854ED27CE7B79003D3837 /* DemoListXXXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoListXXXViewController.m; sourceTree = "<group>"; };
+		43DE627227CF97AA0083FCCE /* Demo5GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5GLView.h; sourceTree = "<group>"; };
+		43DE627327CF97AA0083FCCE /* Demo5GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5GLView.m; sourceTree = "<group>"; };
+		43DE628027D098580083FCCE /* libyuv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libyuv.h; sourceTree = "<group>"; };
+		43DE628227D098580083FCCE /* scale_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_row.h; sourceTree = "<group>"; };
+		43DE628327D098580083FCCE /* scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale.h; sourceTree = "<group>"; };
+		43DE628427D098580083FCCE /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		43DE628527D098580083FCCE /* cpu_id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu_id.h; sourceTree = "<group>"; };
+		43DE628627D098580083FCCE /* video_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video_common.h; sourceTree = "<group>"; };
+		43DE628727D098580083FCCE /* compare_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compare_row.h; sourceTree = "<group>"; };
+		43DE628827D098580083FCCE /* mjpeg_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mjpeg_decoder.h; sourceTree = "<group>"; };
+		43DE628927D098580083FCCE /* rotate_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate_row.h; sourceTree = "<group>"; };
+		43DE628A27D098580083FCCE /* planar_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planar_functions.h; sourceTree = "<group>"; };
+		43DE628B27D098580083FCCE /* scale_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_argb.h; sourceTree = "<group>"; };
+		43DE628C27D098580083FCCE /* compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compare.h; sourceTree = "<group>"; };
+		43DE628D27D098580083FCCE /* convert_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_argb.h; sourceTree = "<group>"; };
+		43DE628E27D098580083FCCE /* rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate.h; sourceTree = "<group>"; };
+		43DE628F27D098580083FCCE /* convert_from_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_from_argb.h; sourceTree = "<group>"; };
+		43DE629027D098580083FCCE /* basic_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_types.h; sourceTree = "<group>"; };
+		43DE629127D098580083FCCE /* scale_uv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_uv.h; sourceTree = "<group>"; };
+		43DE629227D098580083FCCE /* convert_from.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_from.h; sourceTree = "<group>"; };
+		43DE629327D098580083FCCE /* convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert.h; sourceTree = "<group>"; };
+		43DE629427D098580083FCCE /* rotate_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate_argb.h; sourceTree = "<group>"; };
+		43DE629527D098580083FCCE /* macros_msa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros_msa.h; sourceTree = "<group>"; };
+		43DE629627D098580083FCCE /* row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = row.h; sourceTree = "<group>"; };
+		43DE629827D098580083FCCE /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
+		43DE630D27D0DF150083FCCE /* DemoGLi420Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLi420Camera.h; sourceTree = "<group>"; };
+		43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLi420Camera.m; sourceTree = "<group>"; };
+		43DE638027D228290083FCCE /* Demo5_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_2ViewController.h; sourceTree = "<group>"; };
+		43DE638127D228290083FCCE /* Demo5_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_2ViewController.m; sourceTree = "<group>"; };
+		43DE638327D236970083FCCE /* DemoGLI420Camera2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLI420Camera2.h; sourceTree = "<group>"; };
+		43DE638427D236970083FCCE /* DemoGLI420Camera2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLI420Camera2.m; sourceTree = "<group>"; };
 		973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_5.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_5/Pods-Demo_OpenGLES_5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43DE629927D098590083FCCE /* libyuv.a in Frameworks */,
 				86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,16 +116,23 @@
 		43382ABD27CE63640064757D /* Demo_OpenGLES_5 */ = {
 			isa = PBXGroup;
 			children = (
+				43DE627E27D098580083FCCE /* libyuv */,
 				43382ABE27CE63640064757D /* AppDelegate.h */,
 				43382ABF27CE63640064757D /* AppDelegate.m */,
+				43DE627227CF97AA0083FCCE /* Demo5GLView.h */,
+				43DE627327CF97AA0083FCCE /* Demo5GLView.m */,
 				43382AD727CE648E0064757D /* DemoList5ViewController.h */,
 				43382AD827CE648E0064757D /* DemoList5ViewController.m */,
 				43382ADD27CE65450064757D /* Demo5_TestViewController.h */,
 				43382ADE27CE65450064757D /* Demo5_TestViewController.m */,
 				43382ADA27CE65370064757D /* Demo5_1ViewController.h */,
 				43382ADB27CE65370064757D /* Demo5_1ViewController.m */,
-				43D854EC27CE7B79003D3837 /* DemoListXXXViewController.h */,
-				43D854ED27CE7B79003D3837 /* DemoListXXXViewController.m */,
+				43DE638027D228290083FCCE /* Demo5_2ViewController.h */,
+				43DE638127D228290083FCCE /* Demo5_2ViewController.m */,
+				43DE630D27D0DF150083FCCE /* DemoGLi420Camera.h */,
+				43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */,
+				43DE638327D236970083FCCE /* DemoGLI420Camera2.h */,
+				43DE638427D236970083FCCE /* DemoGLI420Camera2.m */,
 				43382AC727CE63640064757D /* Main.storyboard */,
 				43382ACA27CE63670064757D /* Assets.xcassets */,
 				43382ACC27CE63670064757D /* LaunchScreen.storyboard */,
@@ -99,6 +140,60 @@
 				43382AD027CE63670064757D /* main.m */,
 			);
 			path = Demo_OpenGLES_5;
+			sourceTree = "<group>";
+		};
+		43DE627E27D098580083FCCE /* libyuv */ = {
+			isa = PBXGroup;
+			children = (
+				43DE627F27D098580083FCCE /* include */,
+				43DE629727D098580083FCCE /* lib */,
+			);
+			path = libyuv;
+			sourceTree = "<group>";
+		};
+		43DE627F27D098580083FCCE /* include */ = {
+			isa = PBXGroup;
+			children = (
+				43DE628027D098580083FCCE /* libyuv.h */,
+				43DE628127D098580083FCCE /* libyuv */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		43DE628127D098580083FCCE /* libyuv */ = {
+			isa = PBXGroup;
+			children = (
+				43DE628227D098580083FCCE /* scale_row.h */,
+				43DE628327D098580083FCCE /* scale.h */,
+				43DE628427D098580083FCCE /* version.h */,
+				43DE628527D098580083FCCE /* cpu_id.h */,
+				43DE628627D098580083FCCE /* video_common.h */,
+				43DE628727D098580083FCCE /* compare_row.h */,
+				43DE628827D098580083FCCE /* mjpeg_decoder.h */,
+				43DE628927D098580083FCCE /* rotate_row.h */,
+				43DE628A27D098580083FCCE /* planar_functions.h */,
+				43DE628B27D098580083FCCE /* scale_argb.h */,
+				43DE628C27D098580083FCCE /* compare.h */,
+				43DE628D27D098580083FCCE /* convert_argb.h */,
+				43DE628E27D098580083FCCE /* rotate.h */,
+				43DE628F27D098580083FCCE /* convert_from_argb.h */,
+				43DE629027D098580083FCCE /* basic_types.h */,
+				43DE629127D098580083FCCE /* scale_uv.h */,
+				43DE629227D098580083FCCE /* convert_from.h */,
+				43DE629327D098580083FCCE /* convert.h */,
+				43DE629427D098580083FCCE /* rotate_argb.h */,
+				43DE629527D098580083FCCE /* macros_msa.h */,
+				43DE629627D098580083FCCE /* row.h */,
+			);
+			path = libyuv;
+			sourceTree = "<group>";
+		};
+		43DE629727D098580083FCCE /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				43DE629827D098580083FCCE /* libyuv.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		6C3487A5CBEEC8C4D4EC780D /* Pods */ = {
@@ -210,8 +305,11 @@
 				43382ADC27CE65370064757D /* Demo5_1ViewController.m in Sources */,
 				43382AC027CE63640064757D /* AppDelegate.m in Sources */,
 				43382AD127CE63670064757D /* main.m in Sources */,
-				43D854EE27CE7B79003D3837 /* DemoListXXXViewController.m in Sources */,
+				43DE638227D228290083FCCE /* Demo5_2ViewController.m in Sources */,
+				43DE630F27D0DF150083FCCE /* DemoGLi420Camera.m in Sources */,
+				43DE627427CF97AA0083FCCE /* Demo5GLView.m in Sources */,
 				43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */,
+				43DE638527D236970083FCCE /* DemoGLI420Camera2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +457,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = E4R9H9F9L2;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DemoUtils\"",
+					"\"${PODS_ROOT}/Headers/Public/LXMKit\"",
+					"\"$(SRCROOT)/Demo_OpenGLES_5/libyuv/include\"",
+				);
 				INFOPLIST_FILE = Demo_OpenGLES_5/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -368,6 +474,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo_OpenGLES_5/libyuv/lib",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-5";
@@ -387,7 +497,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = E4R9H9F9L2;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DemoUtils\"",
+					"\"${PODS_ROOT}/Headers/Public/LXMKit\"",
+					"\"$(SRCROOT)/Demo_OpenGLES_5/libyuv/include\"",
+				);
 				INFOPLIST_FILE = Demo_OpenGLES_5/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = Camera;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -396,6 +514,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Demo_OpenGLES_5/libyuv/lib",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lxm.Demo-OpenGLES-5";
