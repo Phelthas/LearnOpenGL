@@ -8,12 +8,12 @@
 #import "Demo5_2ViewController.h"
 #import "DemoGLKit.h"
 #import "Demo5GLView.h"
-#import "DemoGLi420Camera.h"
+#import "DemoGLI420Camera2.h"
 
 
 @interface Demo5_2ViewController ()
 
-@property (nonatomic, strong) DemoGLi420Camera *i420Camera;
+@property (nonatomic, strong) DemoGLI420Camera2 *i420Camera;
 @property (nonatomic, strong) Demo5GLView *glView;
 @property (nonatomic, strong) Demo5GLView *glView2;
 
@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _i420Camera = [[DemoGLi420Camera alloc] init];
+    _i420Camera = [[DemoGLI420Camera2 alloc] init];
     [_i420Camera setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
         connection.videoOrientation = AVCaptureVideoOrientationPortrait;
         connection.videoMirrored = YES;
