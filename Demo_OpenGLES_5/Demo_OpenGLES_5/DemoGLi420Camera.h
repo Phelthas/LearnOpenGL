@@ -5,20 +5,11 @@
 //  Created by billthaslu on 2022/3/3.
 //
 
-#import "DemoGLOutput.h"
-#import "DemoGLCapturePipline.h"
+#import "DemoGLVideoCamera.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoGLi420Camera : DemoGLOutput
-
-- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition;
-
-- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock;
-
-- (void)startCameraCapture;
-
-- (void)stopCameraCapture;
+@interface DemoGLi420Camera : DemoGLVideoCamera
 
 @end
 

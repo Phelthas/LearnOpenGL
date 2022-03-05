@@ -39,12 +39,8 @@
 
 @implementation DemoGLi420Camera
 
-- (instancetype)init {
-    return [self initWithCameraPosition:AVCaptureDevicePositionFront];
-}
-
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
-    self = [super init];
+    self = [super initWithCameraPosition:cameraPosition];
     if (self) {
         _frameRenderingSemaphore = dispatch_semaphore_create(1);
         _capturePipline = [[DemoGLCapturePipline alloc] initWithCameraPosition:cameraPosition];
@@ -79,22 +75,6 @@
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
-    
-    [self.capturePipline stopRunning];
-    
-#if !OS_OBJECT_USE_OBJC
-    if (self.frameRenderingSemaphore != NULL) {
-        dispatch_release(self.frameRenderingSemaphore);
-    }
-#endif
-    
-}
-
-- (DemoGLTextureFrame *)framebufferForOutput {
-    return _outputFramebuffer;
-}
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     // The caller does not own the returned dataBuffer
@@ -297,19 +277,6 @@
     return i420Buffer;
 }
 
-#pragma mark - PublicMethod
-
-- (void)setupAVCaptureConnectionWithBlock:(DemoGLCaptureConnectionConfigure)configureBlock {
-    [self.capturePipline setupAVCaptureConnectionWithBlock:configureBlock];
-}
-
-- (void)startCameraCapture {
-    [self.capturePipline startRunning];
-}
-
-- (void)stopCameraCapture {
-    [self.capturePipline stopRunning];
-}
 
 #pragma mark - DemoGLCapturePiplineDelegate
 
