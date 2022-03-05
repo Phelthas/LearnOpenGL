@@ -1,25 +1,25 @@
 //
-//  Demo5_1ViewController.m
+//  Demo5_3ViewController.m
 //  Demo_OpenGLES_5
 //
-//  Created by billthaslu on 2022/3/1.
+//  Created by billthaslu on 2022/3/5.
 //
 
-#import "Demo5_1ViewController.h"
+#import "Demo5_3ViewController.h"
 #import "DemoGLKit.h"
 #import "Demo5GLView.h"
-#import "DemoGLI420Camera.h"
+#import "DemoGLI420Camera3.h"
 
 
-@interface Demo5_1ViewController ()
+@interface Demo5_3ViewController ()
 
-@property (nonatomic, strong) DemoGLI420Camera *i420Camera;
+@property (nonatomic, strong) DemoGLI420Camera3 *i420Camera;
 @property (nonatomic, strong) Demo5GLView *glView;
 @property (nonatomic, strong) Demo5GLView *glView2;
 
 @end
 
-@implementation Demo5_1ViewController
+@implementation Demo5_3ViewController
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);
@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _i420Camera = [[DemoGLI420Camera alloc] init];
+    _i420Camera = [[DemoGLI420Camera3 alloc] init];
     [_i420Camera setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
         connection.videoOrientation = AVCaptureVideoOrientationPortrait;
         connection.videoMirrored = YES;

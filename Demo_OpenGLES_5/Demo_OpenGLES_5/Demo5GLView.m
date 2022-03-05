@@ -108,10 +108,10 @@ DemoGLVertex initVertices[] = {
         glUniform1i(self.displayInputTextureUniform, 4);
         
         static const GLfloat imageVertices[] = {
-            -0.5f, -0.5f,
-            0.5f, -0.5f,
-            -0.5f,  0.5f,
-            0.5f,  0.5f,
+            -1.0f, -1.0f,
+            1.0f, -1.0f,
+            -1.0f,  1.0f,
+            1.0f,  1.0f,
         };
         
         static const GLfloat coordinates[] = {

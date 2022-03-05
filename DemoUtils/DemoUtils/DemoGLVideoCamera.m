@@ -122,7 +122,7 @@
     [DemoGLContext useImageProcessingContext];
     if ([DemoGLContext supportsFastTextureUpload]) {
         CVOpenGLESTextureRef luminanceTextureRef = NULL;
-        CVOpenGLESTextureRef chrominaceTextureRef = NULL;
+        CVOpenGLESTextureRef chrominanceTextureRef = NULL;
         if (CVPixelBufferGetPlaneCount(cameraFrame) > 0) {// Check for YUV planar inputs to do RGB conversion
             CVPixelBufferLockBaseAddress(cameraFrame, 0);
             if (self.imageBufferWidth != bufferWidth || self.imageBufferHeight != bufferHeight) {
@@ -145,11 +145,11 @@
             
             //UV-plane
             glActiveTexture(GL_TEXTURE5);
-            ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE_ALPHA, bufferWidth / 2, bufferHeight / 2, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, 1, &chrominaceTextureRef);
+            ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE_ALPHA, bufferWidth / 2, bufferHeight / 2, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, 1, &chrominanceTextureRef);
             if (ret) {
                 NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", ret);
             }
-            self.chrominanceTexture = CVOpenGLESTextureGetName(chrominaceTextureRef);
+            self.chrominanceTexture = CVOpenGLESTextureGetName(chrominanceTextureRef);
             glBindTexture(GL_TEXTURE_2D, self.chrominanceTexture);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -158,7 +158,7 @@
             
             CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
             CFRelease(luminanceTextureRef);
-            CFRelease(chrominaceTextureRef);
+            CFRelease(chrominanceTextureRef);
             
             for (id<DemoGLInputProtocol> target in self.targets) {
                 [target setInputTexture:self.outputFramebuffer];

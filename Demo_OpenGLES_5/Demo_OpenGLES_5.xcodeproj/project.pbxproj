@@ -17,9 +17,11 @@
 		43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43382ADE27CE65450064757D /* Demo5_TestViewController.m */; };
 		43DE627427CF97AA0083FCCE /* Demo5GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE627327CF97AA0083FCCE /* Demo5GLView.m */; };
 		43DE629927D098590083FCCE /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DE629827D098580083FCCE /* libyuv.a */; };
-		43DE630F27D0DF150083FCCE /* DemoGLi420Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */; };
+		43DE630F27D0DF150083FCCE /* DemoGLI420Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE630E27D0DF150083FCCE /* DemoGLI420Camera.m */; };
 		43DE638227D228290083FCCE /* Demo5_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE638127D228290083FCCE /* Demo5_2ViewController.m */; };
 		43DE638527D236970083FCCE /* DemoGLI420Camera2.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE638427D236970083FCCE /* DemoGLI420Camera2.m */; };
+		43DE63F827D35DCC0083FCCE /* Demo5_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE63F727D35DCC0083FCCE /* Demo5_3ViewController.m */; };
+		43DE63FB27D35E350083FCCE /* DemoGLI420Camera3.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */; };
 		86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */; };
 /* End PBXBuildFile section */
 
@@ -64,12 +66,16 @@
 		43DE629527D098580083FCCE /* macros_msa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros_msa.h; sourceTree = "<group>"; };
 		43DE629627D098580083FCCE /* row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = row.h; sourceTree = "<group>"; };
 		43DE629827D098580083FCCE /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
-		43DE630D27D0DF150083FCCE /* DemoGLi420Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLi420Camera.h; sourceTree = "<group>"; };
-		43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLi420Camera.m; sourceTree = "<group>"; };
+		43DE630D27D0DF150083FCCE /* DemoGLI420Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLI420Camera.h; sourceTree = "<group>"; };
+		43DE630E27D0DF150083FCCE /* DemoGLI420Camera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLI420Camera.m; sourceTree = "<group>"; };
 		43DE638027D228290083FCCE /* Demo5_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_2ViewController.h; sourceTree = "<group>"; };
 		43DE638127D228290083FCCE /* Demo5_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_2ViewController.m; sourceTree = "<group>"; };
 		43DE638327D236970083FCCE /* DemoGLI420Camera2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLI420Camera2.h; sourceTree = "<group>"; };
 		43DE638427D236970083FCCE /* DemoGLI420Camera2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLI420Camera2.m; sourceTree = "<group>"; };
+		43DE63F627D35DCC0083FCCE /* Demo5_3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo5_3ViewController.h; sourceTree = "<group>"; };
+		43DE63F727D35DCC0083FCCE /* Demo5_3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_3ViewController.m; sourceTree = "<group>"; };
+		43DE63F927D35E350083FCCE /* DemoGLI420Camera3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLI420Camera3.h; sourceTree = "<group>"; };
+		43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLI420Camera3.m; sourceTree = "<group>"; };
 		973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_5.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_5/Pods-Demo_OpenGLES_5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,10 +135,14 @@
 				43382ADB27CE65370064757D /* Demo5_1ViewController.m */,
 				43DE638027D228290083FCCE /* Demo5_2ViewController.h */,
 				43DE638127D228290083FCCE /* Demo5_2ViewController.m */,
-				43DE630D27D0DF150083FCCE /* DemoGLi420Camera.h */,
-				43DE630E27D0DF150083FCCE /* DemoGLi420Camera.m */,
+				43DE63F627D35DCC0083FCCE /* Demo5_3ViewController.h */,
+				43DE63F727D35DCC0083FCCE /* Demo5_3ViewController.m */,
+				43DE630D27D0DF150083FCCE /* DemoGLI420Camera.h */,
+				43DE630E27D0DF150083FCCE /* DemoGLI420Camera.m */,
 				43DE638327D236970083FCCE /* DemoGLI420Camera2.h */,
 				43DE638427D236970083FCCE /* DemoGLI420Camera2.m */,
+				43DE63F927D35E350083FCCE /* DemoGLI420Camera3.h */,
+				43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */,
 				43382AC727CE63640064757D /* Main.storyboard */,
 				43382ACA27CE63670064757D /* Assets.xcassets */,
 				43382ACC27CE63670064757D /* LaunchScreen.storyboard */,
@@ -306,8 +316,10 @@
 				43382AC027CE63640064757D /* AppDelegate.m in Sources */,
 				43382AD127CE63670064757D /* main.m in Sources */,
 				43DE638227D228290083FCCE /* Demo5_2ViewController.m in Sources */,
-				43DE630F27D0DF150083FCCE /* DemoGLi420Camera.m in Sources */,
+				43DE630F27D0DF150083FCCE /* DemoGLI420Camera.m in Sources */,
 				43DE627427CF97AA0083FCCE /* Demo5GLView.m in Sources */,
+				43DE63FB27D35E350083FCCE /* DemoGLI420Camera3.m in Sources */,
+				43DE63F827D35DCC0083FCCE /* Demo5_3ViewController.m in Sources */,
 				43382ADF27CE65450064757D /* Demo5_TestViewController.m in Sources */,
 				43DE638527D236970083FCCE /* DemoGLI420Camera2.m in Sources */,
 			);

@@ -5,7 +5,7 @@
 //  Created by billthaslu on 2022/3/3.
 //
 
-#import "DemoGLi420Camera.h"
+#import "DemoGLI420Camera.h"
 #import "DemoGLShaders.h"
 #import "DemoGLProgram.h"
 #import "DemoGLCapturePipline.h"
@@ -15,7 +15,7 @@
 #import <OpenGLES/ES2/glext.h>
 #import "libyuv.h"
 
-@interface DemoGLi420Camera ()<DemoGLCapturePiplineDelegate>
+@interface DemoGLI420Camera ()<DemoGLCapturePiplineDelegate>
 
 @property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
 @property (nonatomic, strong) DemoGLCapturePipline *capturePipline;
@@ -37,7 +37,7 @@
 @end
 
 
-@implementation DemoGLi420Camera
+@implementation DemoGLI420Camera
 
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
     self = [super initWithCameraPosition:cameraPosition];
