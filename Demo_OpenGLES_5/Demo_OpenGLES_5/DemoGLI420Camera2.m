@@ -14,11 +14,11 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "libyuv.h"
+#import "TimeCounter.h"
 
 @interface DemoGLI420Camera2 ()<DemoGLCapturePiplineDelegate>
 
 @property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
-@property (nonatomic, strong) DemoGLCapturePipline *capturePipline;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;
@@ -34,18 +34,25 @@
 @property (nonatomic, assign) GLuint uTexture;
 @property (nonatomic, assign) GLuint vTexture;
 
+
+@property (nonatomic, strong) TimeCounter *counter;
+
 @end
 
 
 @implementation DemoGLI420Camera2
 
+- (void)dealloc {
+    [self.counter logAllStatistics];
+}
+
 - (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
     self = [super initWithCameraPosition:cameraPosition];
     if (self) {
         _frameRenderingSemaphore = dispatch_semaphore_create(1);
-        _capturePipline = [[DemoGLCapturePipline alloc] initWithCameraPosition:cameraPosition];
-        _capturePipline.delegate = self;
         _preferredConversion = kColorConversion709;
+        
+        _counter = [[TimeCounter alloc] init];
         
         runSyncOnVideoProcessingQueue(^{
             [DemoGLContext useImageProcessingContext];
@@ -100,14 +107,20 @@
     
     [DemoGLContext useImageProcessingContext];
     
+    [self.counter countOnceStart];
+    
     [self textureY:dst_y widthType:bufferWidth heightType:bufferHeight texture:&_yTexture];
     [self textureY:dst_u widthType:bufferWidth / 2 heightType:bufferHeight / 2 texture:&_uTexture];
     [self textureY:dst_v widthType:bufferWidth / 2 heightType:bufferHeight / 2 texture:&_vTexture];
     
-    [self convertI420toRGBoutput];
     
     
     free(i420Buffer);
+    
+    [self convertI420toRGBoutput];
+    
+    [self.counter countOnceEnd];
+    
     for (id<DemoGLInputProtocol> target in self.targets) {
         [target setInputTexture:self.outputFramebuffer];
         [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
@@ -187,20 +200,21 @@
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
 
     // Get NV12 imageBuffer
-    // 系统貌似希望图片的宽度是64的整数倍，720不是，768才是，所以这里取到的width是720，但BytesPerRow是768
-    size_t width = CVPixelBufferGetWidth(imageBuffer);
-    size_t heightOfYPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 0);
-    size_t heightOfUVPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 1);
     unsigned char *BaseAddrYPlane = (unsigned char *)CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0);
     unsigned char *BaseAddrUVPlane = (unsigned char *)CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 1);
     size_t numberPerRowOfYPlane = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer, 0);
     size_t numberPerRowOfUVPlane = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer, 1);
-    size_t extraColumnsOnLeft = 0;
-    size_t extraColumnsOnRight = 0;
-    size_t extraRowsOnTop = 0;
-    size_t extraRowsOnBottom = 0;
-
+    
     /**
+     // 系统貌似希望图片的宽度是64的整数倍，720不是，768才是，所以这里取到的width是720，但BytesPerRow是768
+     size_t width = CVPixelBufferGetWidth(imageBuffer);
+     size_t heightOfYPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 0);
+     size_t heightOfUVPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 1);
+     size_t extraColumnsOnLeft = 0;
+     size_t extraColumnsOnRight = 0;
+     size_t extraRowsOnTop = 0;
+     size_t extraRowsOnBottom = 0;
+     
      CVPixelBufferGetExtendedPixels(imageBuffer, &extraColumnsOnLeft, &extraColumnsOnRight, &extraRowsOnTop, &extraRowsOnBottom);
 
      // Do color space conversion in Video Engine
@@ -262,7 +276,7 @@
 
 
 - (void)textureY:(unsigned char *)imageData widthType:(int)width heightType:(int)height texture:(GLuint *)texture {
-    if (texture == 0 || imageData == nil) {
+    if (*texture == 0 || imageData == nil) {
         return;
     }
     glBindTexture(GL_TEXTURE_2D, *texture);

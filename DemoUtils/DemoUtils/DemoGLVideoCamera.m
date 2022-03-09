@@ -16,8 +16,8 @@
 
 @interface DemoGLVideoCamera ()<DemoGLCapturePiplineDelegate>
 
+
 @property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
-@property (nonatomic, strong) DemoGLCapturePipline *capturePipline;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;

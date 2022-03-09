@@ -14,11 +14,11 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "libyuv.h"
+#import "TimeCounter.h"
 
 @interface DemoGLI420Camera3 ()<DemoGLCapturePiplineDelegate>
 
 @property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
-@property (nonatomic, strong) DemoGLCapturePipline *capturePipline;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;
@@ -32,11 +32,51 @@
 @property (nonatomic, assign) GLuint luminanceTexture;
 @property (nonatomic, assign) GLuint chrominanceTexture;
 
+@property (nonatomic, strong) TimeCounter *counter;
+
 @end
 
 
 @implementation DemoGLI420Camera3
 
+- (void)dealloc {
+    [self.counter logAllStatistics];
+}
+
+- (instancetype)initWithCameraPosition:(AVCaptureDevicePosition)cameraPosition {
+    self = [super initWithCameraPosition:cameraPosition];
+    if (self) {
+        _frameRenderingSemaphore = dispatch_semaphore_create(1);
+        _preferredConversion = kColorConversion709;
+        
+        runSyncOnVideoProcessingQueue(^{
+            [DemoGLContext useImageProcessingContext];
+            if (self.capturePipline.isFullYUVRange) {
+                self.yuvConversionProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImageYUVFullRangeConversionForLAFragmentShaderString];
+            } else {
+                self.yuvConversionProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImageYUVVideoRangeConversionForLAFragmentShaderString];
+            }
+            [self.yuvConversionProgram addAttribute:@"position"];
+            [self.yuvConversionProgram addAttribute:@"inputTextureCoordinate"];
+            if (![self.yuvConversionProgram link]) {
+                self.yuvConversionProgram = nil;
+                NSAssert(NO, @"Filter shader link failed");
+            }
+            self.yuvConversionPositionAttribute = [self.yuvConversionProgram attributeIndex:@"position"];
+            self.yuvConversionTextureCoordinateAttribute = [self.yuvConversionProgram attributeIndex:@"inputTextureCoordinate"];
+            self.yuvConversionLuminanceTextureUniform = [self.yuvConversionProgram uniformIndex:@"luminanceTexture"];
+            self.yuvConversionChrominanceTextureUniform = [self.yuvConversionProgram uniformIndex:@"chrominanceTexture"];
+            self.yuvConversionMatrixUniform = [self.yuvConversionProgram uniformIndex:@"colorConversionMatrix"];
+                        
+            glEnableVertexAttribArray(self.yuvConversionPositionAttribute);
+            glEnableVertexAttribArray(self.yuvConversionTextureCoordinateAttribute);
+            
+        });
+        
+        _counter = [[TimeCounter alloc] init];
+    }
+    return self;
+}
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     CMTime currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
@@ -50,20 +90,35 @@
         self.imageBufferWidth = bufferWidth;
         self.imageBufferHeight = bufferHeight;
     }
+    
+    [self.counter countOnceStartWithKey:@"key1"];
+    [self.counter countOnceStartWithKey:@"key3"];
+    
     unsigned char *i420Buffer = [self convertSampleBufferToI420:sampleBuffer];
     
-    CVImageBufferRef cameraBuffer = [self convertI420BufferToNV12PixelBuffer:i420Buffer witdth:bufferWidth height:bufferHeight];
+    [self.counter countOnceEndWithKey:@"key1"];
+    [self.counter countOnceStartWithKey:@"key2"];
+    
+
+    CVImageBufferRef cameraFrame = [self convertI420BufferToNV12PixelBuffer:i420Buffer witdth:bufferWidth height:bufferHeight];
+    
+    [self.counter countOnceEndWithKey:@"key2"];
+    [self.counter countOnceEndWithKey:@"key3"];
+
     free(i420Buffer);
     
+    
     [DemoGLContext useImageProcessingContext];
+    CVPixelBufferLockBaseAddress(cameraFrame, 0);
+    
     CVOpenGLESTextureRef luminanceTextureRef = NULL;
     CVOpenGLESTextureRef chrominanceTextureRef = NULL;
-    if (CVPixelBufferGetPlaneCount(cameraBuffer) > 0) {
+    if (CVPixelBufferGetPlaneCount(cameraFrame) > 0) {
         CVOpenGLESTextureCacheRef textureCache = [DemoGLContext sharedImageProcessingContext].coreVideoTextureCache;
         CVReturn ret;
         //Y-plane
         glActiveTexture(GL_TEXTURE4);
-        ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraBuffer, NULL, GL_TEXTURE_2D, GL_LUMINANCE, bufferWidth, bufferHeight, GL_LUMINANCE, GL_UNSIGNED_BYTE, 0, &luminanceTextureRef);
+        ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE, bufferWidth, bufferHeight, GL_LUMINANCE, GL_UNSIGNED_BYTE, 0, &luminanceTextureRef);
         if (ret) {
             NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", ret);
         }
@@ -73,17 +128,19 @@
         
         //UV-plane
         glActiveTexture(GL_TEXTURE5);
-        ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraBuffer, NULL, GL_TEXTURE_2D, GL_LUMINANCE_ALPHA, bufferWidth, bufferHeight, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, 1, &chrominanceTextureRef);
+        ret = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE_ALPHA, bufferWidth / 2, bufferHeight / 2, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, 1, &chrominanceTextureRef);
         if (ret) {
             NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", ret);
         }
         self.chrominanceTexture = CVOpenGLESTextureGetName(chrominanceTextureRef);
-        glBindBuffer(GL_TEXTURE_2D, self.chrominanceTexture);
+        glBindTexture(GL_TEXTURE_2D, self.chrominanceTexture);
         [self setupDefaultGLTexParameter];
         
         [self convertYUVtoRGBoutput];
         
-        CVPixelBufferUnlockBaseAddress(cameraBuffer, 0);
+        CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
+        
+        CFRelease(cameraFrame);
         CFRelease(luminanceTextureRef);
         CFRelease(chrominanceTextureRef);
         
@@ -162,31 +219,26 @@
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     int bufferWidth = (int)CVPixelBufferGetWidth(imageBuffer);
     int bufferHeight = (int)CVPixelBufferGetHeight(imageBuffer);
-    if (self.imageBufferWidth != bufferWidth || self.imageBufferHeight != bufferHeight) {
-        self.imageBufferWidth = bufferWidth;
-        self.imageBufferHeight = bufferHeight;
-    }
-    CMSampleTimingInfo timimgInfo = kCMTimingInfoInvalid;
-    CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &timimgInfo);
     
     // Lock the base address of the pixel buffer
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
 
     // Get NV12 imageBuffer
-    // 系统貌似希望图片的宽度是64的整数倍，720不是，768才是，所以这里取到的width是720，但BytesPerRow是768
-    size_t width = CVPixelBufferGetWidth(imageBuffer);
-    size_t heightOfYPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 0);
-    size_t heightOfUVPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 1);
     unsigned char *BaseAddrYPlane = (unsigned char *)CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0);
     unsigned char *BaseAddrUVPlane = (unsigned char *)CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 1);
     size_t numberPerRowOfYPlane = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer, 0);
     size_t numberPerRowOfUVPlane = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer, 1);
-    size_t extraColumnsOnLeft = 0;
-    size_t extraColumnsOnRight = 0;
-    size_t extraRowsOnTop = 0;
-    size_t extraRowsOnBottom = 0;
-
+    
     /**
+     // 系统貌似希望图片的宽度是64的整数倍，720不是，768才是，所以这里取到的width是720，但BytesPerRow是768
+     size_t width = CVPixelBufferGetWidth(imageBuffer);
+     size_t heightOfYPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 0);
+     size_t heightOfUVPlane = CVPixelBufferGetHeightOfPlane(imageBuffer, 1);
+     size_t extraColumnsOnLeft = 0;
+     size_t extraColumnsOnRight = 0;
+     size_t extraRowsOnTop = 0;
+     size_t extraRowsOnBottom = 0;
+     
      CVPixelBufferGetExtendedPixels(imageBuffer, &extraColumnsOnLeft, &extraColumnsOnRight, &extraRowsOnTop, &extraRowsOnBottom);
 
      // Do color space conversion in Video Engine
@@ -239,6 +291,7 @@
 
     if (ret) {
         NSLog(@"NV12ToI420 error: %d", ret);
+        free(dst_y);
         return NULL;
     }
     
@@ -254,7 +307,10 @@
     unsigned char *src_v = i420Buffer + bufferWidth * bufferHeight * 5 / 4;
     
     CVPixelBufferRef nv12Buffer = NULL;
-    NSDictionary *attrDict = @{(NSString *)kCVPixelBufferIOSurfacePropertiesKey : @{}};
+    NSDictionary *attrDict = @{
+        (NSString *)kCVPixelBufferIOSurfacePropertiesKey : @{},
+        (NSString *)kCVPixelBufferOpenGLESCompatibilityKey : @(YES)
+    };
     CVPixelBufferCreate(kCFAllocatorDefault, bufferWidth, bufferHeight, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, (__bridge  CFDictionaryRef)attrDict, &nv12Buffer);
     if (!nv12Buffer) {
         NSLog(@"CVPixelBufferCreate error %s", __FUNCTION__);
@@ -263,11 +319,11 @@
     
     CVPixelBufferLockBaseAddress(nv12Buffer, 0);
 
-    int dst_stride_y = (int)CVPixelBufferGetBytesPerRowOfPlane(nv12Buffer, 0);
-    int dst_stride_uv = (int)CVPixelBufferGetBytesPerRowOfPlane(nv12Buffer, 1);
-    
     uint8_t *dst_y = CVPixelBufferGetBaseAddressOfPlane(nv12Buffer, 0);
     uint8_t *dst_uv = CVPixelBufferGetBaseAddressOfPlane(nv12Buffer, 1);
+    
+    int dst_stride_y = (int)CVPixelBufferGetBytesPerRowOfPlane(nv12Buffer, 0);
+    int dst_stride_uv = (int)CVPixelBufferGetBytesPerRowOfPlane(nv12Buffer, 1);
     
     int ret = I420ToNV12(src_y, bufferWidth,
                          src_u, bufferWidth / 2,

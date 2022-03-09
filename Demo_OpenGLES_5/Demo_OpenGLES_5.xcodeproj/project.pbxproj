@@ -22,6 +22,7 @@
 		43DE638527D236970083FCCE /* DemoGLI420Camera2.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE638427D236970083FCCE /* DemoGLI420Camera2.m */; };
 		43DE63F827D35DCC0083FCCE /* Demo5_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE63F727D35DCC0083FCCE /* Demo5_3ViewController.m */; };
 		43DE63FB27D35E350083FCCE /* DemoGLI420Camera3.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */; };
+		43DE63FE27D36B740083FCCE /* TimeCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE63FD27D36B740083FCCE /* TimeCounter.m */; };
 		86B4732B1EC3558FB1217A5E /* libPods-Demo_OpenGLES_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		43DE63F727D35DCC0083FCCE /* Demo5_3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo5_3ViewController.m; sourceTree = "<group>"; };
 		43DE63F927D35E350083FCCE /* DemoGLI420Camera3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLI420Camera3.h; sourceTree = "<group>"; };
 		43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLI420Camera3.m; sourceTree = "<group>"; };
+		43DE63FC27D36B740083FCCE /* TimeCounter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeCounter.h; sourceTree = "<group>"; };
+		43DE63FD27D36B740083FCCE /* TimeCounter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeCounter.m; sourceTree = "<group>"; };
 		973061BA9649FCAE179D674D /* libPods-Demo_OpenGLES_5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00A4A57BC0C388B35BD53D3 /* Pods-Demo_OpenGLES_5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_5.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_5/Pods-Demo_OpenGLES_5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +146,8 @@
 				43DE638427D236970083FCCE /* DemoGLI420Camera2.m */,
 				43DE63F927D35E350083FCCE /* DemoGLI420Camera3.h */,
 				43DE63FA27D35E350083FCCE /* DemoGLI420Camera3.m */,
+				43DE63FC27D36B740083FCCE /* TimeCounter.h */,
+				43DE63FD27D36B740083FCCE /* TimeCounter.m */,
 				43382AC727CE63640064757D /* Main.storyboard */,
 				43382ACA27CE63670064757D /* Assets.xcassets */,
 				43382ACC27CE63670064757D /* LaunchScreen.storyboard */,
@@ -317,6 +322,7 @@
 				43382AD127CE63670064757D /* main.m in Sources */,
 				43DE638227D228290083FCCE /* Demo5_2ViewController.m in Sources */,
 				43DE630F27D0DF150083FCCE /* DemoGLI420Camera.m in Sources */,
+				43DE63FE27D36B740083FCCE /* TimeCounter.m in Sources */,
 				43DE627427CF97AA0083FCCE /* Demo5GLView.m in Sources */,
 				43DE63FB27D35E350083FCCE /* DemoGLI420Camera3.m in Sources */,
 				43DE63F827D35DCC0083FCCE /* Demo5_3ViewController.m in Sources */,

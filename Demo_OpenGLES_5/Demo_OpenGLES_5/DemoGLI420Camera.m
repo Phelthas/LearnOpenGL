@@ -18,7 +18,6 @@
 @interface DemoGLI420Camera ()<DemoGLCapturePiplineDelegate>
 
 @property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
-@property (nonatomic, strong) DemoGLCapturePipline *capturePipline;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;
@@ -43,8 +42,6 @@
     self = [super initWithCameraPosition:cameraPosition];
     if (self) {
         _frameRenderingSemaphore = dispatch_semaphore_create(1);
-        _capturePipline = [[DemoGLCapturePipline alloc] initWithCameraPosition:cameraPosition];
-        _capturePipline.delegate = self;
         _preferredConversion = kColorConversion709;
         
         runSyncOnVideoProcessingQueue(^{
@@ -239,7 +236,10 @@
     
     
     CVPixelBufferRef i420Buffer = NULL;
-    NSDictionary *attrDict = @{(NSString *)kCVPixelBufferIOSurfacePropertiesKey : @{}};
+    NSDictionary *attrDict = @{
+        (NSString *)kCVPixelBufferIOSurfacePropertiesKey : @{},
+        (NSString *)kCVPixelBufferOpenGLESCompatibilityKey : @(YES)
+    };
     CVPixelBufferCreate(kCFAllocatorDefault, bufferWidth, bufferHeight, kCVPixelFormatType_420YpCbCr8Planar, (__bridge  CFDictionaryRef)attrDict, &i420Buffer);
     if (!i420Buffer) {
         CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
