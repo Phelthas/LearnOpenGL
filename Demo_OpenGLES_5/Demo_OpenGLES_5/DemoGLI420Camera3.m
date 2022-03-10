@@ -91,20 +91,14 @@
         self.imageBufferHeight = bufferHeight;
     }
     
-    [self.counter countOnceStartWithKey:@"key1"];
-    [self.counter countOnceStartWithKey:@"key3"];
-    
     unsigned char *i420Buffer = [self convertSampleBufferToI420:sampleBuffer];
     
-    [self.counter countOnceEndWithKey:@"key1"];
-    [self.counter countOnceStartWithKey:@"key2"];
-    
+    [self.counter countOnceStartWithKey:@"key1"];
 
     CVImageBufferRef cameraFrame = [self convertI420BufferToNV12PixelBuffer:i420Buffer witdth:bufferWidth height:bufferHeight];
     
-    [self.counter countOnceEndWithKey:@"key2"];
-    [self.counter countOnceEndWithKey:@"key3"];
-
+    [self.counter countOnceEndWithKey:@"key1"];
+    
     free(i420Buffer);
     
     
@@ -137,7 +131,7 @@
         [self setupDefaultGLTexParameter];
         
         [self convertYUVtoRGBoutput];
-        
+                
         CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
         
         CFRelease(cameraFrame);

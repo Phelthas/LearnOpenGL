@@ -113,14 +113,12 @@
     [self textureY:dst_u widthType:bufferWidth / 2 heightType:bufferHeight / 2 texture:&_uTexture];
     [self textureY:dst_v widthType:bufferWidth / 2 heightType:bufferHeight / 2 texture:&_vTexture];
     
-    
+    [self convertI420toRGBoutput];
     
     free(i420Buffer);
     
-    [self convertI420toRGBoutput];
-    
     [self.counter countOnceEnd];
-    
+
     for (id<DemoGLInputProtocol> target in self.targets) {
         [target setInputTexture:self.outputFramebuffer];
         [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
