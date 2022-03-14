@@ -77,7 +77,7 @@
 }
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
-    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
     CVImageBufferRef cameraFrame = CMSampleBufferGetImageBuffer(sampleBuffer);
     int bufferWidth = (int)CVPixelBufferGetWidth(cameraFrame);
     int bufferHeight = (int)CVPixelBufferGetHeight(cameraFrame);
@@ -221,8 +221,13 @@
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
-    
-    
+    [self drawYPlaneOnly];
+    [self drawUVPlaneOnly];
+     
+}
+
+- (void)drawYPlaneOnly {
+    //注意，这里不能clear，clear就把之前绘制上去的内容清掉了
     static const GLfloat squareVertices2[] = {
         0.5f, -1.0f,
         1.0f, -1.0f,
@@ -230,13 +235,55 @@
         1.0f, -0.5f,
     };
     
+    // 注意这里的纹理坐标是特殊的,上下颠倒了一下，应该因为图像方向和纹理坐标系是反着的
+    static const GLfloat textureCoordinates[] = {
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+    };
+    
+    glActiveTexture(GL_TEXTURE4);
+    glBindTexture(GL_TEXTURE_2D, self.luminanceTexture);
+    glUniform1i(self.yuvConversionLuminanceTextureUniform, 4);
+    
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, 0);
     
     glVertexAttribPointer(self.yuvConversionPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices2);
     glVertexAttribPointer(self.yuvConversionTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
+- (void)drawUVPlaneOnly {
+    //注意，这里不能clear，clear就把之前绘制上去的内容清掉了
+    static const GLfloat squareVertices3[] = {
+        -1.0f, -1.0f,
+        -0.5f, -1.0f,
+        -1.0f, -0.5f,
+        -0.5f, -0.5f,
+    };
     
+    // 注意这里的纹理坐标是特殊的,上下颠倒了一下，应该因为图像方向和纹理坐标系是反着的
+    static const GLfloat textureCoordinates[] = {
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+    };
     
+    glActiveTexture(GL_TEXTURE4);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, self.chrominanceTexture);
+    glUniform1i(self.yuvConversionChrominanceTextureUniform, 5);
+    
+    glVertexAttribPointer(self.yuvConversionPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices3);
+    glVertexAttribPointer(self.yuvConversionTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 
