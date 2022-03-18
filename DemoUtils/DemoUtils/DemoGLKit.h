@@ -21,6 +21,7 @@
 #import "DemoGLVideoCamera.h"
 #import "DemoGLShaders.h"
 #import "DemoGLInputProtocol.h"
+#import "DemoGLPicture.h"
 
 
 #endif /* DemoGLKit_h */

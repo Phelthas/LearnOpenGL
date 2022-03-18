@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+
+#use_frameworks!
+
+target "Demo_OpenGLES_6" do
+
+
+#pod 'LXMKit',  :git => "https://github.com/Phelthas/LXMKit.git"
+pod 'LXMKit',  :path => "~/Documents/LXMGitHub/LXMKit"
+
+pod 'DemoUtils', :path => "../DemoUtils"
+
+end

@@ -77,6 +77,16 @@ static void *openGLESContextQueueKey;
 #endif
 }
 
++ (GLuint)maximumTextureSizeForThisDevice {
+    static dispatch_once_t onceToken;
+    static GLint maxTextureSize = 0;
+    dispatch_once(&onceToken, ^{
+        [self useImageProcessingContext];
+        glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
+    });
+    return maxTextureSize;
+}
+
 #pragma mark - Property
 
 - (EAGLContext *)context {
