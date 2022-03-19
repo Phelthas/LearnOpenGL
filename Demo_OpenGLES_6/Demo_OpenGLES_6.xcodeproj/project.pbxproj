@@ -15,6 +15,8 @@
 		43E5A6CD27E42CC8005D54A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E5A6CB27E42CC8005D54A3 /* LaunchScreen.storyboard */; };
 		43E5A6D027E42CC8005D54A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E5A6CF27E42CC8005D54A3 /* main.m */; };
 		43E5A6D827E42E07005D54A3 /* Demo6_1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E5A6D727E42E07005D54A3 /* Demo6_1ViewController.m */; };
+		43E5A6DB27E42FF2005D54A3 /* saber.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 43E5A6D927E42FF2005D54A3 /* saber.jpeg */; };
+		43E5A6DC27E42FF2005D54A3 /* xianhua.png in Resources */ = {isa = PBXBuildFile; fileRef = 43E5A6DA27E42FF2005D54A3 /* xianhua.png */; };
 		9B1F33C4052EDECCF93B2533 /* libPods-Demo_OpenGLES_6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E30FB1E9C636C952BF9CEB4B /* libPods-Demo_OpenGLES_6.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		43E5A6CF27E42CC8005D54A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43E5A6D627E42E07005D54A3 /* Demo6_1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo6_1ViewController.h; sourceTree = "<group>"; };
 		43E5A6D727E42E07005D54A3 /* Demo6_1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo6_1ViewController.m; sourceTree = "<group>"; };
+		43E5A6D927E42FF2005D54A3 /* saber.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = saber.jpeg; sourceTree = "<group>"; };
+		43E5A6DA27E42FF2005D54A3 /* xianhua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianhua.png; sourceTree = "<group>"; };
 		70E21D1442C36F14785CDDF2 /* Pods-Demo_OpenGLES_6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_6.release.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_6/Pods-Demo_OpenGLES_6.release.xcconfig"; sourceTree = "<group>"; };
 		E30FB1E9C636C952BF9CEB4B /* libPods-Demo_OpenGLES_6.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo_OpenGLES_6.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +83,8 @@
 		43E5A6BC27E42CC8005D54A3 /* Demo_OpenGLES_6 */ = {
 			isa = PBXGroup;
 			children = (
+				43E5A6D927E42FF2005D54A3 /* saber.jpeg */,
+				43E5A6DA27E42FF2005D54A3 /* xianhua.png */,
 				43E5A6BD27E42CC8005D54A3 /* AppDelegate.h */,
 				43E5A6BE27E42CC8005D54A3 /* AppDelegate.m */,
 				43E5A6C027E42CC8005D54A3 /* ViewController.h */,
@@ -166,6 +172,8 @@
 				43E5A6CD27E42CC8005D54A3 /* LaunchScreen.storyboard in Resources */,
 				43E5A6CA27E42CC8005D54A3 /* Assets.xcassets in Resources */,
 				43E5A6C827E42CC8005D54A3 /* Main.storyboard in Resources */,
+				43E5A6DC27E42FF2005D54A3 /* xianhua.png in Resources */,
+				43E5A6DB27E42FF2005D54A3 /* saber.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

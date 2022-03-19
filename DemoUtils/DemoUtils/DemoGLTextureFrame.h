@@ -22,7 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLTextureFrame : NSObject
 
-- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions;
+
+/// @param onlyGenerateTexture 是否只生成texture；默认是NO，会同时生成frameBuffer；
+- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture;
+
+- (instancetype)initWithSize:(CGSize)framebufferSize onlyGenerateTexture:(BOOL)onlyGenerateTexture;
 
 - (instancetype)initWithSize:(CGSize)framebufferSize;
 

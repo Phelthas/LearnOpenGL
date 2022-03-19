@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithImage:(UIImage *)image;
 
-- (instancetype)initWithCGImage:(CGImageRef)cgImage;
+// 图片默认是左上角开始的，坐标系跟OpenGL纹理坐标系不同，如果originBottomLeft传YES，就在绘制的时候把方向调过来
+- (instancetype)initWithCGImage:(CGImageRef)cgImage originBottomLeft:(BOOL)originBottomLeft;
 
 - (void)processImage;
 

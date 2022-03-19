@@ -12,6 +12,7 @@
 #import "DemoGLShaders.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "DemoGLDefines.h"
 
 
 @interface DemoGLView ()
@@ -173,6 +174,8 @@
         glVertexAttribPointer(self.displayTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, coordinates);
         
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        GetGLErrorOC();
+
         [self prensentFramebuffer];
         
     });

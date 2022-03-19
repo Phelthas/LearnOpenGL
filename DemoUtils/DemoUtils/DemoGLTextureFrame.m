@@ -26,17 +26,29 @@
 
 @implementation DemoGLTextureFrame
 
-- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions {
+- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture {
     self = [super init];
     if (self) {
         _size = framebufferSize;
         _textureOptions = textureOptions;
-        [self generateFramebuffer];
+        if (onlyGenerateTexture) {
+            [self generateTexture];
+        } else {
+            [self generateFramebuffer];
+        }
     }
     return self;
 }
 
+- (instancetype)initWithSize:(CGSize)framebufferSize onlyGenerateTexture:(BOOL)onlyGenerateTexture {
+    return [self initWithSize:framebufferSize textureOptions:[self defaultTextureOptions] onlyGenerateTexture:onlyGenerateTexture];
+}
+
 - (instancetype)initWithSize:(CGSize)framebufferSize {
+    return [self initWithSize:framebufferSize onlyGenerateTexture:NO];
+}
+
+- (DemoGLTextureFrameOptions)defaultTextureOptions {
     DemoGLTextureFrameOptions defaultTextureOptions;
     defaultTextureOptions.minFilter = GL_LINEAR;
     defaultTextureOptions.magFilter = GL_LINEAR;
@@ -45,7 +57,7 @@
     defaultTextureOptions.internalFormat = GL_RGBA;
     defaultTextureOptions.format = GL_BGRA;
     defaultTextureOptions.type = GL_UNSIGNED_BYTE;
-    return [self initWithSize:framebufferSize textureOptions:defaultTextureOptions];;
+    return defaultTextureOptions;
 }
 
 - (int)width {

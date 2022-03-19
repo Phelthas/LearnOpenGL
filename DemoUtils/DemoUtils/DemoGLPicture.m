@@ -11,6 +11,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "DemoGLTextureFrame.h"
+#import "DemoGLDefines.h"
 
 @interface DemoGLPicture ()
 
@@ -21,10 +22,10 @@
 @implementation DemoGLPicture
 
 - (instancetype)initWithImage:(UIImage *)image {
-    return [self initWithCGImage:image.CGImage];
+    return [self initWithCGImage:image.CGImage originBottomLeft:YES];
 }
 
-- (instancetype)initWithCGImage:(CGImageRef)cgImage {
+- (instancetype)initWithCGImage:(CGImageRef)cgImage originBottomLeft:(BOOL)originBottomLeft {
     self = [super init];
     if (self) {
         
@@ -40,6 +41,10 @@
             shouldRedrawWithCoreGraphics = YES;
         }
         
+        if (originBottomLeft) {
+            shouldRedrawWithCoreGraphics = YES;
+        }
+        
         GLubyte *imageData = NULL;
         CFDataRef dataFromImageDataProvider = NULL;
         GLenum format = GL_BGRA;
@@ -50,7 +55,7 @@
              */
             if (CGImageGetBytesPerRow(cgImage) != imageWidth * 4 ||
                 CGImageGetBitsPerPixel(cgImage) != 32 ||
-                CGImageGetBitsPerComponent(cgImage) != 4) {
+                CGImageGetBitsPerComponent(cgImage) != 8) {
                 shouldRedrawWithCoreGraphics = YES;
             } else {
                 /* Check that the bitmap pixel format is compatible with GL */
@@ -87,10 +92,33 @@
         if (shouldRedrawWithCoreGraphics) {
             imageData = (GLubyte *)calloc(1, (int)pixelSizeForTexture.width * (int)pixelSizeForTexture.height * 4);
             CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-            CGContextRef imageContext = CGBitmapContextCreate(imageData, pixelSizeForTexture.width, pixelSizeForTexture.height, 8, pixelSizeForTexture.width * 4, rgbColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+            //kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst 是GL_BGRA
+            // kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast 是GL_RGBA
+            CGContextRef imageContext = CGBitmapContextCreate(imageData,
+                                                              pixelSizeForTexture.width,
+                                                              pixelSizeForTexture.height,
+                                                              8,
+                                                              pixelSizeForTexture.width * 4,
+                                                              rgbColorSpace,
+                                                              kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+            
+            if (originBottomLeft) {
+                CGContextTranslateCTM(imageContext, 0, pixelSizeForTexture.height);
+                CGContextScaleCTM(imageContext, 1, -1);
+            }
+            
             CGContextDrawImage(imageContext, CGRectMake(0, 0, pixelSizeForTexture.width, pixelSizeForTexture.height), cgImage);
+            
+#if DEBUG
+//            CGImageRef imageRef = CGBitmapContextCreateImage(imageContext);
+//            UIImage *image = [UIImage imageWithCGImage:imageRef];
+//            NSLog(@"%@", image.description);
+//            CFRelease(imageRef);
+#endif
+            
             CGContextRelease(imageContext);
             CGColorSpaceRelease(rgbColorSpace);
+                        
         } else {
             CGDataProviderRef dataProvider = CGImageGetDataProvider(cgImage);
             dataFromImageDataProvider = CGDataProviderCopyData(dataProvider);
@@ -99,13 +127,14 @@
         
         runSyncOnVideoProcessingQueue(^{
             [DemoGLContext useImageProcessingContext];
-            if (!_outputFramebuffer) {
-                _outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:pixelSizeForTexture];
+            if (!self.outputFramebuffer) {
+                //注意，这里onlyGenerateTexture必须传YES，且不用activateFramebuffer，否则会报GL_INVALID_OPERATION
+                self.outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:pixelSizeForTexture onlyGenerateTexture:YES];
             }
-//            [_outputFramebuffer activateFramebuffer];
             glBindTexture(GL_TEXTURE_2D, [self.outputFramebuffer texture]);
             // no need to use self.outputTextureOptions here since pictures need this texture formats and type
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, pixelSizeForTexture.width, pixelSizeForTexture.height, 0, format, GL_UNSIGNED_BYTE, imageData);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)pixelSizeForTexture.width, (int)pixelSizeForTexture.height, 0, format, GL_UNSIGNED_BYTE, imageData);
+            GetGLErrorOC();
             glBindTexture(GL_TEXTURE_2D, 0);
             
         });
@@ -134,7 +163,8 @@
 }
 
 - (void)processImage {
-    runAsyncOnVideoProcessingQueue(^{
+    //这里如果是Async就会有问题，不知道为啥
+    runSyncOnVideoProcessingQueue(^{
         for (id<DemoGLInputProtocol> target in self.targets) {
             [target setInputTexture:self.outputFramebuffer];
             [target newFrameReadyAtTime:kCMTimeIndefinite timimgInfo:kCMTimingInfoInvalid];
