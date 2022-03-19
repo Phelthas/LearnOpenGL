@@ -16,9 +16,10 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void));
 
 @interface DemoGLOutput : NSObject
 
-- (void)setInputTextureForTarget:(id<DemoGLInputProtocol>)target;
+// 子类会用到，暴露给外面
+@property (nonatomic, strong) DemoGLTextureFrame *outputTextureFrame;
 
-- (DemoGLTextureFrame *)framebufferForOutput;
+- (void)setInputTextureForTarget:(id<DemoGLInputProtocol>)target;
 
 - (NSArray*)targets;
 

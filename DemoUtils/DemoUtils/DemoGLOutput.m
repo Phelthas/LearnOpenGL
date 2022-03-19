@@ -30,8 +30,6 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
 @interface DemoGLOutput ()
 
 @property (nonatomic, strong) NSMutableArray *targets;
-@property (nonatomic, strong) DemoGLTextureFrame *outputTextureFrame;
-
 
 @end
 
@@ -49,12 +47,8 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
     [self removeAllTargets];
 }
 
-- (DemoGLTextureFrame *)framebufferForOutput {
-    return _outputTextureFrame;
-}
-
 - (void)setInputTextureForTarget:(id<DemoGLInputProtocol>)target {
-    [target setInputTexture:[self framebufferForOutput]];
+    [target setInputTexture:self.outputTextureFrame];
 }
 
 - (NSArray *)targets {

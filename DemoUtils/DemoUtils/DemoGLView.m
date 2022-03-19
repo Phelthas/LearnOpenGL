@@ -164,10 +164,10 @@
         };
         
         GLfloat coordinates[] = {
-            0.0f, 0.0,
-            1.0f, 0.0,
-            0.0f, 1.0,
-            1.0f, 1.0,
+            0.0f, 0.0f,
+            1.0f, 0.0f,
+            0.0f, 1.0f,
+            1.0f, 1.0f,
         };
         
         glVertexAttribPointer(self.displayPositionAttribute, 2, GL_FLOAT, 0, 0, imageVertices);
@@ -183,6 +183,10 @@
 
 - (void)setInputTexture:(DemoGLTextureFrame *)textureFrame {
     _inputFrameBufferForDisplay = textureFrame;
+}
+
+- (void)setInputTextureSize:(CGSize)textureSize {
+    return;
 }
 
 @end

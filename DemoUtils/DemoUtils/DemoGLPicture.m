@@ -15,7 +15,7 @@
 
 @interface DemoGLPicture ()
 
-@property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
+@property (nonatomic, assign) CGSize textureSize;
 
 @end
 
@@ -35,11 +35,13 @@
         
         CGSize pixelSizeForTexture = CGSizeMake(imageWidth, imageHeight);
         CGSize appropriateSize = [self appropriateSizeWithinMaxSizeForTextureSize:pixelSizeForTexture];
+        
         BOOL shouldRedrawWithCoreGraphics = NO;
         if (!CGSizeEqualToSize(pixelSizeForTexture, appropriateSize)) {
             pixelSizeForTexture = appropriateSize;
             shouldRedrawWithCoreGraphics = YES;
         }
+        self.textureSize = pixelSizeForTexture;
         
         if (originBottomLeft) {
             shouldRedrawWithCoreGraphics = YES;
@@ -127,11 +129,11 @@
         
         runSyncOnVideoProcessingQueue(^{
             [DemoGLContext useImageProcessingContext];
-            if (!self.outputFramebuffer) {
+            if (!self.outputTextureFrame) {
                 //注意，这里onlyGenerateTexture必须传YES，且不用activateFramebuffer，否则会报GL_INVALID_OPERATION
-                self.outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:pixelSizeForTexture onlyGenerateTexture:YES];
+                self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:pixelSizeForTexture onlyGenerateTexture:YES];
             }
-            glBindTexture(GL_TEXTURE_2D, [self.outputFramebuffer texture]);
+            glBindTexture(GL_TEXTURE_2D, [self.outputTextureFrame texture]);
             // no need to use self.outputTextureOptions here since pictures need this texture formats and type
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)pixelSizeForTexture.width, (int)pixelSizeForTexture.height, 0, format, GL_UNSIGNED_BYTE, imageData);
             GetGLErrorOC();
@@ -166,7 +168,8 @@
     //这里如果是Async就会有问题，不知道为啥
     runSyncOnVideoProcessingQueue(^{
         for (id<DemoGLInputProtocol> target in self.targets) {
-            [target setInputTexture:self.outputFramebuffer];
+            [target setInputTexture:self.outputTextureFrame];
+            [target setInputTextureSize:self.textureSize];
             [target newFrameReadyAtTime:kCMTimeIndefinite timimgInfo:kCMTimingInfoInvalid];
         }
     });

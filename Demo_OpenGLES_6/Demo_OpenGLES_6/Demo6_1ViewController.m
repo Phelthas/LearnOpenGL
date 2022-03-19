@@ -35,7 +35,10 @@
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
-    [_pictureOutput addTarget:_glView];
+    DemoGLFilter *filter = [[DemoGLFilter alloc] init];
+    
+    [_pictureOutput addTarget:filter];
+    [filter addTarget:_glView];
     
     
 //    _glView2 = [[DemoGLView alloc] initWithFrame:CGRectMake(200, 100, 90, 160)];

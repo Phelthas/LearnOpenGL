@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)newFrameReadyAtTime:(CMTime)frameTime timimgInfo:(CMSampleTimingInfo)timimgInfo;
 - (void)setInputTexture:(DemoGLTextureFrame *)textureFrame;
+- (void)setInputTextureSize:(CGSize)textureSize;
 
 @end
 

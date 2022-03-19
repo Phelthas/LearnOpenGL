@@ -18,7 +18,6 @@
 
 @interface DemoGLI420Camera3 ()<DemoGLCapturePiplineDelegate>
 
-@property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;
@@ -139,7 +138,8 @@
         CFRelease(chrominanceTextureRef);
         
         for (id<DemoGLInputProtocol> target in self.targets) {
-            [target setInputTexture:self.outputFramebuffer];
+            [target setInputTexture:self.outputTextureFrame];
+            [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
             [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
         }
         
@@ -161,10 +161,10 @@
     [DemoGLContext useImageProcessingContext];
     [self.yuvConversionProgram use];
     
-    if (!_outputFramebuffer) {
-        _outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
+    if (!self.outputTextureFrame) {
+        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
     }
-    [_outputFramebuffer activateFramebuffer];
+    [self.outputTextureFrame activateFramebuffer];
     
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

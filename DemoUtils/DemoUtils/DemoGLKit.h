@@ -22,6 +22,8 @@
 #import "DemoGLShaders.h"
 #import "DemoGLInputProtocol.h"
 #import "DemoGLPicture.h"
+#import "DemoGLFilter.h"
+
 
 
 #endif /* DemoGLKit_h */

@@ -19,7 +19,6 @@
 @interface DemoGLVideoCamera4 ()<DemoGLCapturePiplineDelegate>
 
 
-@property (nonatomic, strong) DemoGLTextureFrame *outputFramebuffer;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) DemoGLProgram *yuvConversionProgram;
 @property (nonatomic, assign) GLint yuvConversionPositionAttribute;
@@ -70,10 +69,6 @@
         });
     }
     return self;
-}
-
-- (DemoGLTextureFrame *)framebufferForOutput {
-    return _outputFramebuffer;
 }
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
@@ -145,7 +140,8 @@
             CFRelease(chrominanceTextureRef);
             
             for (id<DemoGLInputProtocol> target in self.targets) {
-                [target setInputTexture:self.outputFramebuffer];
+                [target setInputTexture:self.outputTextureFrame];
+                [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
                 [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
             }
             
@@ -159,12 +155,12 @@
     else {
         CVPixelBufferLockBaseAddress(cameraFrame, 0);
         int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(cameraFrame);
-        if (!_outputFramebuffer) {
-            _outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(bytesPerRow / 4, bufferHeight)];
+        if (!self.outputTextureFrame) {
+            self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(bytesPerRow / 4, bufferHeight)];
         }
-        [_outputFramebuffer activateFramebuffer];
+        [self.outputTextureFrame activateFramebuffer];
         
-        glBindTexture(GL_TEXTURE_2D, [_outputFramebuffer texture]);
+        glBindTexture(GL_TEXTURE_2D, [self.outputTextureFrame texture]);
         // Using BGRA extension to pull in video frame data directly
         // The use of bytesPerRow / 4 accounts for a display glitch present in preview video frames when using the photo preset on the camera
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bytesPerRow / 4, bufferHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(cameraFrame));
@@ -172,7 +168,8 @@
         CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
         
         for (id<DemoGLInputProtocol> target in self.targets) {
-            [target setInputTexture:self.outputFramebuffer];
+            [target setInputTexture:self.outputTextureFrame];
+            [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
             [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
         }
     }
@@ -183,10 +180,10 @@
     [DemoGLContext useImageProcessingContext];
     [self.yuvConversionProgram use];
     
-    if (!_outputFramebuffer) {
-        _outputFramebuffer = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
+    if (!self.outputTextureFrame) {
+        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
     }
-    [_outputFramebuffer activateFramebuffer];
+    [self.outputTextureFrame activateFramebuffer];
     
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
