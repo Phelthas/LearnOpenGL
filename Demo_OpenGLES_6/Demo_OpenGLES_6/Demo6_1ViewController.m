@@ -36,6 +36,8 @@
     [self.view addSubview:_glView];
     
     DemoGLFilter *filter = [[DemoGLFilter alloc] init];
+    [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
+    [filter setupWithShouldBlend:YES];
     
     [_pictureOutput addTarget:filter];
     [filter addTarget:_glView];
@@ -48,11 +50,17 @@
     
     [_pictureOutput processImage];
     
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
+    
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.glView.frame = self.view.bounds;//这一句要放到修改transform之后，因为glView修改frame的时候才会重新创建frameBuffer
+}
+
+- (void)handleTimer:(NSTimer *)timer {
+    [self.pictureOutput processImage];
 }
 
 

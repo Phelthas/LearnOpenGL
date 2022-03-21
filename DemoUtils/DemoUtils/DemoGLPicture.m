@@ -104,9 +104,32 @@
                                                               rgbColorSpace,
                                                               kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
             
+#if DEBUG
+//            CGAffineTransform affineTransform = CGContextGetCTM(imageContext);
+//            CATransform3D transform = CATransform3DMakeAffineTransform(affineTransform);
+//            logTransform3D(transform);//此时transform是CATransform3DIdentity
+#endif
+
+            
             if (originBottomLeft) {
                 CGContextTranslateCTM(imageContext, 0, pixelSizeForTexture.height);
+                
                 CGContextScaleCTM(imageContext, 1, -1);
+#if DEBUG
+//                CGAffineTransform affineTransform1 = CGContextGetCTM(imageContext);
+//                CATransform3D transform1 = CATransform3DMakeAffineTransform(affineTransform1);
+//                logTransform3D(transform1);
+                /**
+                 此时transform1是
+                 1.0, 0.0, 0.0, 0.0,
+                 -0.0, -1.0, 0.0, 0.0,
+                 0.0, 0.0, 1.0, 0.0,
+                 0.0, 64.0, 0.0, 1.0,
+                 可见CGContextXXXCTM方法，是对CTM做了一次左乘运算
+                 从几何角度可以这里理解：左乘结果是 向量旋转 之后相对于原坐标系的位置， 右乘是参考系旋转移动后，向量(并未移动)相对于新参考系的坐标。
+                 CGContextConcatCTM 方法，直接用坐标系变化
+                 */
+#endif
             }
             
             CGContextDrawImage(imageContext, CGRectMake(0, 0, pixelSizeForTexture.width, pixelSizeForTexture.height), cgImage);

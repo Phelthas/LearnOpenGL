@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLint filterTextureCoordinateAttribute;
 @property (nonatomic, assign) GLint filterInputTextureUniform;
 
-- (void)setupBackgroundColor:(UIColor *)color;
+- (void)setupWithBackgroundColor:(UIColor *)color;
+
+- (void)setupWithShouldBlend:(BOOL)shouldBlend;
 
 @end
 

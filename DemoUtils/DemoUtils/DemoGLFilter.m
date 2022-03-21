@@ -17,6 +17,8 @@
 @property (nonatomic, assign) CGFloat backgroundColorRed;
 @property (nonatomic, assign) CGFloat backgroundColorGreen;
 @property (nonatomic, assign) CGFloat backgroundColorBlue;
+@property (nonatomic, assign) CGFloat backgroundColorAlpha;
+@property (nonatomic, assign) BOOL shouldBlend;
 
 @end
 
@@ -52,8 +54,12 @@
     return self.inputTextureSize;
 }
 
-- (void)setupBackgroundColor:(UIColor *)color {
-    [color getRed:&_backgroundColorRed green:&_backgroundColorGreen blue:&_backgroundColorBlue alpha:nil];
+- (void)setupWithBackgroundColor:(UIColor *)color {
+    [color getRed:&_backgroundColorRed green:&_backgroundColorGreen blue:&_backgroundColorBlue alpha:&_backgroundColorAlpha];
+}
+
+- (void)setupWithShouldBlend:(BOOL)shouldBlend {
+    self.shouldBlend = shouldBlend;
 }
 
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates {
@@ -64,8 +70,13 @@
     }
     [self.outputTextureFrame activateFramebuffer];
     
-    glClearColor(_backgroundColorRed, _backgroundColorGreen, _backgroundColorBlue, 1);
+    glClearColor(_backgroundColorRed, _backgroundColorGreen, _backgroundColorBlue, _backgroundColorAlpha);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    if (self.shouldBlend) {
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    }
     
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, [_inputFramebuffer texture]);
@@ -75,6 +86,10 @@
     glVertexAttribPointer(self.filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    if (self.shouldBlend) {
+        glDisable(GL_BLEND);
+    }
     
 }
 
