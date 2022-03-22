@@ -19,9 +19,9 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void));
 // 子类会用到，暴露给外面
 @property (nonatomic, strong) DemoGLTextureFrame *outputTextureFrame;
 
-- (void)setInputTextureForTarget:(id<DemoGLInputProtocol>)target;
-
 - (NSArray*)targets;
+
+- (NSArray *)targetTextureIndices;
 
 - (void)addTarget:(id<DemoGLInputProtocol>)newTarget;
 

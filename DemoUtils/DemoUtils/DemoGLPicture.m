@@ -190,9 +190,11 @@
 - (void)processImage {
     //这里如果是Async就会有问题，不知道为啥
     runSyncOnVideoProcessingQueue(^{
-        for (id<DemoGLInputProtocol> target in self.targets) {
-            [target setInputTexture:self.outputTextureFrame];
-            [target setInputTextureSize:self.textureSize];
+        for (int i = 0; i < self.targets.count; i++) {
+            id<DemoGLInputProtocol> target = self.targets[i];
+            NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
+            [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+            [target setInputTextureSize:self.textureSize atIndex:textureIndex];
             [target newFrameReadyAtTime:kCMTimeIndefinite timimgInfo:kCMTimingInfoInvalid];
         }
     });

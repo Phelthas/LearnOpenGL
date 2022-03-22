@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol DemoGLInputProtocol <NSObject>
 
 - (void)newFrameReadyAtTime:(CMTime)frameTime timimgInfo:(CMSampleTimingInfo)timimgInfo;
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame;
-- (void)setInputTextureSize:(CGSize)textureSize;
+- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index;
+- (void)setInputTextureSize:(CGSize)textureSize atIndex:(NSInteger)index;
+- (NSInteger)nextAvailableTextureIndex;
 
 @end
 

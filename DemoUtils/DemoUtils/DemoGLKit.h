@@ -23,6 +23,7 @@
 #import "DemoGLInputProtocol.h"
 #import "DemoGLPicture.h"
 #import "DemoGLFilter.h"
+#import "DemoGLTwoInputFilter.h"
 
 
 

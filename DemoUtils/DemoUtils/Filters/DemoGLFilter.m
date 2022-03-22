@@ -50,10 +50,6 @@
     return self;
 }
 
-- (CGSize)sizeOfFBO {
-    return self.inputTextureSize;
-}
-
 - (void)setupWithBackgroundColor:(UIColor *)color {
     [color getRed:&_backgroundColorRed green:&_backgroundColorGreen blue:&_backgroundColorBlue alpha:&_backgroundColorAlpha];
 }
@@ -65,8 +61,11 @@
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates {
     [DemoGLContext useImageProcessingContext];
     [self.filterProgram use];
-    if (!self.outputTextureFrame) {
-        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:[self sizeOfFBO]];
+    //这里可能存在self.inputTextureSize会变化的情况，当self.inputTextureSize变化时，产生的输出也会变化
+    if (!self.outputTextureFrame ||
+        self.outputTextureFrame.width != self.inputTextureSize.width ||
+        self.outputTextureFrame.height != self.inputTextureSize.height) {
+        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:self.inputTextureSize];
     }
     [self.outputTextureFrame activateFramebuffer];
     
@@ -94,10 +93,12 @@
 }
 
 - (void)informTargetsAboutNewFrameAtTime:(CMTime)frameTime {
-    for (id<DemoGLInputProtocol> currentTarget in self.targets) {
-        [currentTarget setInputTexture:self.outputTextureFrame];
-        [currentTarget setInputTextureSize:self.inputTextureSize];
-        [currentTarget newFrameReadyAtTime:frameTime timimgInfo:kCMTimingInfoInvalid];
+    for (int i = 0; i < self.targets.count; i++) {
+        id<DemoGLInputProtocol> target = self.targets[i];
+        NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
+        [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+        [target setInputTextureSize:self.inputTextureSize atIndex:textureIndex];
+        [target newFrameReadyAtTime:frameTime timimgInfo:kCMTimingInfoInvalid];
     }
 }
 
@@ -131,13 +132,18 @@
     [self informTargetsAboutNewFrameAtTime:frameTime];
 }
 
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame {
+- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
+    NSAssert(index == 0, @"DemoGLFilter suport one input only");
     _inputFramebuffer = textureFrame;
 }
 
-- (void)setInputTextureSize:(CGSize)inputTextureSize {
+- (void)setInputTextureSize:(CGSize)inputTextureSize atIndex:(NSInteger)index {
+    NSAssert(index == 0, @"DemoGLFilter suport one input only");
     _inputTextureSize = inputTextureSize;
 }
 
+- (NSInteger)nextAvailableTextureIndex {
+    return 0;
+}
 
 @end

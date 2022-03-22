@@ -29,7 +29,12 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
 
 @interface DemoGLOutput ()
 
-@property (nonatomic, strong) NSMutableArray *targets;
+@property (nonatomic, strong) NSMutableArray<id<DemoGLInputProtocol>> *targetArray;
+
+/// 在addTarget的时候，自己在target中的index；
+/// 因为可能有多个output添加了同一个target，所以必须要知道自己在target中的index；
+/// 这个index是在addTarget的时候，由target提供的
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *targetTextureIndexArray;
 
 @end
 
@@ -38,7 +43,8 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _targets = [NSMutableArray array];
+        _targetArray = [NSMutableArray array];
+        _targetTextureIndexArray = [NSMutableArray array];
     }
     return self;
 }
@@ -47,30 +53,43 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
     [self removeAllTargets];
 }
 
-- (void)setInputTextureForTarget:(id<DemoGLInputProtocol>)target {
-    [target setInputTexture:self.outputTextureFrame];
-}
+
 
 - (NSArray *)targets {
-    return [_targets copy];
+    return [_targetArray copy];
+}
+
+- (NSArray *)targetTextureIndices {
+    return [_targetTextureIndexArray copy];
 }
 
 - (void)addTarget:(id<DemoGLInputProtocol>)target {
-    [_targets addObject:target];
+    NSAssert(![self.targets containsObject:target], @"already contains target:%@", target);
+    NSInteger nextAvailableTextureIndex = [target nextAvailableTextureIndex];
+    runSyncOnVideoProcessingQueue(^{
+        [target setInputTexture:self.outputTextureFrame atIndex:nextAvailableTextureIndex];
+        [self.targetArray addObject:target];
+        [self.targetTextureIndexArray addObject:@(nextAvailableTextureIndex)];
+    });
+    
 }
 
 - (void)removeTarget:(id<DemoGLInputProtocol>)target {
-    if (![_targets containsObject:target]) {
+    if (![self.targetArray containsObject:target]) {
         return;
     }
     runSyncOnVideoProcessingQueue(^{
-        [self->_targets removeObject:target];
+        NSInteger indexToRemove = [self.targetArray indexOfObject:target];
+        NSNumber *textureIndex = self.targetTextureIndexArray[indexToRemove];
+        [self.targetTextureIndexArray removeObject:textureIndex];
+        [self.targetArray removeObject:target];
     });
 }
 
 - (void)removeAllTargets {
     runSyncOnVideoProcessingQueue(^{
-        [self->_targets removeAllObjects];
+        [self.targetTextureIndexArray removeAllObjects];
+        [self.targetArray removeAllObjects];
     });
 }
 

@@ -181,12 +181,17 @@
     });
 }
 
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame {
+- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
+    NSAssert(index == 0, @"GLView suport one input only");
     _inputFrameBufferForDisplay = textureFrame;
 }
 
-- (void)setInputTextureSize:(CGSize)textureSize {
+- (void)setInputTextureSize:(CGSize)textureSize atIndex:(NSInteger)index {
     return;
+}
+
+- (NSInteger)nextAvailableTextureIndex {
+    return 0;
 }
 
 @end
