@@ -1,15 +1,15 @@
 //
-//  Demo6_3ViewController.m
+//  Demo6_4ViewController.m
 //  Demo_OpenGLES_6
 //
 //  Created by lu xiaoming on 2022/3/22.
 //
 
-#import "Demo6_3ViewController.h"
+#import "Demo6_4ViewController.h"
 #import "DemoGLKit.h"
 
 
-@interface Demo6_3ViewController ()
+@interface Demo6_4ViewController ()
 
 @property (nonatomic, strong) DemoGLVideoCamera *cameraOutput;
 @property (nonatomic, strong) DemoGLPicture *pictureOutput;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation Demo6_3ViewController
+@implementation Demo6_4ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,17 +40,15 @@
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
-    DemoGLTwoInputFilter *twoInputFilter = [[DemoGLTwoInputFilter alloc] init];
-    [twoInputFilter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
-    [twoInputFilter setupWithShouldBlend:NO];
+    DemoGLMultiDrawFilter *twoDrawFilter = [[DemoGLMultiDrawFilter alloc] init];
+    [twoDrawFilter setupWithShouldBlend:YES];
+    [twoDrawFilter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
+    [twoDrawFilter setupWithTexture2Frame:CGRectMake(100, 100, 100, 100) superViewSize:self.view.bounds.size];
     
-    DemoGLFilter *filter = [[DemoGLFilter alloc] init];
+    [_cameraOutput addTarget:twoDrawFilter];
+    [_pictureOutput addTarget:twoDrawFilter];
     
-    [_cameraOutput addTarget:twoInputFilter];
-    [_pictureOutput addTarget:filter];
-    [filter addTarget:twoInputFilter];
-    
-    [twoInputFilter addTarget:_glView];
+    [twoDrawFilter addTarget:_glView];
     
     
     [_cameraOutput startCameraCapture];

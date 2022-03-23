@@ -7,7 +7,6 @@
 
 #import "Demo6_1ViewController.h"
 #import "DemoGLKit.h"
-#import "DemoGLView.h"
 
 
 @interface Demo6_1ViewController ()

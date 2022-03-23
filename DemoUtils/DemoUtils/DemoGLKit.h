@@ -22,9 +22,13 @@
 #import "DemoGLShaders.h"
 #import "DemoGLInputProtocol.h"
 #import "DemoGLPicture.h"
+
+
+//----filter----start
 #import "DemoGLFilter.h"
 #import "DemoGLTwoInputFilter.h"
-
+#import "DemoGLMultiDrawFilter.h"
+//----filter----end
 
 
 #endif /* DemoGLKit_h */

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4324ABC127E81D3E0063A6A3 /* Demo6_2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4324ABC027E81D3E0063A6A3 /* Demo6_2ViewController.m */; };
+		435839F527EA0C2D00D5696D /* Demo6_4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435839F427EA0C2D00D5696D /* Demo6_4ViewController.m */; };
 		439A42A727E9680100158CD4 /* Demo6_3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439A42A627E9680100158CD4 /* Demo6_3ViewController.m */; };
 		43E5A6BF27E42CC8005D54A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E5A6BE27E42CC8005D54A3 /* AppDelegate.m */; };
 		43E5A6C227E42CC8005D54A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E5A6C127E42CC8005D54A3 /* ViewController.m */; };
@@ -26,6 +27,8 @@
 		051213C23E798873BD08A2B0 /* Pods-Demo_OpenGLES_6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_OpenGLES_6.debug.xcconfig"; path = "Target Support Files/Pods-Demo_OpenGLES_6/Pods-Demo_OpenGLES_6.debug.xcconfig"; sourceTree = "<group>"; };
 		4324ABBF27E81D3E0063A6A3 /* Demo6_2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo6_2ViewController.h; sourceTree = "<group>"; };
 		4324ABC027E81D3E0063A6A3 /* Demo6_2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo6_2ViewController.m; sourceTree = "<group>"; };
+		435839F327EA0C2D00D5696D /* Demo6_4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo6_4ViewController.h; sourceTree = "<group>"; };
+		435839F427EA0C2D00D5696D /* Demo6_4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo6_4ViewController.m; sourceTree = "<group>"; };
 		439A42A527E9680100158CD4 /* Demo6_3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo6_3ViewController.h; sourceTree = "<group>"; };
 		439A42A627E9680100158CD4 /* Demo6_3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo6_3ViewController.m; sourceTree = "<group>"; };
 		43E5A6BA27E42CC8005D54A3 /* Demo_OpenGLES_6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_OpenGLES_6.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +106,8 @@
 				4324ABC027E81D3E0063A6A3 /* Demo6_2ViewController.m */,
 				439A42A527E9680100158CD4 /* Demo6_3ViewController.h */,
 				439A42A627E9680100158CD4 /* Demo6_3ViewController.m */,
+				435839F327EA0C2D00D5696D /* Demo6_4ViewController.h */,
+				435839F427EA0C2D00D5696D /* Demo6_4ViewController.m */,
 				43E5A6C627E42CC8005D54A3 /* Main.storyboard */,
 				43E5A6C927E42CC8005D54A3 /* Assets.xcassets */,
 				43E5A6CB27E42CC8005D54A3 /* LaunchScreen.storyboard */,
@@ -226,6 +231,7 @@
 				439A42A727E9680100158CD4 /* Demo6_3ViewController.m in Sources */,
 				43E5A6BF27E42CC8005D54A3 /* AppDelegate.m in Sources */,
 				4324ABC127E81D3E0063A6A3 /* Demo6_2ViewController.m in Sources */,
+				435839F527EA0C2D00D5696D /* Demo6_4ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

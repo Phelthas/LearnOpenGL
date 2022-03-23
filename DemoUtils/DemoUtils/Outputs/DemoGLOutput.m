@@ -65,6 +65,7 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
 
 - (void)addTarget:(id<DemoGLInputProtocol>)target {
     NSAssert(![self.targets containsObject:target], @"already contains target:%@", target);
+    // 注意！！！这一句非常关键，target中inputTextureFrame的顺序就是在这里确定的
     NSInteger nextAvailableTextureIndex = [target nextAvailableTextureIndex];
     runSyncOnVideoProcessingQueue(^{
         [target setInputTexture:self.outputTextureFrame atIndex:nextAvailableTextureIndex];
