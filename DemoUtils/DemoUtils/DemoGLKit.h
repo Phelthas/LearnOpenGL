@@ -11,23 +11,34 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-#import "DemoGLDefines.h"
+
 #import "DemoGLProgram.h"
 #import "DemoGLContext.h"
-#import "DemoGLOutput.h"
 #import "DemoGLTextureFrame.h"
 #import "DemoGLView.h"
 #import "DemoGLCapturePipline.h"
-#import "DemoGLVideoCamera.h"
 #import "DemoGLShaders.h"
 #import "DemoGLInputProtocol.h"
+
+//----utils----start
+#import "DemoGLDefines.h"
+#import "DemoGLGeometry.h"
+#import "DemoGLUtility.h"
+//----utils----end
+
+
+//----output----start
+#import "DemoGLOutput.h"
 #import "DemoGLPicture.h"
+#import "DemoGLVideoCamera.h"
+//----output----end
 
 
 //----filter----start
 #import "DemoGLFilter.h"
 #import "DemoGLTwoInputFilter.h"
 #import "DemoGLMultiDrawFilter.h"
+#import "DemoGLStickerFilter.h"
 //----filter----end
 
 

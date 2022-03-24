@@ -24,6 +24,7 @@
         [LXMDemoEntranceModel entranceModelWithName:@"Demo6_2ViewController"],
         [LXMDemoEntranceModel entranceModelWithName:@"Demo6_3ViewController"],
         [LXMDemoEntranceModel entranceModelWithName:@"Demo6_4ViewController"],
+        [LXMDemoEntranceModel entranceModelWithName:@"Demo6_5ViewController"],
         
     ];
     

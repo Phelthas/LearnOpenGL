@@ -1,11 +1,11 @@
 //
-//  DemoGLMultiDrawFilter.m
+//  DemoGLStickerFilter.m
 //  DemoUtils
 //
-//  Created by lu xiaoming on 2022/3/22.
+//  Created by lu xiaoming on 2022/3/24.
 //
 
-#import "DemoGLMultiDrawFilter.h"
+#import "DemoGLStickerFilter.h"
 #import "DemoGLShaders.h"
 #import "DemoGLContext.h"
 #import <OpenGLES/ES2/gl.h>
@@ -21,7 +21,14 @@ static GLfloat defaultVertices[] = {
     1.0f,  1.0f,
 };
 
-@interface DemoGLMultiDrawFilter ()
+//static GLfloat defaultTextureCoordinates[] = {
+//    0.0f, 0.0f,
+//    1.0f, 0.0f,
+//    0.0f, 1.0f,
+//    1.0f, 1.0f,
+//};
+
+@interface DemoGLStickerFilter ()
 
 @property (nonatomic, assign) CGSize inputTextureSize;
 @property (nonatomic, assign) CGFloat backgroundColorRed;
@@ -29,21 +36,21 @@ static GLfloat defaultVertices[] = {
 @property (nonatomic, assign) CGFloat backgroundColorBlue;
 @property (nonatomic, assign) CGFloat backgroundColorAlpha;
 @property (nonatomic, assign) BOOL shouldBlend;
-@property (nonatomic, assign) BOOL hasSetFirstTexture;
-@property (nonatomic, assign) BOOL hasSetSecondTexture;
-@property (nonatomic, assign) CGRect texture2Frame;
 
+@property (nonatomic, strong) DemoGLPicture *glPicture;
+@property (nonatomic, assign) CGRect texture2Frame;
 @property (nonatomic, assign) GLfloat *vertices2;//secondInputFramebuffer渲染的位置
 @property (nonatomic, assign) CGSize superViewSize;//secondInputFramebuffer用来计算顶点的父View大小
 @property (nonatomic, assign) BOOL needUpdateVertices2;
 
 @end
 
-@implementation DemoGLMultiDrawFilter
+@implementation DemoGLStickerFilter
 
-- (instancetype)init {
+- (instancetype)initWithGLPicture:(DemoGLPicture *)glPicture {
     self = [super init];
     if (self) {
+        _glPicture = glPicture;
         _vertices2 = defaultVertices;
         
         runSyncOnVideoProcessingQueue(^{
@@ -57,12 +64,12 @@ static GLfloat defaultVertices[] = {
                 NSAssert(NO, @"Filter shader link failed");
             }
             self.filterPositionAttribute = [self.filterProgram attributeIndex:@"position"];
-            self.filterFisrtTextureCoordinateAttribute = [self.filterProgram attributeIndex:@"inputTextureCoordinate"];
+            self.filterTextureCoordinateAttribute = [self.filterProgram attributeIndex:@"inputTextureCoordinate"];
             self.filterInputTextureUniform = [self.filterProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
             
             
             glEnableVertexAttribArray(self.filterPositionAttribute);
-            glEnableVertexAttribArray(self.filterFisrtTextureCoordinateAttribute);
+            glEnableVertexAttribArray(self.filterTextureCoordinateAttribute);
         });
         
     }
@@ -91,6 +98,7 @@ static GLfloat defaultVertices[] = {
     }
     NSArray<NSNumber *> *array = [self createVerticesForFrame:self.texture2Frame withinSize:self.superViewSize];
     for (int i = 0; i < array.count; i++) {
+        // 注意，因为vertices2是指向defaultVertices的，所以这里是把defaultVertices给改了
         self.vertices2[i] = array[i].floatValue;
     }
     self.needUpdateVertices2 = NO;
@@ -144,11 +152,11 @@ static GLfloat defaultVertices[] = {
     }
     
     glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, [_firstInputFramebuffer texture]);
+    glBindTexture(GL_TEXTURE_2D, [_inputFramebuffer texture]);
     glUniform1i(self.filterInputTextureUniform, 2);
     
     glVertexAttribPointer(self.filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
-    glVertexAttribPointer(self.filterFisrtTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    glVertexAttribPointer(self.filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
@@ -157,12 +165,12 @@ static GLfloat defaultVertices[] = {
     [self updateTexture2VerticesIfNeeded];
     
     glActiveTexture(GL_TEXTURE3);
-    glBindTexture(GL_TEXTURE_2D, [_secondInputFramebuffer texture]);
+    glBindTexture(GL_TEXTURE_2D, [_glPicture.outputTextureFrame texture]);
     glUniform1i(self.filterInputTextureUniform, 3);
     
     
     glVertexAttribPointer(self.filterPositionAttribute, 2, GL_FLOAT, 0, 0, self.vertices2);
-    glVertexAttribPointer(self.filterFisrtTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    glVertexAttribPointer(self.filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
     GetGLErrorOC();
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
@@ -208,35 +216,17 @@ static GLfloat defaultVertices[] = {
 }
 
 - (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
-    if (index == 0) {
-        _firstInputFramebuffer = textureFrame;
-        _hasSetFirstTexture = YES;
-    } else if (index == 1) {
-        _secondInputFramebuffer = textureFrame;
-        _hasSetSecondTexture = YES;
-    } else {
-        NSAssert(NO, @"DemoGLMultiDrawFilter suport two input only");
-    }
-    
+    NSAssert(index == 0, @"DemoGLFilter suport one input only");
+    _inputFramebuffer = textureFrame;
 }
 
 - (void)setInputTextureSize:(CGSize)inputTextureSize atIndex:(NSInteger)index {
-#warning todo
-    /**
-     这里还没想好怎么设置inputSize，暂时取较大的
-     */
-    if (inputTextureSize.width > self.inputTextureSize.width || inputTextureSize.height > self.inputTextureSize.height) {
-        _inputTextureSize = inputTextureSize;
-    }
-    
+    NSAssert(index == 0, @"DemoGLFilter suport one input only");
+    _inputTextureSize = inputTextureSize;
 }
 
 - (NSInteger)nextAvailableTextureIndex {
-    if (_hasSetFirstTexture) {
-        return 1;
-    } else {
-        return 0;
-    }
+    return 0;
 }
 
 
