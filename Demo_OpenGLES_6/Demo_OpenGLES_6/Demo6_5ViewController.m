@@ -29,26 +29,32 @@
         connection.videoMirrored = YES;
     }];
     
-    
-    //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
+    BOOL useImageArray = YES;
+    if (useImageArray) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 72; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"F_MouceHeart_%03d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [array addObject:image];
+        }
+        _pictureOutput = [[DemoGLPicture alloc] initWithImageArray:array];
+    } else {
+        //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
         NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
         UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-        
-    _pictureOutput = [[DemoGLPicture alloc] initWithImage:image];
-    
+        _pictureOutput = [[DemoGLPicture alloc] initWithImage:image];
+    }
     
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
     DemoGLStickerFilter *stickerFilter = [[DemoGLStickerFilter alloc] initWithGLPicture:_pictureOutput];
     [stickerFilter setupWithShouldBlend:YES];
-    [stickerFilter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
-    [stickerFilter setupWithTexture2Frame:CGRectMake(100, 100, 100, 100) superViewSize:self.view.bounds.size];
+    [stickerFilter setupWithTexture2Frame:CGRectMake(100, 100, 100, 75) superViewSize:self.view.bounds.size];
     
     [_cameraOutput addTarget:stickerFilter];
 
     [stickerFilter addTarget:_glView];
-    
     
     [_cameraOutput startCameraCapture];
         

@@ -164,13 +164,25 @@ static GLfloat defaultVertices[] = {
     
     [self updateTexture2VerticesIfNeeded];
     
+    if ([self.glPicture isUsingImageArray]) {
+        [self.glPicture setupWithNextImage];
+    }
+    
+    
+    static const GLfloat textureCoordinates2[] = {
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+    };
+    
     glActiveTexture(GL_TEXTURE3);
     glBindTexture(GL_TEXTURE_2D, [_glPicture.outputTextureFrame texture]);
     glUniform1i(self.filterInputTextureUniform, 3);
     
     
     glVertexAttribPointer(self.filterPositionAttribute, 2, GL_FLOAT, 0, 0, self.vertices2);
-    glVertexAttribPointer(self.filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    glVertexAttribPointer(self.filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates2);
     GetGLErrorOC();
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
