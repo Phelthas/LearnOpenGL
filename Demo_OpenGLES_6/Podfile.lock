@@ -1,10 +1,16 @@
 PODS:
   - DemoUtils (0.1.0)
   - LXMKit (0.1.0)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - DemoUtils (from `../DemoUtils`)
   - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
+  - YYModel
+
+SPEC REPOS:
+  trunk:
+    - YYModel
 
 EXTERNAL SOURCES:
   DemoUtils:
@@ -15,7 +21,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   DemoUtils: 4db393988e78bf73939ae5bef6cee5408d036fe0
   LXMKit: c8785ce827a8797bda95fd9091c31903a665e135
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e62b3261dab13af4ed04b7a3d615b6b24b3b62e9
+PODFILE CHECKSUM: 4ddf27cac3dba00969045ee8d514be302c3b6ca7
 
 COCOAPODS: 1.11.2

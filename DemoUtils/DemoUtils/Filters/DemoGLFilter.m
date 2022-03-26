@@ -13,13 +13,6 @@
 
 @interface DemoGLFilter ()
 
-@property (nonatomic, assign) CGSize inputTextureSize;
-@property (nonatomic, assign) CGFloat backgroundColorRed;
-@property (nonatomic, assign) CGFloat backgroundColorGreen;
-@property (nonatomic, assign) CGFloat backgroundColorBlue;
-@property (nonatomic, assign) CGFloat backgroundColorAlpha;
-@property (nonatomic, assign) BOOL shouldBlend;
-
 @end
 
 @implementation DemoGLFilter
@@ -106,19 +99,13 @@
 #pragma mark - DemoGLInputProtocol
 
 - (void)newFrameReadyAtTime:(CMTime)frameTime timimgInfo:(CMSampleTimingInfo)timimgInfo {
+
     static const GLfloat imageVertices[] = {
-        -0.5f, -0.5f,
-        0.5f, -0.5f,
-        -0.5f,  0.5f,
-        0.5f,  0.5f,
+        -1.0f, -1.0f,
+        1.0f, -1.0f,
+        -1.0f,  1.0f,
+        1.0f,  1.0f,
     };
-    
-//    static const GLfloat imageVertices[] = {
-//        -1.0f, -1.0f,
-//        1.0f, -1.0f,
-//        -1.0f,  1.0f,
-//        1.0f,  1.0f,
-//    };
     
     static const GLfloat textureCoordinates[] = {
         0.0f, 0.0f,

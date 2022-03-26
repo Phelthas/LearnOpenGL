@@ -20,9 +20,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) GLint filterTextureCoordinateAttribute;
 @property (nonatomic, assign) GLint filterInputTextureUniform;
 
+// 以下属性不要直接使用
+@property (nonatomic, assign) CGSize inputTextureSize;
+@property (nonatomic, assign) CGFloat backgroundColorRed;
+@property (nonatomic, assign) CGFloat backgroundColorGreen;
+@property (nonatomic, assign) CGFloat backgroundColorBlue;
+@property (nonatomic, assign) CGFloat backgroundColorAlpha;
+@property (nonatomic, assign) BOOL shouldBlend;
+
 - (void)setupWithBackgroundColor:(UIColor *)color;
 
 - (void)setupWithShouldBlend:(BOOL)shouldBlend;
+
+- (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
+
+- (void)informTargetsAboutNewFrameAtTime:(CMTime)frameTime;
 
 @end
 

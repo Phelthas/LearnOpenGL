@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) DemoGLPicture *pictureOutput;
 @property (nonatomic, strong) DemoGLView *glView;
-@property (nonatomic, strong) DemoGLView *glView2;
 
 @end
 
@@ -21,31 +20,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_glView];
+    
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"saber" ofType:@"jpeg"];//1280*1024
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"xianhua" ofType:@"png"];// 64*64
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     
-    
     _pictureOutput = [[DemoGLPicture alloc] initWithImage:image];
     
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_glView];
-    
-    DemoGLFilter *filter = [[DemoGLFilter alloc] init];
-    [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
-    [filter setupWithShouldBlend:YES];
-    
-    [_pictureOutput addTarget:filter];
-    [filter addTarget:_glView];
-    
-    
-//    _glView2 = [[DemoGLView alloc] initWithFrame:CGRectMake(200, 100, 90, 160)];
-//    [self.view addSubview:_glView2];
-//    [_pictureOutput addTarget:_glView2];
-    
+    BOOL useFilter = YES;
+    if (useFilter) {
+        DemoGLTestFilter *filter = [[DemoGLTestFilter alloc] init];
+        [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
+        [filter setupWithShouldBlend:YES];
+        
+        [_pictureOutput addTarget:filter];
+        [filter addTarget:_glView];
+    } else {
+        [_pictureOutput addTarget:_glView];
+    }
     
     [_pictureOutput processImage];
     

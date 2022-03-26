@@ -20,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_glView];
         
     _cameraOutput = [[DemoGLVideoCamera alloc] initWithCameraPosition:AVCaptureDevicePositionFront];
     [_cameraOutput setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
@@ -28,16 +30,19 @@
         connection.videoMirrored = YES;
     }];
     
+    BOOL useFilter = YES;
+    if (useFilter) {
+        DemoGLTestFilter *filter = [[DemoGLTestFilter alloc] init];
+        [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
+        [filter setupWithShouldBlend:NO];
+        
+        [_cameraOutput addTarget:filter];
+        [filter addTarget:_glView];
+    } else {
+        [_cameraOutput addTarget:_glView];
+    }
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_glView];
     
-    DemoGLFilter *filter = [[DemoGLFilter alloc] init];
-    [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
-    [filter setupWithShouldBlend:NO];
-    
-    [_cameraOutput addTarget:filter];
-    [filter addTarget:_glView];
     
     
     [_cameraOutput startCameraCapture];

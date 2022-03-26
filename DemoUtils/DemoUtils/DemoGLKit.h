@@ -24,6 +24,7 @@
 #import "DemoGLDefines.h"
 #import "DemoGLGeometry.h"
 #import "DemoGLUtility.h"
+#import "DemoGLModels.h"
 //----utils----end
 
 
@@ -36,6 +37,7 @@
 
 //----filter----start
 #import "DemoGLFilter.h"
+#import "DemoGLTestFilter.h"
 #import "DemoGLTwoInputFilter.h"
 #import "DemoGLMultiDrawFilter.h"
 #import "DemoGLStickerFilter.h"

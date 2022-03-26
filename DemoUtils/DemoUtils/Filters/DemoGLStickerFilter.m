@@ -6,10 +6,7 @@
 //
 
 #import "DemoGLStickerFilter.h"
-#import "DemoGLShaders.h"
 #import "DemoGLContext.h"
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
 #import "DemoGLGeometry.h"
 #import "DemoGLDefines.h"
 #import "LXMKit.h"
@@ -21,21 +18,7 @@ static GLfloat defaultVertices[] = {
     1.0f,  1.0f,
 };
 
-//static GLfloat defaultTextureCoordinates[] = {
-//    0.0f, 0.0f,
-//    1.0f, 0.0f,
-//    0.0f, 1.0f,
-//    1.0f, 1.0f,
-//};
-
 @interface DemoGLStickerFilter ()
-
-@property (nonatomic, assign) CGSize inputTextureSize;
-@property (nonatomic, assign) CGFloat backgroundColorRed;
-@property (nonatomic, assign) CGFloat backgroundColorGreen;
-@property (nonatomic, assign) CGFloat backgroundColorBlue;
-@property (nonatomic, assign) CGFloat backgroundColorAlpha;
-@property (nonatomic, assign) BOOL shouldBlend;
 
 @property (nonatomic, strong) DemoGLPicture *glPicture;
 @property (nonatomic, assign) CGRect texture2Frame;
@@ -52,38 +35,9 @@ static GLfloat defaultVertices[] = {
     if (self) {
         _glPicture = glPicture;
         _vertices2 = defaultVertices;
-        
-        runSyncOnVideoProcessingQueue(^{
-            [DemoGLContext useImageProcessingContext];
-            self.filterProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
-            
-            [self.filterProgram addAttribute:@"position"];
-            [self.filterProgram addAttribute:@"inputTextureCoordinate"];
-            
-            if (![self.filterProgram link]) {
-                NSAssert(NO, @"Filter shader link failed");
-            }
-            self.filterPositionAttribute = [self.filterProgram attributeIndex:@"position"];
-            self.filterTextureCoordinateAttribute = [self.filterProgram attributeIndex:@"inputTextureCoordinate"];
-            self.filterInputTextureUniform = [self.filterProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
-            
-            
-            glEnableVertexAttribArray(self.filterPositionAttribute);
-            glEnableVertexAttribArray(self.filterTextureCoordinateAttribute);
-        });
-        
     }
     return self;
 }
-
-- (void)setupWithBackgroundColor:(UIColor *)color {
-    [color getRed:&_backgroundColorRed green:&_backgroundColorGreen blue:&_backgroundColorBlue alpha:&_backgroundColorAlpha];
-}
-
-- (void)setupWithShouldBlend:(BOOL)shouldBlend {
-    self.shouldBlend = shouldBlend;
-}
-
 
 - (void)setupWithTexture2Frame:(CGRect)frame superViewSize:(CGSize)size {
     self.texture2Frame = frame;
@@ -142,7 +96,7 @@ static GLfloat defaultVertices[] = {
     }
     [self.outputTextureFrame activateFramebuffer];
     
-    glClearColor(_backgroundColorRed, _backgroundColorGreen, _backgroundColorBlue, _backgroundColorAlpha);
+    glClearColor(self.backgroundColorRed, self.backgroundColorGreen, self.backgroundColorBlue, self.backgroundColorAlpha);
     glClearColor(0, 0, 0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
     
@@ -152,7 +106,7 @@ static GLfloat defaultVertices[] = {
     }
     
     glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, [_inputFramebuffer texture]);
+    glBindTexture(GL_TEXTURE_2D, [self.inputFramebuffer texture]);
     glUniform1i(self.filterInputTextureUniform, 2);
     
     glVertexAttribPointer(self.filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
@@ -192,54 +146,5 @@ static GLfloat defaultVertices[] = {
     }
     
 }
-
-- (void)informTargetsAboutNewFrameAtTime:(CMTime)frameTime {
-    for (int i = 0; i < self.targets.count; i++) {
-        id<DemoGLInputProtocol> target = self.targets[i];
-        NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-        [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
-        [target setInputTextureSize:self.inputTextureSize atIndex:textureIndex];
-        [target newFrameReadyAtTime:frameTime timimgInfo:kCMTimingInfoInvalid];
-    }
-}
-
-
-#pragma mark - DemoGLInputProtocol
-
-- (void)newFrameReadyAtTime:(CMTime)frameTime timimgInfo:(CMSampleTimingInfo)timimgInfo {
-    
-    static const GLfloat imageVertices[] = {
-        -1.0f, -1.0f,
-        1.0f, -1.0f,
-        -1.0f,  1.0f,
-        1.0f,  1.0f,
-    };
-    
-    static const GLfloat textureCoordinates[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-    };
-    
-    [self renderToTextureWithVertices:imageVertices textureCoordinates:textureCoordinates];
-
-    [self informTargetsAboutNewFrameAtTime:frameTime];
-}
-
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
-    NSAssert(index == 0, @"DemoGLFilter suport one input only");
-    _inputFramebuffer = textureFrame;
-}
-
-- (void)setInputTextureSize:(CGSize)inputTextureSize atIndex:(NSInteger)index {
-    NSAssert(index == 0, @"DemoGLFilter suport one input only");
-    _inputTextureSize = inputTextureSize;
-}
-
-- (NSInteger)nextAvailableTextureIndex {
-    return 0;
-}
-
 
 @end
