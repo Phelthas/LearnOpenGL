@@ -43,7 +43,9 @@
     _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
-    DemoGLStickerFilter *stickerFilter = [[DemoGLStickerFilter alloc] initWithGLPicture:_pictureOutput];
+    DemoGLSpriteSheetFilter *stickerFilter = [[DemoGLSpriteSheetFilter alloc] initWithGLPicture:_pictureOutput spriteSheetModel:model];
+    
+//    DemoGLStickerFilter *stickerFilter = [[DemoGLStickerFilter alloc] initWithGLPicture:_pictureOutput];
     [stickerFilter setupWithShouldBlend:YES];
     [stickerFilter setupWithTexture2Frame:CGRectMake(100, 100, 100, 75) superViewSize:self.view.bounds.size];
     
@@ -52,6 +54,7 @@
     [stickerFilter addTarget:_glView];
     
     [_cameraOutput startCameraCapture];
+    [_pictureOutput processImage];
         
 }
 

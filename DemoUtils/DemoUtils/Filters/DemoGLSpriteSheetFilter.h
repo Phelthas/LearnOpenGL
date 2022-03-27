@@ -6,10 +6,17 @@
 //
 
 #import "DemoGLFilter.h"
+#import "DemoGLPicture.h"
+#import "DemoGLModels.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLSpriteSheetFilter : DemoGLFilter
+
+- (instancetype)initWithGLPicture:(DemoGLPicture *)glPicture spriteSheetModel:(DemoGLSpriteSheetModel *)spriteSheetModel;
+
+- (void)setupWithTexture2Frame:(CGRect)frame superViewSize:(CGSize)size;
 
 @end
 

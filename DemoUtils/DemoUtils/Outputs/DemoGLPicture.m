@@ -144,10 +144,10 @@
         CGContextDrawImage(imageContext, CGRectMake(0, 0, pixelSizeForTexture.width, pixelSizeForTexture.height), cgImage);
         
 #if DEBUG
-//            CGImageRef imageRef = CGBitmapContextCreateImage(imageContext);
-//            UIImage *image = [UIImage imageWithCGImage:imageRef];
-//            NSLog(@"%@", image.description);
-//            CFRelease(imageRef);
+            CGImageRef imageRef = CGBitmapContextCreateImage(imageContext);
+            UIImage *image = [UIImage imageWithCGImage:imageRef];
+            NSLog(@"%@", image.description);
+            CFRelease(imageRef);
 #endif
         
         CGContextRelease(imageContext);

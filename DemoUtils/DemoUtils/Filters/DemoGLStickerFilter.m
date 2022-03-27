@@ -11,13 +11,6 @@
 #import "DemoGLDefines.h"
 #import "LXMKit.h"
 
-static GLfloat defaultVertices[] = {
-    -1.0f, -1.0f,
-    1.0f, -1.0f,
-    -1.0f,  1.0f,
-    1.0f,  1.0f,
-};
-
 @interface DemoGLStickerFilter ()
 
 @property (nonatomic, strong) DemoGLPicture *glPicture;
@@ -33,6 +26,14 @@ static GLfloat defaultVertices[] = {
 - (instancetype)initWithGLPicture:(DemoGLPicture *)glPicture {
     self = [super init];
     if (self) {
+        //这里必须用static，否则绘制不出来
+        static GLfloat defaultVertices[] = {
+            -1.0f, -1.0f,
+            1.0f, -1.0f,
+            -1.0f,  1.0f,
+            1.0f,  1.0f,
+        };
+        
         _glPicture = glPicture;
         _vertices2 = defaultVertices;
     }
