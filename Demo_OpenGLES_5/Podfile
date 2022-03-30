@@ -10,4 +10,7 @@ pod 'LXMKit',  :path => "~/Documents/LXMGitHub/LXMKit"
 
 pod 'DemoUtils', :path => "../DemoUtils"
 
+pod 'YYModel'
+
+
 end

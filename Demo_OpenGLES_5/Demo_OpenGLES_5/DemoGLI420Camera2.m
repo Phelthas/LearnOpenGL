@@ -118,9 +118,11 @@
     
     [self.counter countOnceEnd];
 
-    for (id<DemoGLInputProtocol> target in self.targets) {
-        [target setInputTexture:self.outputTextureFrame];
-        [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
+    for (int i = 0; i < self.targets.count; i++) {
+        id<DemoGLInputProtocol> target = self.targets[i];
+        NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
+        [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+        [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight) atIndex:textureIndex];
         [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
     }
     
