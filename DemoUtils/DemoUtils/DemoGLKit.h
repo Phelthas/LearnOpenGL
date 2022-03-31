@@ -42,6 +42,7 @@
 #import "DemoGLMultiDrawFilter.h"
 #import "DemoGLStickerFilter.h"
 #import "DemoGLSpriteSheetFilter.h"
+#import "DemoGLRoundRectFilter.h"
 //----filter----end
 
 

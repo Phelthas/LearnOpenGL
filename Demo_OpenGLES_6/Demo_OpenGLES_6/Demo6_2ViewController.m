@@ -32,9 +32,10 @@
     
     BOOL useFilter = YES;
     if (useFilter) {
-        DemoGLTestFilter *filter = [[DemoGLTestFilter alloc] init];
+//        DemoGLTestFilter *filter = [[DemoGLTestFilter alloc] init];
+        DemoGLRoundRectFilter *filter = [[DemoGLRoundRectFilter alloc] init];
         [filter setupWithBackgroundColor:[UIColor colorWithRed:0 green:1 blue:1 alpha:0.5]];
-        [filter setupWithShouldBlend:NO];
+        [filter setupWithShouldBlend:YES];
         
         [_cameraOutput addTarget:filter];
         [filter addTarget:_glView];

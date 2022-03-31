@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat backgroundColorAlpha;
 @property (nonatomic, assign) BOOL shouldBlend;
 
+- (instancetype)initWithVertexShaderString:(NSString *)vShaderString fragmentShaderString:(nonnull NSString *)fShaderString;
+
 - (void)setupWithBackgroundColor:(UIColor *)color;
 
 - (void)setupWithShouldBlend:(BOOL)shouldBlend;

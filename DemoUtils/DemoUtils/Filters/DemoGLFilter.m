@@ -18,12 +18,15 @@
 @implementation DemoGLFilter
 
 - (instancetype)init {
+    return [self initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
+}
+
+- (instancetype)initWithVertexShaderString:(NSString *)vShaderString fragmentShaderString:(nonnull NSString *)fShaderString {
     self = [super init];
     if (self) {
-
         runSyncOnVideoProcessingQueue(^{
             [DemoGLContext useImageProcessingContext];
-            self.filterProgram = [[DemoGLProgram alloc] initWithVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
+            self.filterProgram = [[DemoGLProgram alloc] initWithVertexShaderString:vShaderString fragmentShaderString:fShaderString];
             
             [self.filterProgram addAttribute:@"position"];
             [self.filterProgram addAttribute:@"inputTextureCoordinate"];
@@ -38,10 +41,10 @@
             glEnableVertexAttribArray(self.filterPositionAttribute);
             glEnableVertexAttribArray(self.filterTextureCoordinateAttribute);
         });
-        
     }
     return self;
 }
+
 
 - (void)setupWithBackgroundColor:(UIColor *)color {
     [color getRed:&_backgroundColorRed green:&_backgroundColorGreen blue:&_backgroundColorBlue alpha:&_backgroundColorAlpha];
