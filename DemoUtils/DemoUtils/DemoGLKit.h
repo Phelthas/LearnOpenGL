@@ -14,7 +14,7 @@
 
 #import "DemoGLProgram.h"
 #import "DemoGLContext.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import "DemoGLView.h"
 #import "DemoGLCapturePipline.h"
 #import "DemoGLShaders.h"

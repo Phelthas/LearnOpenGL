@@ -7,7 +7,7 @@
 
 #import "DemoGLOutput.h"
 #import "DemoGLProgram.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DemoGLTwoInputFilter : DemoGLOutput<DemoGLInputProtocol>
 
 
-@property (nonatomic, strong) DemoGLTextureFrame *firstInputFramebuffer;
-@property (nonatomic, strong) DemoGLTextureFrame *secondInputFramebuffer;
+@property (nonatomic, strong) DemoGLFramebuffer *firstInputFramebuffer;
+@property (nonatomic, strong) DemoGLFramebuffer *secondInputFramebuffer;
 @property (nonatomic, strong) DemoGLProgram *filterProgram;
 @property (nonatomic, assign) GLint filterPositionAttribute;
 @property (nonatomic, assign) GLint filterFisrtTextureCoordinateAttribute;

@@ -17,7 +17,7 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void));
 @interface DemoGLOutput : NSObject
 
 // 子类会用到，暴露给外面
-@property (nonatomic, strong) DemoGLTextureFrame *outputTextureFrame;
+@property (nonatomic, strong) DemoGLFramebuffer *outputFramebuffer;
 
 - (NSArray*)targets;
 

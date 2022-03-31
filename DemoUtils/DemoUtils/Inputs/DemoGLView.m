@@ -6,7 +6,7 @@
 //
 
 #import "DemoGLView.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import "DemoGLOutput.h"
 #import "DemoGLContext.h"
 #import "DemoGLShaders.h"
@@ -181,9 +181,9 @@
     });
 }
 
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
+- (void)setInputFramebuffer:(DemoGLFramebuffer *)framebuffer atIndex:(NSInteger)index {
     NSAssert(index == 0, @"GLView suport one input only");
-    _inputFrameBufferForDisplay = textureFrame;
+    _inputFrameBufferForDisplay = framebuffer;
 }
 
 - (void)setInputTextureSize:(CGSize)textureSize atIndex:(NSInteger)index {

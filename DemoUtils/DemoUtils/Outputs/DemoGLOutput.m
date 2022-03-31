@@ -7,7 +7,7 @@
 
 #import "DemoGLOutput.h"
 #import "DemoGLContext.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 
 void runSyncOnVideoProcessingQueue(void(^block)(void)) {
     dispatch_queue_t videoProcessingQueue = [DemoGLContext sharedImageProcessingContext].contextQueue;
@@ -65,10 +65,10 @@ void runAsyncOnVideoProcessingQueue(void(^block)(void)) {
 
 - (void)addTarget:(id<DemoGLInputProtocol>)target {
     NSAssert(![self.targets containsObject:target], @"already contains target:%@", target);
-    // 注意！！！这一句非常关键，target中inputTextureFrame的顺序就是在这里确定的
+    // 注意！！！这一句非常关键，target中inputframebuffer的顺序就是在这里确定的
     NSInteger nextAvailableTextureIndex = [target nextAvailableTextureIndex];
     runSyncOnVideoProcessingQueue(^{
-        [target setInputTexture:self.outputTextureFrame atIndex:nextAvailableTextureIndex];
+        [target setInputFramebuffer:self.outputFramebuffer atIndex:nextAvailableTextureIndex];
         [self.targetArray addObject:target];
         [self.targetTextureIndexArray addObject:@(nextAvailableTextureIndex)];
     });

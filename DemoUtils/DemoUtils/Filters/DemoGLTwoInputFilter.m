@@ -110,12 +110,12 @@ NSString *const kGPUImageTwoInputFragmentShaderString = SHADER_STRING
     [DemoGLContext useImageProcessingContext];
     [self.filterProgram use];
     //这里可能存在self.inputTextureSize会变化的情况，当self.inputTextureSize变化时，产生的输出也会变化
-    if (!self.outputTextureFrame ||
-        self.outputTextureFrame.width != self.inputTextureSize.width ||
-        self.outputTextureFrame.height != self.inputTextureSize.height) {
-        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:self.inputTextureSize];
+    if (!self.outputFramebuffer ||
+        self.outputFramebuffer.width != self.inputTextureSize.width ||
+        self.outputFramebuffer.height != self.inputTextureSize.height) {
+        self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:self.inputTextureSize];
     }
-    [self.outputTextureFrame activateFramebuffer];
+    [self.outputFramebuffer activateFramebuffer];
     
     glClearColor(_backgroundColorRed, _backgroundColorGreen, _backgroundColorBlue, _backgroundColorAlpha);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -149,7 +149,7 @@ NSString *const kGPUImageTwoInputFragmentShaderString = SHADER_STRING
     for (int i = 0; i < self.targets.count; i++) {
         id<DemoGLInputProtocol> target = self.targets[i];
         NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-        [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+        [target setInputFramebuffer:self.outputFramebuffer atIndex:textureIndex];
         [target setInputTextureSize:self.inputTextureSize atIndex:textureIndex];
         [target newFrameReadyAtTime:frameTime timimgInfo:kCMTimingInfoInvalid];
     }
@@ -179,12 +179,12 @@ NSString *const kGPUImageTwoInputFragmentShaderString = SHADER_STRING
     [self informTargetsAboutNewFrameAtTime:frameTime];
 }
 
-- (void)setInputTexture:(DemoGLTextureFrame *)textureFrame atIndex:(NSInteger)index {
+- (void)setInputFramebuffer:(DemoGLFramebuffer *)framebuffer atIndex:(NSInteger)index {
     if (index == 0) {
-        _firstInputFramebuffer = textureFrame;
+        _firstInputFramebuffer = framebuffer;
         _hasSetFirstTexture = YES;
     } else if (index == 1) {
-        _secondInputFramebuffer = textureFrame;
+        _secondInputFramebuffer = framebuffer;
         _hasSetSecondTexture = YES;
     } else {
         NSAssert(NO, @"DemoGLTwoInputFilter suport two input only");

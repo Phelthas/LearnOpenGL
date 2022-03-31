@@ -99,12 +99,12 @@
     [DemoGLContext useImageProcessingContext];
     [self.filterProgram use];
     //这里可能存在self.inputTextureSize会变化的情况，当self.inputTextureSize变化时，产生的输出也会变化
-    if (!self.outputTextureFrame ||
-        self.outputTextureFrame.width != self.inputTextureSize.width ||
-        self.outputTextureFrame.height != self.inputTextureSize.height) {
-        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:self.inputTextureSize];
+    if (!self.outputFramebuffer ||
+        self.outputFramebuffer.width != self.inputTextureSize.width ||
+        self.outputFramebuffer.height != self.inputTextureSize.height) {
+        self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:self.inputTextureSize];
     }
-    [self.outputTextureFrame activateFramebuffer];
+    [self.outputFramebuffer activateFramebuffer];
     
     glClearColor(self.backgroundColorRed, self.backgroundColorGreen, self.backgroundColorBlue, self.backgroundColorAlpha);
     glClearColor(0, 0, 0, 0);
@@ -142,7 +142,7 @@
     };
     
     glActiveTexture(GL_TEXTURE3);
-    glBindTexture(GL_TEXTURE_2D, [_glPicture.outputTextureFrame texture]);
+    glBindTexture(GL_TEXTURE_2D, [_glPicture.outputFramebuffer texture]);
     glUniform1i(self.filterInputTextureUniform, 3);
     
     

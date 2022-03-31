@@ -1,21 +1,21 @@
 //
-//  DemoGLTextureFrame.m
+//  DemoGLFramebuffer.m
 //  DemoUtils
 //
 //  Created by billthaslu on 2022/2/9.
 //
 
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "DemoGLContext.h"
 #import "DemoGLOutput.h"
 
-@interface DemoGLTextureFrame ()
+@interface DemoGLFramebuffer ()
 
 @property (nonatomic, assign) GLuint framebuffer;
 @property (nonatomic, assign) GLuint texture;
-@property (nonatomic, assign) DemoGLTextureFrameOptions textureOptions;
+@property (nonatomic, assign) DemoGLTextureOptions textureOptions;
 @property (nonatomic, assign) CGSize size;
 
 @property (nonatomic, assign) CVPixelBufferRef renderTarget;
@@ -24,9 +24,9 @@
 
 @end
 
-@implementation DemoGLTextureFrame
+@implementation DemoGLFramebuffer
 
-- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture {
+- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture {
     self = [super init];
     if (self) {
         _size = framebufferSize;
@@ -48,8 +48,8 @@
     return [self initWithSize:framebufferSize onlyGenerateTexture:NO];
 }
 
-- (DemoGLTextureFrameOptions)defaultTextureOptions {
-    DemoGLTextureFrameOptions defaultTextureOptions;
+- (DemoGLTextureOptions)defaultTextureOptions {
+    DemoGLTextureOptions defaultTextureOptions;
     defaultTextureOptions.minFilter = GL_LINEAR;
     defaultTextureOptions.magFilter = GL_LINEAR;
     defaultTextureOptions.wrapS = GL_CLAMP_TO_EDGE;

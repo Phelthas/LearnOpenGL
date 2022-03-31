@@ -1,5 +1,5 @@
 //
-//  DemoGLTextureFrame.h
+//  DemoGLFramebuffer.h
 //  DemoUtils
 //
 //  Created by billthaslu on 2022/2/9.
@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef struct DemoGLTextureFrameOptions {
+typedef struct DemoGLTextureOptions {
     GLenum minFilter;
     GLenum magFilter;
     GLenum wrapS;
@@ -15,16 +15,16 @@ typedef struct DemoGLTextureFrameOptions {
     GLenum internalFormat;
     GLenum format;
     GLenum type;
-} DemoGLTextureFrameOptions;
+} DemoGLTextureOptions;
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoGLTextureFrame : NSObject
+@interface DemoGLFramebuffer : NSObject
 
 
 /// @param onlyGenerateTexture 是否只生成texture；默认是NO，会同时生成frameBuffer；
-- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureFrameOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture;
+- (instancetype)initWithSize:(CGSize)framebufferSize textureOptions:(DemoGLTextureOptions)textureOptions onlyGenerateTexture:(BOOL)onlyGenerateTexture;
 
 - (instancetype)initWithSize:(CGSize)framebufferSize onlyGenerateTexture:(BOOL)onlyGenerateTexture;
 

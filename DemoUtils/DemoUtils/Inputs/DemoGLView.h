@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DemoGLView : UIView<DemoGLInputProtocol>
 
-@property (nonatomic, strong) DemoGLTextureFrame *inputFrameBufferForDisplay;
+@property (nonatomic, strong) DemoGLFramebuffer *inputFrameBufferForDisplay;
 @property (nonatomic, assign) GLuint displayFramebuffer;
 @property (nonatomic, assign) GLuint displayRenderbuffer;
 @property (nonatomic, strong) DemoGLProgram *displayProgram;

@@ -10,7 +10,7 @@
 #import "DemoGLProgram.h"
 #import "DemoGLCapturePipline.h"
 #import "DemoGLContext.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
@@ -157,7 +157,7 @@
             for (int i = 0; i < self.targets.count; i++) {
                 id<DemoGLInputProtocol> target = self.targets[i];
                 NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-                [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+                [target setInputFramebuffer:self.outputFramebuffer atIndex:textureIndex];
                 [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight) atIndex:textureIndex];
                 [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
             }
@@ -172,12 +172,12 @@
     else {
         CVPixelBufferLockBaseAddress(cameraFrame, 0);
         int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(cameraFrame);
-        if (!self.outputTextureFrame) {
-            self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(bytesPerRow / 4, bufferHeight)];
+        if (!self.outputFramebuffer) {
+            self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:CGSizeMake(bytesPerRow / 4, bufferHeight)];
         }
-        [self.outputTextureFrame activateFramebuffer];
+        [self.outputFramebuffer activateFramebuffer];
         
-        glBindTexture(GL_TEXTURE_2D, [self.outputTextureFrame texture]);
+        glBindTexture(GL_TEXTURE_2D, [self.outputFramebuffer texture]);
         // Using BGRA extension to pull in video frame data directly
         // The use of bytesPerRow / 4 accounts for a display glitch present in preview video frames when using the photo preset on the camera
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bytesPerRow / 4, bufferHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(cameraFrame));
@@ -187,7 +187,7 @@
         for (int i = 0; i < self.targets.count; i++) {
             id<DemoGLInputProtocol> target = self.targets[i];
             NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-            [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+            [target setInputFramebuffer:self.outputFramebuffer atIndex:textureIndex];
             [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight) atIndex:textureIndex];
             [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
         }
@@ -199,10 +199,10 @@
     [DemoGLContext useImageProcessingContext];
     [self.yuvConversionProgram use];
     
-    if (!self.outputTextureFrame) {
-        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
+    if (!self.outputFramebuffer) {
+        self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
     }
-    [self.outputTextureFrame activateFramebuffer];
+    [self.outputFramebuffer activateFramebuffer];
     
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

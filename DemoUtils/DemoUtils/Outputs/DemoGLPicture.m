@@ -10,7 +10,7 @@
 #import "LXMKit.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import "DemoGLDefines.h"
 
 @interface DemoGLPicture ()
@@ -161,11 +161,11 @@
     
     runSyncOnVideoProcessingQueue(^{
         [DemoGLContext useImageProcessingContext];
-        if (!self.outputTextureFrame) {
+        if (!self.outputFramebuffer) {
             //注意，这里onlyGenerateTexture必须传YES，且不用activateFramebuffer，否则会报GL_INVALID_OPERATION
-            self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:pixelSizeForTexture onlyGenerateTexture:YES];
+            self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:pixelSizeForTexture onlyGenerateTexture:YES];
         }
-        glBindTexture(GL_TEXTURE_2D, [self.outputTextureFrame texture]);
+        glBindTexture(GL_TEXTURE_2D, [self.outputFramebuffer texture]);
         // no need to use self.outputTextureOptions here since pictures need this texture formats and type
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)pixelSizeForTexture.width, (int)pixelSizeForTexture.height, 0, format, GL_UNSIGNED_BYTE, imageData);
         GetGLErrorOC();
@@ -200,7 +200,7 @@
         for (int i = 0; i < self.targets.count; i++) {
             id<DemoGLInputProtocol> target = self.targets[i];
             NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-            [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+            [target setInputFramebuffer:self.outputFramebuffer atIndex:textureIndex];
             [target setInputTextureSize:self.textureSize atIndex:textureIndex];
             [target newFrameReadyAtTime:kCMTimeIndefinite timimgInfo:kCMTimingInfoInvalid];
         }
