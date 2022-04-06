@@ -10,7 +10,7 @@
 #import "DemoGLProgram.h"
 #import "DemoGLCapturePipline.h"
 #import "DemoGLContext.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "libyuv.h"
@@ -140,7 +140,7 @@
         for (int i = 0; i < self.targets.count; i++) {
             id<DemoGLInputProtocol> target = self.targets[i];
             NSInteger textureIndex = [self.targetTextureIndices[i] integerValue];
-            [target setInputTexture:self.outputTextureFrame atIndex:textureIndex];
+            [target setInputFramebuffer:self.outputFramebuffer atIndex:textureIndex];
             [target setInputTextureSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight) atIndex:textureIndex];
             [target newFrameReadyAtTime:currentTime timimgInfo:timimgInfo];
         }
@@ -163,10 +163,10 @@
     [DemoGLContext useImageProcessingContext];
     [self.yuvConversionProgram use];
     
-    if (!self.outputTextureFrame) {
-        self.outputTextureFrame = [[DemoGLTextureFrame alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
+    if (!self.outputFramebuffer) {
+        self.outputFramebuffer = [[DemoGLFramebuffer alloc] initWithSize:CGSizeMake(self.imageBufferWidth, self.imageBufferHeight)];
     }
-    [self.outputTextureFrame activateFramebuffer];
+    [self.outputFramebuffer activateFramebuffer];
     
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
