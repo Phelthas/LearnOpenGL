@@ -7,8 +7,11 @@
 
 #import "Demo5_TestViewController.h"
 #import "libyuv.h"
+#import "DemoGLKit.h"
 
 @interface Demo5_TestViewController ()
+
+@property (nonatomic, strong) NSMutableArray *array;
 
 @end
 
@@ -17,6 +20,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _array = [NSMutableArray array];
+    
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink)];
+
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
+}
+
+- (void)handleDisplayLink {
+    static NSInteger count = 0;
+    DemoGLFramebuffer *temp = [[DemoGLFramebuffer alloc] initWithSize:CGSizeMake(720, 1280)];
+    [self.array addObject:temp];
+    count += 1;
+    NSLog(@"DemoGLFramebuffer %d", count);
 }
 
 #pragma mark - NV12转I420
