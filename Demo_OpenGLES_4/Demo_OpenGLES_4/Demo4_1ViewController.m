@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     _videoCamera = [[DemoGLVideoCamera alloc] init];
     [_videoCamera setupAVCaptureConnectionWithBlock:^(AVCaptureConnection * _Nonnull connection) {
-        connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+        connection.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
         connection.videoMirrored = YES;
     }];
     

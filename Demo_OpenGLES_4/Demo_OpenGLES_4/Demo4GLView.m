@@ -6,7 +6,7 @@
 //
 
 #import "Demo4GLView.h"
-#import "DemoGLTextureFrame.h"
+#import "DemoGLFramebuffer.h"
 #import "DemoGLProgram.h"
 #import "DemoGLOutput.h"
 #import "DemoGLContext.h"
