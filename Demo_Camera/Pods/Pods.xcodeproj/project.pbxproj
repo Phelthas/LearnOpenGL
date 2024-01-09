@@ -3,119 +3,119 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		004C62223C45721F14EE69D71195083B /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D767774B4C375D15F00A824899129E /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		01366408FE4EC271F7AC9139033DB475 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3B10D0D869E941B03FA068B65208A0 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0206660A56ED9342731327D4BA14D285 /* LXMCGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE2A1B164C60F075A39300186691A11 /* LXMCGGeometry.m */; };
-		024DBB36844220957DAF8179DC13F7AB /* DemoGLFramebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC0F055C589E41D86E6609EC6F8C371 /* DemoGLFramebuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		030E7DCF38C87845FB75C167638ECF81 /* LXMCameraGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 32AED864A1C7505B46BC808A570C5683 /* LXMCameraGeometry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0395A6B6042BFB1EF38B7775DF71EFA4 /* DemoGLFramebuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4453A0147F192F168DB77D599AECC /* DemoGLFramebuffer.m */; };
+		051CC4B4A0BDBDEBBCD9F37FC19580F3 /* DemoGLFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A9917FE957D0E33DB3126F8D42F65A /* DemoGLFilter.m */; };
 		064E87F1C465D5F44DD89D96B011C4AE /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEF6B62EA8099D5613DE81CA0C0A3FD /* NSObject+YYModel.m */; };
 		07541C15D4128018270711E8CE92CA90 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F3DE4F8E2E61ABB5A1E1B990375BD41B /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0DC8A44DCB1597B0CF029A2279E3067F /* DemoGLCapturePipline.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C709552C7FF7B322F704E508F68CA5 /* DemoGLCapturePipline.m */; };
+		08B8BBD935DA12B43DAB747FB35DDC78 /* DemoGLPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 157855ED45A4530507688719AF6098DC /* DemoGLPicture.m */; };
+		0B9E347A830EC15A94CC8E1A161D5B82 /* LXMDemoGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = E8B66E1783E63BA6DBBAA7532484B072 /* LXMDemoGLView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		103677D1E0099D071E795F592DF267CC /* LXMDeviceUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 09F6BC40D0FF4691815B2921F81F31DC /* LXMDeviceUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1510CFE20F5362017C684DC7997F75E9 /* DemoUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BC0A9A3A842D6303D7A5DCF5202225 /* DemoUtils-dummy.m */; };
+		11D42EF35DC1199BFAC86AFA812D3F69 /* DemoGLSpriteSheetFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB2728A76B57AA69FE03936719AD39A /* DemoGLSpriteSheetFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1383A41671B36EA789F1D1CA854E2777 /* DemoUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BC0A9A3A842D6303D7A5DCF5202225 /* DemoUtils-dummy.m */; };
 		1832ACACF2EF6B12FBFAD3C0C5599001 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD04CA1B401AD1B2758F63A13AB704 /* AFURLSessionManager.m */; };
+		1A3743F64FC78D154FA9BA26F41B3BF9 /* DemoGLRoundRectFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A276EAAB67CE7DCD942BAD8B4C0DA /* DemoGLRoundRectFilter.m */; };
 		1FD3900E8F2DEBDB8792EEA20FD5B448 /* UITableView+RegisterAndDequeue.m in Sources */ = {isa = PBXBuildFile; fileRef = D333F1566255248A2B79C649816565DB /* UITableView+RegisterAndDequeue.m */; };
 		1FF3466450E97F90BD445F79E2D33E41 /* UICollectionView+RegisterAndDequeue.h in Headers */ = {isa = PBXBuildFile; fileRef = F294EE18DF6E10E89106365CECEC81B9 /* UICollectionView+RegisterAndDequeue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		230B2F4C4E82727984756D5BBBF2AFE0 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B8AF2FF016D81C2D821F4B6746AC22F /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		236FD606E8403BF8B2C7BA4E92BB8EE8 /* DemoGLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = FD32C9413E536466586B4FF41858462A /* DemoGLProgram.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		24FDBA768E6CB5CCA32B730922E9DD55 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DD67F10ED3F018DFD1FB68F8972BCBB /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2740C76675DE520849EA8298AE807582 /* UITableView+RegisterAndDequeue.h in Headers */ = {isa = PBXBuildFile; fileRef = CEF0D05A58017DACD3C30EBA080741BF /* UITableView+RegisterAndDequeue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2764D9F92D0E9088988B68FCC95CA4E9 /* WKWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B86673483EA256F5C31E6B9806BF1E /* WKWebView+AFNetworking.m */; };
 		2A5FD5F8E43D704474602A2AC2CDC340 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = EB0E7B2274BD80F7954417908761A721 /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2A68A9AAA8542BEC0D127F181C740647 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D8145572F85D94EC974617AE04D994E /* AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2C80C9D86726066A8923F41AE5DF09DA /* DemoGLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE1A36AA82035D6701A62F58A99B573 /* DemoGLGeometry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2CE027294668B4C9C78E265D745E3474 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F32B5663AD5409AE452E21E23297320 /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2FFA4BE8D2B2CF2AFC62123734557FE7 /* DemoGLOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = C02BF95DEA20D1B1A3B8535BD51B5B50 /* DemoGLOutput.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		31239D686505F6AE02BAE12B15742E92 /* DemoGLTestFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D6E4975FB60BB146E1DE126E1063 /* DemoGLTestFilter.m */; };
+		2E4CC74BA309A27298F2CB370781A0AB /* DemoGLPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4D6533E2BF7B9607CE041960806E3E /* DemoGLPicture.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		30143D1B62CF6A2FD90682B172ACB26A /* DemoGLMultiDrawFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130FDD8D14976387493FBCE1E075D82F /* DemoGLMultiDrawFilter.m */; };
+		32F4FD470853212976371ADCE4DD35F2 /* DemoGLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B04AA9BC606F5B9818C2505C919D2E /* DemoGLDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3372BC3C0A92AB48CC496F5B148A5C2D /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9218D4C5C2E17CF25129FFE87AD9393E /* AFImageDownloader.m */; };
-		35BBB479B3F7DDBF595A1F829D4EC57E /* DemoGLFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A9917FE957D0E33DB3126F8D42F65A /* DemoGLFilter.m */; };
-		383E0ED451CC7BDF4850A9F72AD36055 /* DemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6514232A47171F369AFD420DCC5A07 /* DemoGLView.m */; };
 		39A803799C064BDBA250C75C39FEB37A /* LXMScreenSizeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = D78A729AB6143DBD1C45B60FAFAC9D8E /* LXMScreenSizeDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3BB0CFF91A391E6B6552672016A78EE7 /* DemoGLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B04AA9BC606F5B9818C2505C919D2E /* DemoGLDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3EEBF6FBE41B845B31A73C27E5DEC4BD /* DemoGLFramebuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4453A0147F192F168DB77D599AECC /* DemoGLFramebuffer.m */; };
-		4365778B53A6AC9CEC8EF7328246D608 /* DemoGLVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA394CF90091231A3252CA56D393A1 /* DemoGLVideoCamera.m */; };
-		43B32C217564104B32C6A9B55A24D4E4 /* DemoGLVideoCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = F9993737FB07E8A567696EB97A5C37CD /* DemoGLVideoCamera.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		39E02054084D1EC181FA38A45A5A6F79 /* DemoGLVideoCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = F9993737FB07E8A567696EB97A5C37CD /* DemoGLVideoCamera.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		42E55382FA3D096996713F7F4A7D7869 /* DemoGLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EEA3BF73B7965C72635E5287261FAA2 /* DemoGLKit.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		42EC920A1EFC7EA464E97BCE8B6F76C4 /* DemoGLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8066A9FEAB91903330C63D8F75D1AA /* DemoGLContext.m */; };
 		4563374304C6A77B6333EA9C74802F23 /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB3450CBCE205EE172D10D4C2765471 /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4A9A2A206D43EF2ABA87D2FE02A1CC60 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E411985061018CF291521E3118397 /* AFHTTPSessionManager.m */; };
 		4BB2F998149A4575929D3BE15322FEB7 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B6DC7D06D0D2CEA4BAE84D50F39DF4 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4CF80DC5638027542DDBAEDA4A3A0D65 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B1DC2004213ECCD7301870535B00A5 /* YYClassInfo.m */; };
+		4F6E0808263AA26F6B2F5AD2251E8416 /* DemoGLTwoInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69B96EBB90A41A152EA557FDA9A5EFA /* DemoGLTwoInputFilter.m */; };
+		50257B7E8B39D5EED469A0F3FBCFEA51 /* DemoGLContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 722A171AF22DE09D9096189D43ADC887 /* DemoGLContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		50E619F417A4794C29AA279B1EA390CD /* DemoGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3796FCE81B39E3C6F3673B20A682CE /* DemoGLProgram.m */; };
 		5478E1576B0C29AE613BA5B653D8D129 /* WKWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD14FE5A89E711D617529FEB180B9C6 /* WKWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		560BF7E9C6CCCFB0832FB6EBF27B2420 /* DemoGLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BA7117581B477D6517DE96A6F10BA /* DemoGLGeometry.m */; };
 		5A566647C5F3E403D28A6C9AAB495541 /* LXMCGGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1959302C363356A883F3763947A81A /* LXMCGGeometry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5F32AAC445579D22F2814F64021255EE /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A39078C0C1A1E367E1B07F7DBD98C5 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		61A7D87BBED2E25A2C2654383830288A /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4FA906C532B379C1B29E72D5B7F3F /* UIButton+AFNetworking.m */; };
+		622F4681AA9D9F6155F6ABC8A865CACE /* DemoGLModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BA53D3D219F47D3CF1F1088C4665F8 /* DemoGLModels.m */; };
+		64C7543F36F7025EDAC238D7B5781402 /* DemoGLFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96DDC752107AB594E7E0C65907D6C308 /* DemoGLFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		669ED65374FA6566D6678CA514B85ABE /* AFCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C647F6E81A4B239C1A6319924C296A49 /* AFCompatibilityMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		67E72FBE664E89353FEB96D06A8460B1 /* UICollectionView+RegisterAndDequeue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FB56A165C51B2D7CF9B8C2751324F3 /* UICollectionView+RegisterAndDequeue.m */; };
+		682615E4654437A1D361418FD047ED86 /* DemoGLTwoInputFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C819207F50AB6A43CE51F0C03FE5DE3 /* DemoGLTwoInputFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		68D0E614E7899C24ED66ED73EF0BBFC6 /* NSArray+LXMSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CEBCC75B9F7EDA3A278EEF05E298B4F /* NSArray+LXMSafe.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		69F117D8EEA40361E2EED6CF7626E9D5 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E41579335148DF8737A79226EB5CB3AC /* AFAutoPurgingImageCache.m */; };
 		6DFCEB06E2821A5002D543D61EB4ADD0 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 472FFFBE4B660ACD5B722F0476F8D633 /* YYModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		701DAD93D48181B5C71059ADB540BFD3 /* DemoGLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8066A9FEAB91903330C63D8F75D1AA /* DemoGLContext.m */; };
 		7129E353FEDF1C3770C27ECFF08E4250 /* UIImage+LXMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD443E5E805356DF7936CA8DB6D38D72 /* UIImage+LXMColor.m */; };
 		740707E9A84030FB79C4B1349DDE09C8 /* LXMDemoListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 13FC30B04548E7C42E1A0F1486B014D0 /* LXMDemoListViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		743C79425F8BC9AF5CD616590D186F54 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F702D4855DC239BE182F8B12A8A902 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		755E48288FCA985CE2A75B5368E442EF /* DemoGLPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4D6533E2BF7B9607CE041960806E3E /* DemoGLPicture.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		762AB9BCD38E8AEF0AD3A96370A4FC4C /* DemoGLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4112B814D5E4B2B61F0889FDEB078392 /* DemoGLUtility.m */; };
 		76BCC99B58D8FAD79F32D5B4EED4FAD3 /* LXMDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D336B0EA63335C9D1AEE26E185292BB /* LXMDeviceUtil.m */; };
-		76D11C092E4E9A9F128D4522CF6F2A58 /* DemoGLShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F6C1DEDA4D6F017D8FC9B9AB46724AE /* DemoGLShaders.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		790EE337E2BA005FFD5E570AD3F2D77D /* DemoGLInputProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A95802C59B4B55346192A58F9353DC /* DemoGLInputProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7E780A5C6E568612BDD767E02B004EED /* DemoGLModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E52DE588853A50D3DB6952709DCB5D6 /* DemoGLModels.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7E9C2B46DDA21C5F97F827B494DABC42 /* UIView+Position.h in Headers */ = {isa = PBXBuildFile; fileRef = D641FBDE83CDAAC8B8FA485A026B8C18 /* UIView+Position.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8969E11AE8DBFA5FCD748224BD92388D /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 520A846AB85810586B24F54AA1BC2EBC /* AFNetworking-dummy.m */; };
 		89AB7D96102E7D63C630332403CB1010 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 85843E41C16242D0B842C2A4CFE41C9B /* YYClassInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		89DE5B3134674B8EA6B5DB0EB75E9CC4 /* DemoGLCapturePipline.h in Headers */ = {isa = PBXBuildFile; fileRef = A445D0552FA167FE7BE874F0AA3C5D21 /* DemoGLCapturePipline.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8AEF137E8E4A77D120801F858F767DFD /* DemoGLVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AA394CF90091231A3252CA56D393A1 /* DemoGLVideoCamera.m */; };
 		8B4599299A907D38EE028ED0DC87D4BF /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 404A0FF2E7CCBF6E7733C16F50FBBCFB /* YYModel-dummy.m */; };
-		8CE812039E67C74067B7C8ED19A36B26 /* DemoGLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4112B814D5E4B2B61F0889FDEB078392 /* DemoGLUtility.m */; };
-		8D22D43F61C4E4E6575576C2C202DFA6 /* DemoGLSpriteSheetFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB2728A76B57AA69FE03936719AD39A /* DemoGLSpriteSheetFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8D7DE53F26C0F9A37C12F87F1EF50ABB /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 417F850AB8E97A6C6173274EE768756A /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		93153FF38FE7DBF39361F5DD41E44090 /* DemoGLMultiDrawFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130FDD8D14976387493FBCE1E075D82F /* DemoGLMultiDrawFilter.m */; };
-		95CD7C95298088462103A873284813BA /* DemoGLSpriteSheetFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F455A592D6102EF8916F5E05C09026 /* DemoGLSpriteSheetFilter.m */; };
-		989F9421B964BD9C9956055C9E4BBDC8 /* DemoGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3796FCE81B39E3C6F3673B20A682CE /* DemoGLProgram.m */; };
-		9932B9A682A5861C037F33373719746A /* DemoGLModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BA53D3D219F47D3CF1F1088C4665F8 /* DemoGLModels.m */; };
+		8EFADFB2F6A8D40C964EC14BFA3BA477 /* LXMDemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBD1B223934640EB2A619A68085856A /* LXMDemoGLView.m */; };
 		993CEE15AED3BD8D08DA2BCD78218EB0 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = C980F6E037E1E90899D41E404E8C9C38 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		995B51481AE5E904B20918828AB0FDF1 /* DemoGLMultiDrawFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC97B99E63D2448ABA6A1E2E875D1D7 /* DemoGLMultiDrawFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		99F45AD79DE0738C42613893012A8255 /* DemoGLStickerFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E9324C7DD4919C7D42521AC8A49287 /* DemoGLStickerFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9B11DA7FA43D9EB551A27A6EE1031152 /* DemoGLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE1A36AA82035D6701A62F58A99B573 /* DemoGLGeometry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9B3517A65F77BA6AE394DBBC99AC9868 /* Pods-Demo_Camera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8C138F80F77BD3ED874DAC6EAE92F1 /* Pods-Demo_Camera-dummy.m */; };
-		9C75BF0F54237FFF0C1B5430127244F3 /* DemoGLUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0EF5F58EF48CC961686E142BF55DA4 /* DemoGLUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9D3F017A3AFC34BAD48117245470D8B1 /* DemoGLStickerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA38AF0E8D59E4CE579869F64FF92F /* DemoGLStickerFilter.m */; };
+		9F523627EA9D4CC5AAB2B481C39D85AD /* DemoGLInputProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 665762FC772BDC30CD90A7E9759E1E2B /* DemoGLInputProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A008CEC32276EF8AF7E371D56F931134 /* DemoGLMultiDrawFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC97B99E63D2448ABA6A1E2E875D1D7 /* DemoGLMultiDrawFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A2FC39AC108767F51D41C869577A11CC /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 491EA32E43AA9B6CB343E3801551ACEF /* AFNetworkActivityIndicatorManager.m */; };
 		A523D140C418A1E3C65471385B9D13B4 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A54A6D053BE6A044FB86CDB99623DF9A /* UIProgressView+AFNetworking.m */; };
-		A8DABD5BAA18633E2640F321153F5E05 /* DemoGLContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 722A171AF22DE09D9096189D43ADC887 /* DemoGLContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		ADE0445668718B2776C3DD6AA3184A69 /* LXMCameraGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF85515CCE31FDE861DB212933B6FD2 /* LXMCameraGeometry.m */; };
-		B355E173ED8173B1A717F9EA19FDDD59 /* DemoGLPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 157855ED45A4530507688719AF6098DC /* DemoGLPicture.m */; };
+		AE89AA1F76761704698B8D9FF3F1C22A /* DemoGLTestFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8031B7BC388D1939263EC65E97117024 /* DemoGLTestFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B3F086038251441515D669C8C9C1EFC4 /* DemoGLRoundRectFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 91143B7EF66422EF870D79AF7FAB1ACE /* DemoGLRoundRectFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B6843AA69E9EB0C2718BB17F7AAC291A /* UIColor+LXMColor.h in Headers */ = {isa = PBXBuildFile; fileRef = E82164718069192E82700FEAC9561281 /* UIColor+LXMColor.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B8433E0FCEF13E72600D4BECBB0C41BB /* DemoGLOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3A72E9A89814FD2B55453413DAE8 /* DemoGLOutput.m */; };
+		B9111740887501E1DB5DED45F70940EB /* DemoGLCapturePipline.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C709552C7FF7B322F704E508F68CA5 /* DemoGLCapturePipline.m */; };
 		BA5E062979DD5999B58BDBF329763D5E /* LXMAspectUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BA1823C9FFD74FEA6D22C32490039B /* LXMAspectUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BDCFFEA369C4281DD4D0E20D48E6A37C /* DemoGLRoundRectFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A276EAAB67CE7DCD942BAD8B4C0DA /* DemoGLRoundRectFilter.m */; };
+		BCC302C82A9AE3012814EE5BA0ADBCA4 /* DemoGLSpriteSheetFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F455A592D6102EF8916F5E05C09026 /* DemoGLSpriteSheetFilter.m */; };
+		BD1B1505A5C937569A807B9B88124098 /* DemoGLShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F6C1DEDA4D6F017D8FC9B9AB46724AE /* DemoGLShaders.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BE16C5122385F2C88812C74540770A91 /* DemoGLCapturePipline.h in Headers */ = {isa = PBXBuildFile; fileRef = A445D0552FA167FE7BE874F0AA3C5D21 /* DemoGLCapturePipline.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BF759851A9D82557B3A781992FB59AA9 /* UIImage+LXMColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 72B8D917BD2F0C2C0A0381A52929BFD3 /* UIImage+LXMColor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C3084E56975AA9913A81998A4737F157 /* LXMLogUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0DECF167DE5CD6FCEC27DFF27B0117 /* LXMLogUtil.m */; };
-		C35C5B6F5AF8B80BB1373FF9A592F44E /* DemoGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6458DD0EF1CCED3B12933582D7D79A64 /* DemoGLView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C3BCFCC0A79A4CBCF4BC5642BC2332AC /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 77B2BB37AA75B177005199222D61CD63 /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C64C921E1D2B072DC3B71F6F24FBA357 /* LXMDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A78A915EDC5F8C2900643E17B9ED64 /* LXMDemoListViewController.m */; };
 		C7B7F2C180369B02E6099E0D5EA902FA /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BA7234F05C0708736BCE9E289D4235 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C8C03CBEE75CB7F863827F25BF32DA8B /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 903A1F98227E5403D42E188A8D9C9A6E /* AFNetworkReachabilityManager.m */; };
-		CE9F382802C92B4E3AFFF8B9DDFCD544 /* DemoGLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BA7117581B477D6517DE96A6F10BA /* DemoGLGeometry.m */; };
-		D0CEC7DAFD873C2AE41BBA6FFBC666CF /* DemoGLTestFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8031B7BC388D1939263EC65E97117024 /* DemoGLTestFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C9BF43A5B99B84B00DEC71EF68AA55C0 /* DemoGLOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = C02BF95DEA20D1B1A3B8535BD51B5B50 /* DemoGLOutput.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D24E1BE3B593188389C5AED3894149E2 /* DemoGLShaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A46538306F5C1491FC59B1FAEA0488 /* DemoGLShaders.m */; };
 		D2D60BC9FC5DF242A7C574B23E6B0DD5 /* UIColor+LXMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0346D0560151D956050E6E873B959690 /* UIColor+LXMColor.m */; };
-		D4C577C7CA705C5796C650710D633647 /* DemoGLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = FD32C9413E536466586B4FF41858462A /* DemoGLProgram.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D4E3B700E370497FD0709F2FAD02B7B5 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 608BDDF2E6276D38DD3DF4AE5FB7BADB /* UIImageView+AFNetworking.m */; };
 		D4F20FBCD717BC410970D70353BFB3C9 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF357A21BDBBCBF343E8A144DDEA3E0 /* AFURLResponseSerialization.m */; };
 		D68EE10053A367A684609FDB89B64F2C /* LXMAspectUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 70232AAF09B95019F9D663037B3BB1F0 /* LXMAspectUtil.m */; };
-		DC1B1185C73EC946666B0ED2FA84F27D /* DemoGLShaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A46538306F5C1491FC59B1FAEA0488 /* DemoGLShaders.m */; };
+		D7D356EEF2B4991C8D59D3C32C1A8F30 /* DemoGLOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 789F3A72E9A89814FD2B55453413DAE8 /* DemoGLOutput.m */; };
 		DE6276C17D6A122245F9D476BBBD101A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A592096304BE06ECD567E86D26D850C /* AFSecurityPolicy.m */; };
-		DF56C360349D0E0EAD69875F59C8D7EA /* DemoGLFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 96DDC752107AB594E7E0C65907D6C308 /* DemoGLFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DF92BBF0CCB60A5F4DDF83A9809C3847 /* LXMLogUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E7E46F10C60B81459D5098C15710E /* LXMLogUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E09D72F04A2FDFCC341989F00E5FA77D /* DemoGLStickerFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E9324C7DD4919C7D42521AC8A49287 /* DemoGLStickerFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E1B7A75C7DC9C301B7E1D4DCBEA59F43 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC470C362EC62608AA20660651C57366 /* UIRefreshControl+AFNetworking.m */; };
 		E3FC4F7B842CDAF808A7E99C4F573995 /* LXMKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CD749333CF9DA8A4C25DCCF79F616D2F /* LXMKit.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E5EB948D16B5788B1BDA68E09AC70D3C /* DemoGLTwoInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B69B96EBB90A41A152EA557FDA9A5EFA /* DemoGLTwoInputFilter.m */; };
-		E937E2E271A1F83F40722E3F7358BB5B /* DemoGLRoundRectFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 91143B7EF66422EF870D79AF7FAB1ACE /* DemoGLRoundRectFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E5538458F99843A78748707F24ABF4C7 /* DemoGLStickerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA38AF0E8D59E4CE579869F64FF92F /* DemoGLStickerFilter.m */; };
 		E9671718C1F77C0447604AD997421145 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 282064F6A5671EAF066AB3EA056E13F8 /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EAD711A8F6E1497E9C14DF6B5A3FFE06 /* LXMKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A497333F5F457168ADDC73509C92A /* LXMKit-dummy.m */; };
 		EBDDB160E30EF95017310F71D5C4847F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DA11B1145A6709D557CB345EBC46A8 /* AFURLRequestSerialization.m */; };
-		ECA46BD9B4F616C8828620B3F75CF70F /* DemoGLModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E52DE588853A50D3DB6952709DCB5D6 /* DemoGLModels.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EDAD94BAD11914AD8BF67F30ED7ED785 /* DemoGLFramebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC0F055C589E41D86E6609EC6F8C371 /* DemoGLFramebuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EE1FAB1994488762B4A2F5AD73A0099E /* NSArray+LXMSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36A5E78F3AD5E85EDDBEAFF8FD6E48 /* NSArray+LXMSafe.m */; };
-		F2F45035A2F2310916512CD6FA03DD6A /* DemoGLTwoInputFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C819207F50AB6A43CE51F0C03FE5DE3 /* DemoGLTwoInputFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F5B8C82F303FAEAC8AA9A70EB5074BD7 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 757C0FFAC47AA979FF294E41CA1B3A66 /* UIActivityIndicatorView+AFNetworking.m */; };
-		FA820E4F0DEC6ACABF8DED62FBC63C1F /* DemoGLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EEA3BF73B7965C72635E5287261FAA2 /* DemoGLKit.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F62051E58B55DB684F26D7985799D2CA /* DemoGLTestFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D6E4975FB60BB146E1DE126E1063 /* DemoGLTestFilter.m */; };
+		FB6859059F4A41BD13AE1F511D9AB314 /* DemoGLUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0EF5F58EF48CC961686E142BF55DA4 /* DemoGLUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FE7876B215D6627B0D212B6788347305 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEBBBAC356C23DDA10D9E6C5793378C /* UIView+Position.m */; };
 /* End PBXBuildFile section */
 
@@ -203,9 +203,9 @@
 		5D336B0EA63335C9D1AEE26E185292BB /* LXMDeviceUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LXMDeviceUtil.m; sourceTree = "<group>"; };
 		5F3B10D0D869E941B03FA068B65208A0 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		608BDDF2E6276D38DD3DF4AE5FB7BADB /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		6458DD0EF1CCED3B12933582D7D79A64 /* DemoGLView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLView.h; sourceTree = "<group>"; };
 		64FB56A165C51B2D7CF9B8C2751324F3 /* UICollectionView+RegisterAndDequeue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+RegisterAndDequeue.m"; sourceTree = "<group>"; };
 		65B86673483EA256F5C31E6B9806BF1E /* WKWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WKWebView+AFNetworking.m"; path = "UIKit+AFNetworking/WKWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		665762FC772BDC30CD90A7E9759E1E2B /* DemoGLInputProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLInputProtocol.h; sourceTree = "<group>"; };
 		66BA7234F05C0708736BCE9E289D4235 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		6824C352E543277A451BDA2DD3D69673 /* LXMKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXMKit-prefix.pch"; sourceTree = "<group>"; };
 		69B04AA9BC606F5B9818C2505C919D2E /* DemoGLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLDefines.h; sourceTree = "<group>"; };
@@ -224,7 +224,6 @@
 		7C819207F50AB6A43CE51F0C03FE5DE3 /* DemoGLTwoInputFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLTwoInputFilter.h; sourceTree = "<group>"; };
 		7F32B5663AD5409AE452E21E23297320 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		8031B7BC388D1939263EC65E97117024 /* DemoGLTestFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLTestFilter.h; sourceTree = "<group>"; };
-		84A95802C59B4B55346192A58F9353DC /* DemoGLInputProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DemoGLInputProtocol.h; sourceTree = "<group>"; };
 		85843E41C16242D0B842C2A4CFE41C9B /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		8BDEB395D438AECBB842783936685E42 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		8C00254373F95FD1C66AF8465DB1E386 /* DemoUtils */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = DemoUtils; path = libDemoUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,7 +260,6 @@
 		CBEF6B62EA8099D5613DE81CA0C0A3FD /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
 		CD443E5E805356DF7936CA8DB6D38D72 /* UIImage+LXMColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LXMColor.m"; sourceTree = "<group>"; };
 		CD749333CF9DA8A4C25DCCF79F616D2F /* LXMKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LXMKit.h; path = LXMKit/LXMKit.h; sourceTree = "<group>"; };
-		CE6514232A47171F369AFD420DCC5A07 /* DemoGLView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DemoGLView.m; sourceTree = "<group>"; };
 		CEF0D05A58017DACD3C30EBA080741BF /* UITableView+RegisterAndDequeue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+RegisterAndDequeue.h"; sourceTree = "<group>"; };
 		D0F702D4855DC239BE182F8B12A8A902 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		D333F1566255248A2B79C649816565DB /* UITableView+RegisterAndDequeue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RegisterAndDequeue.m"; sourceTree = "<group>"; };
@@ -280,8 +278,10 @@
 		E4BA1823C9FFD74FEA6D22C32490039B /* LXMAspectUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LXMAspectUtil.h; sourceTree = "<group>"; };
 		E76D84784DD036D94F2CE1300260583C /* LXMKit */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = LXMKit; path = libLXMKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82164718069192E82700FEAC9561281 /* UIColor+LXMColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXMColor.h"; sourceTree = "<group>"; };
+		E8B66E1783E63BA6DBBAA7532484B072 /* LXMDemoGLView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LXMDemoGLView.h; sourceTree = "<group>"; };
 		EB0E7B2274BD80F7954417908761A721 /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		EC0DECF167DE5CD6FCEC27DFF27B0117 /* LXMLogUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LXMLogUtil.m; sourceTree = "<group>"; };
+		EEBD1B223934640EB2A619A68085856A /* LXMDemoGLView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LXMDemoGLView.m; sourceTree = "<group>"; };
 		F294EE18DF6E10E89106365CECEC81B9 /* UICollectionView+RegisterAndDequeue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+RegisterAndDequeue.h"; sourceTree = "<group>"; };
 		F2ED2A2A4BDB6458F9D3C673D3E32753 /* DemoUtils.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = DemoUtils.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F3DE4F8E2E61ABB5A1E1B990375BD41B /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
@@ -480,6 +480,17 @@
 				11C3DC48EDFB90B7E8D521B8175A2190 /* README.md */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		766978788A280D0A584366AAD318172A /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				665762FC772BDC30CD90A7E9759E1E2B /* DemoGLInputProtocol.h */,
+				E8B66E1783E63BA6DBBAA7532484B072 /* LXMDemoGLView.h */,
+				EEBD1B223934640EB2A619A68085856A /* LXMDemoGLView.m */,
+			);
+			name = Inputs;
+			path = DemoUtils/Inputs;
 			sourceTree = "<group>";
 		};
 		7B2E7F65ABE2E9E31A2683F2F9022510 /* Development Pods */ = {
@@ -685,7 +696,7 @@
 				1EEA3BF73B7965C72635E5287261FAA2 /* DemoGLKit.h */,
 				311AE788B5A66B852538879C59D569B4 /* Common */,
 				8779078618F8FB133E466C453E248585 /* Filters */,
-				E9AD2AF9E9CE8C72CDEB0C78D528D8E4 /* Inputs */,
+				766978788A280D0A584366AAD318172A /* Inputs */,
 				394AEC6C7713F195F272667613FB7991 /* Outputs */,
 				2B56A038A5786ED9014C3E628C59A3F3 /* Pod */,
 				B89B68FB7FDD856C6EB8EBCC1AB4A9B7 /* Support Files */,
@@ -693,17 +704,6 @@
 			);
 			name = DemoUtils;
 			path = ../../DemoUtils;
-			sourceTree = "<group>";
-		};
-		E9AD2AF9E9CE8C72CDEB0C78D528D8E4 /* Inputs */ = {
-			isa = PBXGroup;
-			children = (
-				84A95802C59B4B55346192A58F9353DC /* DemoGLInputProtocol.h */,
-				6458DD0EF1CCED3B12933582D7D79A64 /* DemoGLView.h */,
-				CE6514232A47171F369AFD420DCC5A07 /* DemoGLView.m */,
-			);
-			name = Inputs;
-			path = DemoUtils/Inputs;
 			sourceTree = "<group>";
 		};
 		EE6D0A90B4CE535C1A07A027D49A9DC9 /* Reachability */ = {
@@ -744,35 +744,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		168D81EC916C5C97BE1335FAD7C696E8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89DE5B3134674B8EA6B5DB0EB75E9CC4 /* DemoGLCapturePipline.h in Headers */,
-				A8DABD5BAA18633E2640F321153F5E05 /* DemoGLContext.h in Headers */,
-				3BB0CFF91A391E6B6552672016A78EE7 /* DemoGLDefines.h in Headers */,
-				DF56C360349D0E0EAD69875F59C8D7EA /* DemoGLFilter.h in Headers */,
-				024DBB36844220957DAF8179DC13F7AB /* DemoGLFramebuffer.h in Headers */,
-				9B11DA7FA43D9EB551A27A6EE1031152 /* DemoGLGeometry.h in Headers */,
-				790EE337E2BA005FFD5E570AD3F2D77D /* DemoGLInputProtocol.h in Headers */,
-				FA820E4F0DEC6ACABF8DED62FBC63C1F /* DemoGLKit.h in Headers */,
-				ECA46BD9B4F616C8828620B3F75CF70F /* DemoGLModels.h in Headers */,
-				995B51481AE5E904B20918828AB0FDF1 /* DemoGLMultiDrawFilter.h in Headers */,
-				2FFA4BE8D2B2CF2AFC62123734557FE7 /* DemoGLOutput.h in Headers */,
-				755E48288FCA985CE2A75B5368E442EF /* DemoGLPicture.h in Headers */,
-				D4C577C7CA705C5796C650710D633647 /* DemoGLProgram.h in Headers */,
-				E937E2E271A1F83F40722E3F7358BB5B /* DemoGLRoundRectFilter.h in Headers */,
-				76D11C092E4E9A9F128D4522CF6F2A58 /* DemoGLShaders.h in Headers */,
-				8D22D43F61C4E4E6575576C2C202DFA6 /* DemoGLSpriteSheetFilter.h in Headers */,
-				99F45AD79DE0738C42613893012A8255 /* DemoGLStickerFilter.h in Headers */,
-				D0CEC7DAFD873C2AE41BBA6FFBC666CF /* DemoGLTestFilter.h in Headers */,
-				F2F45035A2F2310916512CD6FA03DD6A /* DemoGLTwoInputFilter.h in Headers */,
-				9C75BF0F54237FFF0C1B5430127244F3 /* DemoGLUtility.h in Headers */,
-				43B32C217564104B32C6A9B55A24D4E4 /* DemoGLVideoCamera.h in Headers */,
-				C35C5B6F5AF8B80BB1373FF9A592F44E /* DemoGLView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		38C81EDC6C1DAD6BB38585C9F5C31AF9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -780,6 +751,35 @@
 				2A5FD5F8E43D704474602A2AC2CDC340 /* NSObject+YYModel.h in Headers */,
 				89AB7D96102E7D63C630332403CB1010 /* YYClassInfo.h in Headers */,
 				6DFCEB06E2821A5002D543D61EB4ADD0 /* YYModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E34667E6FAD3EF7D4B07A5B6083517D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE16C5122385F2C88812C74540770A91 /* DemoGLCapturePipline.h in Headers */,
+				50257B7E8B39D5EED469A0F3FBCFEA51 /* DemoGLContext.h in Headers */,
+				32F4FD470853212976371ADCE4DD35F2 /* DemoGLDefines.h in Headers */,
+				64C7543F36F7025EDAC238D7B5781402 /* DemoGLFilter.h in Headers */,
+				EDAD94BAD11914AD8BF67F30ED7ED785 /* DemoGLFramebuffer.h in Headers */,
+				2C80C9D86726066A8923F41AE5DF09DA /* DemoGLGeometry.h in Headers */,
+				9F523627EA9D4CC5AAB2B481C39D85AD /* DemoGLInputProtocol.h in Headers */,
+				42E55382FA3D096996713F7F4A7D7869 /* DemoGLKit.h in Headers */,
+				7E780A5C6E568612BDD767E02B004EED /* DemoGLModels.h in Headers */,
+				A008CEC32276EF8AF7E371D56F931134 /* DemoGLMultiDrawFilter.h in Headers */,
+				C9BF43A5B99B84B00DEC71EF68AA55C0 /* DemoGLOutput.h in Headers */,
+				2E4CC74BA309A27298F2CB370781A0AB /* DemoGLPicture.h in Headers */,
+				236FD606E8403BF8B2C7BA4E92BB8EE8 /* DemoGLProgram.h in Headers */,
+				B3F086038251441515D669C8C9C1EFC4 /* DemoGLRoundRectFilter.h in Headers */,
+				BD1B1505A5C937569A807B9B88124098 /* DemoGLShaders.h in Headers */,
+				11D42EF35DC1199BFAC86AFA812D3F69 /* DemoGLSpriteSheetFilter.h in Headers */,
+				E09D72F04A2FDFCC341989F00E5FA77D /* DemoGLStickerFilter.h in Headers */,
+				AE89AA1F76761704698B8D9FF3F1C22A /* DemoGLTestFilter.h in Headers */,
+				682615E4654437A1D361418FD047ED86 /* DemoGLTwoInputFilter.h in Headers */,
+				FB6859059F4A41BD13AE1F511D9AB314 /* DemoGLUtility.h in Headers */,
+				39E02054084D1EC181FA38A45A5A6F79 /* DemoGLVideoCamera.h in Headers */,
+				0B9E347A830EC15A94CC8E1A161D5B82 /* LXMDemoGLView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,8 +915,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19303623188CD576F6F71D14CEACB61D /* Build configuration list for PBXNativeTarget "DemoUtils" */;
 			buildPhases = (
-				168D81EC916C5C97BE1335FAD7C696E8 /* Headers */,
-				DAE198FFD6A0C8F945C0E4479E61FEC4 /* Sources */,
+				3E34667E6FAD3EF7D4B07A5B6083517D /* Headers */,
+				4B2242BEE928AC8F2F89E155D83884F7 /* Sources */,
 				60C42F95F0E492AB0359ECB29689DE4C /* Frameworks */,
 			);
 			buildRules = (
@@ -938,7 +938,7 @@
 				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -991,6 +991,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B2242BEE928AC8F2F89E155D83884F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9111740887501E1DB5DED45F70940EB /* DemoGLCapturePipline.m in Sources */,
+				42EC920A1EFC7EA464E97BCE8B6F76C4 /* DemoGLContext.m in Sources */,
+				051CC4B4A0BDBDEBBCD9F37FC19580F3 /* DemoGLFilter.m in Sources */,
+				0395A6B6042BFB1EF38B7775DF71EFA4 /* DemoGLFramebuffer.m in Sources */,
+				560BF7E9C6CCCFB0832FB6EBF27B2420 /* DemoGLGeometry.m in Sources */,
+				622F4681AA9D9F6155F6ABC8A865CACE /* DemoGLModels.m in Sources */,
+				30143D1B62CF6A2FD90682B172ACB26A /* DemoGLMultiDrawFilter.m in Sources */,
+				D7D356EEF2B4991C8D59D3C32C1A8F30 /* DemoGLOutput.m in Sources */,
+				08B8BBD935DA12B43DAB747FB35DDC78 /* DemoGLPicture.m in Sources */,
+				50E619F417A4794C29AA279B1EA390CD /* DemoGLProgram.m in Sources */,
+				1A3743F64FC78D154FA9BA26F41B3BF9 /* DemoGLRoundRectFilter.m in Sources */,
+				D24E1BE3B593188389C5AED3894149E2 /* DemoGLShaders.m in Sources */,
+				BCC302C82A9AE3012814EE5BA0ADBCA4 /* DemoGLSpriteSheetFilter.m in Sources */,
+				E5538458F99843A78748707F24ABF4C7 /* DemoGLStickerFilter.m in Sources */,
+				F62051E58B55DB684F26D7985799D2CA /* DemoGLTestFilter.m in Sources */,
+				4F6E0808263AA26F6B2F5AD2251E8416 /* DemoGLTwoInputFilter.m in Sources */,
+				762AB9BCD38E8AEF0AD3A96370A4FC4C /* DemoGLUtility.m in Sources */,
+				8AEF137E8E4A77D120801F858F767DFD /* DemoGLVideoCamera.m in Sources */,
+				1383A41671B36EA789F1D1CA854E2777 /* DemoUtils-dummy.m in Sources */,
+				8EFADFB2F6A8D40C964EC14BFA3BA477 /* LXMDemoGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E3EF658556D7E8255F4FF8BD7E11EE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1018,33 +1045,6 @@
 				064E87F1C465D5F44DD89D96B011C4AE /* NSObject+YYModel.m in Sources */,
 				4CF80DC5638027542DDBAEDA4A3A0D65 /* YYClassInfo.m in Sources */,
 				8B4599299A907D38EE028ED0DC87D4BF /* YYModel-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DAE198FFD6A0C8F945C0E4479E61FEC4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0DC8A44DCB1597B0CF029A2279E3067F /* DemoGLCapturePipline.m in Sources */,
-				701DAD93D48181B5C71059ADB540BFD3 /* DemoGLContext.m in Sources */,
-				35BBB479B3F7DDBF595A1F829D4EC57E /* DemoGLFilter.m in Sources */,
-				3EEBF6FBE41B845B31A73C27E5DEC4BD /* DemoGLFramebuffer.m in Sources */,
-				CE9F382802C92B4E3AFFF8B9DDFCD544 /* DemoGLGeometry.m in Sources */,
-				9932B9A682A5861C037F33373719746A /* DemoGLModels.m in Sources */,
-				93153FF38FE7DBF39361F5DD41E44090 /* DemoGLMultiDrawFilter.m in Sources */,
-				B8433E0FCEF13E72600D4BECBB0C41BB /* DemoGLOutput.m in Sources */,
-				B355E173ED8173B1A717F9EA19FDDD59 /* DemoGLPicture.m in Sources */,
-				989F9421B964BD9C9956055C9E4BBDC8 /* DemoGLProgram.m in Sources */,
-				BDCFFEA369C4281DD4D0E20D48E6A37C /* DemoGLRoundRectFilter.m in Sources */,
-				DC1B1185C73EC946666B0ED2FA84F27D /* DemoGLShaders.m in Sources */,
-				95CD7C95298088462103A873284813BA /* DemoGLSpriteSheetFilter.m in Sources */,
-				9D3F017A3AFC34BAD48117245470D8B1 /* DemoGLStickerFilter.m in Sources */,
-				31239D686505F6AE02BAE12B15742E92 /* DemoGLTestFilter.m in Sources */,
-				E5EB948D16B5788B1BDA68E09AC70D3C /* DemoGLTwoInputFilter.m in Sources */,
-				8CE812039E67C74067B7C8ED19A36B26 /* DemoGLUtility.m in Sources */,
-				4365778B53A6AC9CEC8EF7328246D608 /* DemoGLVideoCamera.m in Sources */,
-				383E0ED451CC7BDF4850A9F72AD36055 /* DemoGLView.m in Sources */,
-				1510CFE20F5362017C684DC7997F75E9 /* DemoUtils-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

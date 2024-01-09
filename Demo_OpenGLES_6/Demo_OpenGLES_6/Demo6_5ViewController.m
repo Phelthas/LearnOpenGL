@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) DemoGLVideoCamera *cameraOutput;
 @property (nonatomic, strong) DemoGLPicture *pictureOutput;
-@property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) LXMDemoGLView *glView;
 
 @end
 
@@ -45,7 +45,7 @@
         _pictureOutput = [[DemoGLPicture alloc] initWithImage:image];
     }
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[LXMDemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
     DemoGLStickerFilter *stickerFilter = [[DemoGLStickerFilter alloc] initWithGLPicture:_pictureOutput];

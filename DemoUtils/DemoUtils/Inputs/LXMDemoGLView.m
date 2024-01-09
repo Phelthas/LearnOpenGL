@@ -1,11 +1,11 @@
 //
-//  DemoGLView.m
+//  LXMDemoGLView.m
 //  DemoUtils
 //
 //  Created by billthaslu on 2022/2/9.
 //
 
-#import "DemoGLView.h"
+#import "LXMDemoGLView.h"
 #import "DemoGLFramebuffer.h"
 #import "DemoGLOutput.h"
 #import "DemoGLContext.h"
@@ -15,11 +15,11 @@
 #import "DemoGLDefines.h"
 
 
-@interface DemoGLView ()
+@interface LXMDemoGLView ()
 
 @end
 
-@implementation DemoGLView
+@implementation LXMDemoGLView
 
 - (void)dealloc {
     NSLog(@"%s", __FUNCTION__);

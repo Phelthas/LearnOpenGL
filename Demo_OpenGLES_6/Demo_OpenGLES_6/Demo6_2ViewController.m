@@ -12,7 +12,7 @@
 @interface Demo6_2ViewController ()
 
 @property (nonatomic, strong) DemoGLVideoCamera *cameraOutput;
-@property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) LXMDemoGLView *glView;
 
 @end
 
@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[LXMDemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
         
     _cameraOutput = [[DemoGLVideoCamera alloc] initWithCameraPosition:AVCaptureDevicePositionFront];

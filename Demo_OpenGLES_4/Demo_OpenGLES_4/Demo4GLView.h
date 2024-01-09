@@ -5,11 +5,11 @@
 //  Created by billthaslu on 2022/2/17.
 //
 
-#import "DemoGLView.h"
+#import "LXMDemoGLView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Demo4GLView : DemoGLView
+@interface Demo4GLView : LXMDemoGLView
 
 @property (nonatomic, assign) CGFloat xDegree;
 @property (nonatomic, assign) CGFloat yDegree;

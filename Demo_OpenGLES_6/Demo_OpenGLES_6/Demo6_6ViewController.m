@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) DemoGLVideoCamera *cameraOutput;
 @property (nonatomic, strong) DemoGLPicture *pictureOutput;
-@property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) LXMDemoGLView *glView;
 
 @end
 
@@ -40,7 +40,7 @@
     DemoGLSpriteSheetModel *model = [DemoGLSpriteSheetModel modelWithSpriteSheetJson:jsonContent];
     
      
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[LXMDemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
     DemoGLSpriteSheetFilter *stickerFilter = [[DemoGLSpriteSheetFilter alloc] initWithGLPicture:_pictureOutput spriteSheetModel:model];

@@ -13,10 +13,10 @@
 @interface Demo4_2ViewController ()
 
 @property (nonatomic, strong) DemoGLVideoCamera *videoCamera;
-@property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) LXMDemoGLView *glView;
 @property (nonatomic, assign) AVCaptureDevicePosition cameraPosition;
 @property (nonatomic, assign) AVCaptureVideoOrientation videoOrientation;
-@property (nonatomic, strong) DemoGLView *glView2;
+@property (nonatomic, strong) LXMDemoGLView *glView2;
 
 
 @end
@@ -42,7 +42,7 @@
     }];
     
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[LXMDemoGLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_glView];
     
     [_videoCamera addTarget:_glView];

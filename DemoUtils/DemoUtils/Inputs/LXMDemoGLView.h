@@ -1,5 +1,5 @@
 //
-//  DemoGLView.h
+//  LXMDemoGLView.h
 //  DemoUtils
 //
 //  Created by billthaslu on 2022/2/9.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoGLView : UIView<DemoGLInputProtocol>
+@interface LXMDemoGLView : UIView<DemoGLInputProtocol>
 
 @property (nonatomic, strong) DemoGLFramebuffer *inputFrameBufferForDisplay;
 @property (nonatomic, assign) GLuint displayFramebuffer;

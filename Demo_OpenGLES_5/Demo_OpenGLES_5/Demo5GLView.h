@@ -5,11 +5,11 @@
 //  Created by billthaslu on 2022/3/2.
 //
 
-#import "DemoGLView.h"
+#import "LXMDemoGLView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Demo5GLView : DemoGLView
+@interface Demo5GLView : LXMDemoGLView
 
 @end
 

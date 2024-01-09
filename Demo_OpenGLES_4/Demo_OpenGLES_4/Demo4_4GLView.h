@@ -5,11 +5,11 @@
 //  Created by billthaslu on 2022/2/19.
 //
 
-#import "DemoGLView.h"
+#import "LXMDemoGLView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Demo4_4GLView : DemoGLView
+@interface Demo4_4GLView : LXMDemoGLView
 
 @property (nonatomic, assign) CATransform3D rotateMatrix;
 @property (nonatomic, assign) CATransform3D scaleMatrix;
