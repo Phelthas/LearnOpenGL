@@ -1,1 +1,1 @@
-../../../../../../../LXMGitHub/LXMKit/LXMKit/Device/LXMScreenSizeDefines.h
+../../../../../../LXMKit/LXMKit/Device/LXMScreenSizeDefines.h

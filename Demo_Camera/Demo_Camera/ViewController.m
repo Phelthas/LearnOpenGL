@@ -8,12 +8,12 @@
 #import "ViewController.h"
 #import "DemoCapturePipline.h"
 #import <AVFoundation/AVFoundation.h>
-#import "DemoGLView.h"
+#import "DemoTestGLView.h"
 
 @interface ViewController ()<DemoCapturePiplineDelegate>
 
 @property (nonatomic, strong) DemoCapturePipline *pipeline;
-@property (nonatomic, strong) DemoGLView *glView;
+@property (nonatomic, strong) DemoTestGLView *glView;
 
 
 @end
@@ -34,7 +34,7 @@
     [_pipeline startRunning];
     
     
-    _glView = [[DemoGLView alloc] initWithFrame:self.view.bounds];
+    _glView = [[DemoTestGLView alloc] initWithFrame:self.view.bounds];
     [_glView loadShaders];
     [_glView initializeBuffer];
     [self.view addSubview:_glView];

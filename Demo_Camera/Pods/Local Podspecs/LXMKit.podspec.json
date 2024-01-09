@@ -18,11 +18,5 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": [
-    "LXMKit/*",
-    "LXMKit/Device/**/*",
-    "LXMKit/Geometry/**/*",
-    "LXMKit/Demo/**/*",
-    "LXMKit/Category/**/*"
-  ]
+  "source_files": "LXMKit/**/*"
 }

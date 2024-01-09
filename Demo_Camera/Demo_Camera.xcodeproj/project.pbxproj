@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		43766C00261744CE006D6398 /* myFilter.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43766BFE261744CD006D6398 /* myFilter.vsh */; };
 		43766C01261744CE006D6398 /* myFilter.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43766BFF261744CE006D6398 /* myFilter.fsh */; };
-		43766C0926174AB3006D6398 /* DemoGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43766C0826174AB3006D6398 /* DemoGLView.m */; };
+		43766C0926174AB3006D6398 /* DemoTestGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43766C0826174AB3006D6398 /* DemoTestGLView.m */; };
 		43A5C4FB2616F0BF00594CE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5C4FA2616F0BF00594CE3 /* AppDelegate.m */; };
 		43A5C5012616F0BF00594CE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A5C5002616F0BF00594CE3 /* ViewController.m */; };
 		43A5C5042616F0BF00594CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A5C5022616F0BF00594CE3 /* Main.storyboard */; };
@@ -23,8 +23,8 @@
 /* Begin PBXFileReference section */
 		43766BFE261744CD006D6398 /* myFilter.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = myFilter.vsh; sourceTree = "<group>"; };
 		43766BFF261744CE006D6398 /* myFilter.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = myFilter.fsh; sourceTree = "<group>"; };
-		43766C0726174AB3006D6398 /* DemoGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoGLView.h; sourceTree = "<group>"; };
-		43766C0826174AB3006D6398 /* DemoGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoGLView.m; sourceTree = "<group>"; };
+		43766C0726174AB3006D6398 /* DemoTestGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoTestGLView.h; sourceTree = "<group>"; };
+		43766C0826174AB3006D6398 /* DemoTestGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTestGLView.m; sourceTree = "<group>"; };
 		43A5C4F62616F0BF00594CE3 /* Demo_Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A5C4F92616F0BF00594CE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43A5C4FA2616F0BF00594CE3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 				43A5C5002616F0BF00594CE3 /* ViewController.m */,
 				43A5C5172616F2B300594CE3 /* DemoCapturePipline.h */,
 				43A5C5182616F2B300594CE3 /* DemoCapturePipline.m */,
-				43766C0726174AB3006D6398 /* DemoGLView.h */,
-				43766C0826174AB3006D6398 /* DemoGLView.m */,
+				43766C0726174AB3006D6398 /* DemoTestGLView.h */,
+				43766C0826174AB3006D6398 /* DemoTestGLView.m */,
 				43A5C5022616F0BF00594CE3 /* Main.storyboard */,
 				43A5C5052616F0BF00594CE3 /* Assets.xcassets */,
 				43A5C5072616F0BF00594CE3 /* LaunchScreen.storyboard */,
@@ -122,7 +122,6 @@
 				43A5C4F22616F0BF00594CE3 /* Sources */,
 				43A5C4F32616F0BF00594CE3 /* Frameworks */,
 				43A5C4F42616F0BF00594CE3 /* Resources */,
-				C08C6B4A881A655855428D47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,23 +201,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C08C6B4A881A655855428D47 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo_Camera/Pods-Demo_Camera-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo_Camera/Pods-Demo_Camera-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo_Camera/Pods-Demo_Camera-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -228,7 +210,7 @@
 			files = (
 				43A5C5012616F0BF00594CE3 /* ViewController.m in Sources */,
 				43A5C4FB2616F0BF00594CE3 /* AppDelegate.m in Sources */,
-				43766C0926174AB3006D6398 /* DemoGLView.m in Sources */,
+				43766C0926174AB3006D6398 /* DemoTestGLView.m in Sources */,
 				43A5C50C2616F0BF00594CE3 /* main.m in Sources */,
 				43A5C5192616F2B300594CE3 /* DemoCapturePipline.m in Sources */,
 			);

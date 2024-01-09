@@ -15,19 +15,19 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - DemoUtils (0.1.0)
-  - GPUImage (0.1.7)
   - LXMKit (0.1.0)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - DemoUtils (from `../DemoUtils`)
-  - GPUImage
   - LXMKit (from `~/Documents/LXMGitHub/LXMKit`)
+  - YYModel
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - GPUImage
+    - YYModel
 
 EXTERNAL SOURCES:
   DemoUtils:
@@ -36,11 +36,11 @@ EXTERNAL SOURCES:
     :path: "~/Documents/LXMGitHub/LXMKit"
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   DemoUtils: 4db393988e78bf73939ae5bef6cee5408d036fe0
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  LXMKit: b184ae26f50177607294b28140c2c423473927f7
+  LXMKit: 60757216c49a4e0117cc894c0d84fdbc47ebecdd
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: da841519adb205c8910bb230c74d09ca1e7d09ee
+PODFILE CHECKSUM: 0a919656c3b9905cefe433e8798c6323c7c16ebd
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

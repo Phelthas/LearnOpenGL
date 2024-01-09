@@ -6,11 +6,13 @@ target "Demo_Camera" do
 
 pod "AFNetworking"
 
-pod 'GPUImage'
+#pod 'GPUImage'
 
 #pod 'LXMKit',  :git => "https://github.com/Phelthas/LXMKit.git"
 pod 'LXMKit',  :path => "~/Documents/LXMGitHub/LXMKit"
 
 pod 'DemoUtils', :path => "../DemoUtils"
+
+pod 'YYModel'
 
 end
